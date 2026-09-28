@@ -92,6 +92,16 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
           />
         </label>
 
+        <details className="mt-3 text-sm text-ink-2">
+          <summary className="cursor-pointer text-muted">How to make a good recording</summary>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>Record 30–60 seconds; early morning is when most birds sing.</li>
+            <li>Stand a few metres back from rushing water: in our tests, water as loud as the birds hid about one call in six.</li>
+            <li>Hold the phone still and point it at the bank vegetation, not the water.</li>
+            <li>Talking is fine: voices are found and muted before anything is shared.</li>
+          </ul>
+        </details>
+
         {samples.length > 0 && (
           <div className="mt-5">
             <h3 className="text-sm font-medium text-ink-2">Or try a public recording from a OneAquaHealth city</h3>
