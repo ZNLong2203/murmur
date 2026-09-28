@@ -4,6 +4,8 @@ Murmur listens to a recording made at an urban stream. BirdNET runs **in your br
 
 Built for the **IEEE OneAquaHealth Global Hackathon 2026**, Track 3 (AI-supported assessment), with Tracks 1 and 4 alongside.
 
+**Live app: [murmur-streams.vercel.app](https://murmur-streams.vercel.app)** · Try it in a minute: open *Listen*, pick a public recording from Coimbra, press *Listen*, then play a clip and answer *Did you hear it?* · Methods and limits: [/evidence](https://murmur-streams.vercel.app/evidence)
+
 ## Why sound
 
 - **Birds and amphibians are two of OneAquaHealth's eleven ecosystem-health indicators**, and the project's policy brief describes birds, amphibians and fish as natural controls of disease-carrying insects.
@@ -52,7 +54,7 @@ Without `DATABASE_URL` the app keeps its data in an in-process PGlite database u
 
 ## Evidence and limits
 
-[/evidence](app/evidence) in the app and [docs/evidence-benchmark.md](docs/evidence-benchmark.md) describe how we checked Murmur and what it cannot do. In short: Murmur tells you **who is calling**, not what is in the water; BirdNET makes mistakes, which is why every suggestion is checked by ears; silence under loud water does not mean absence; and the range lists are regional, not site-specific.
+[/evidence](https://murmur-streams.vercel.app/evidence) in the app and [docs/evidence-benchmark.md](docs/evidence-benchmark.md) describe how we checked Murmur and what it cannot do. In short: Murmur tells you **who is calling**, not what is in the water; BirdNET makes mistakes, which is why every suggestion is checked by ears; silence under loud water does not mean absence; and the range lists are regional, not site-specific.
 
 ## Data, models and credits
 
