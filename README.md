@@ -1,5 +1,7 @@
 # Murmur · a stethoscope for urban streams
 
+[![CI](https://github.com/ZNLong2203/murmur/actions/workflows/ci.yml/badge.svg)](https://github.com/ZNLong2203/murmur/actions/workflows/ci.yml)
+
 Murmur listens to a recording made at an urban stream. BirdNET runs **in your browser** and names the birds and frogs it hears; standard acoustic indices measure how much of the sound is water and traffic; **you confirm every call by ear**; and at a OneAquaHealth research site Murmur sets what you heard beside what the lab found in the water. Results export as **FHIR shaped by the OneAquaHealth IG** and as **Darwin Core** for GBIF.
 
 Built for the **IEEE OneAquaHealth Global Hackathon 2026**, Track 3 (AI-supported assessment), with Tracks 1 and 4 alongside.
