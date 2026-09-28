@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LineChart } from "@/components/charts/LineChart";
+import { SnrChart } from "@/components/evidence/SnrChart";
 import { Card, CardTitle } from "@/components/ui/primitives";
 import { AUDIBILITY_THRESHOLD_DB, loadOahFindings, loadParity, loadSnrBenchmark } from "@/lib/content";
 import { oahMeta } from "@/lib/oah/data";
@@ -56,19 +56,7 @@ export default function EvidencePage() {
             <CardTitle hint={`${snr.nPositives ?? "?"} clean calls of ${snr.species?.length ?? "?"} stream-side species, each mixed with real recordings of flowing water at controlled loudness. scripts: pipeline/murmur_pipeline/benchmark.py`}>
               How rushing water hides birdsong
             </CardTitle>
-            <LineChart
-              title="Share of calls still detected as the water gets louder"
-              x={snr.bySnr.map((r) => r.snrDb)}
-              xLabel="Signal-to-noise ratio (dB, call vs water)"
-              formatX={(v) => `${v > 0 ? "+" : ""}${v} dB`}
-              series={[
-                { key: "r03", label: "Detected at score ≥ 0.3", color: "var(--chart-1)", values: snr.bySnr.map((r) => r.recall03) },
-                { key: "r05", label: "Detected at score ≥ 0.5", color: "var(--chart-2)", values: snr.bySnr.map((r) => r.recall05) },
-              ]}
-              yMax={1}
-              yTicks={[0, 0.25, 0.5, 0.75, 1]}
-              formatY={pct}
-            />
+            <SnrChart rows={snr.bySnr} />
             <p className="mt-3 text-sm text-ink-2">
               On the recordings themselves, Murmur cannot know the true signal-to-noise ratio, so it uses the audibility index instead. Windows below {AUDIBILITY_THRESHOLD_DB} dB are hatched as too noisy to judge
               {snr.falsePositiveRate03 != null && `; on water noise alone, the model named a plausible species in ${pct(snr.falsePositiveRate03)} of windows at score ≥ 0.3`}.
