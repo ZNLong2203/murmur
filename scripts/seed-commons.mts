@@ -57,7 +57,9 @@ for (const r of recordings) {
     token: "murmur-public-recordings-xeno-canto",
     place: nearSite
       ? { kind: "site", siteCode: site.code }
-      : { kind: "point", lat: Math.round(r.lat * 1000) / 1000, lon: Math.round(r.lon * 1000) / 1000, label: r.title },
+      : r.lat != null
+        ? { kind: "point", lat: Math.round(r.lat * 1000) / 1000, lon: Math.round(r.lon * 1000) / 1000, label: r.title }
+        : null,
     recordedOn: date,
     week: birdnetWeek(new Date(`${date}T12:00:00Z`)),
     durationS: r.durationS,

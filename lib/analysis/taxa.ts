@@ -46,6 +46,14 @@ export function localName(label: Label, cityId: string | null | undefined): stri
   return locale ? (label.names[locale] ?? null) : null;
 }
 
+/**
+ * English name to show. The model's label file repeats the Latin name for
+ * many amphibians; the curated ecology notes carry the common name instead.
+ */
+export function englishName(label: Label, ecologyEn?: string): string {
+  return label.en !== label.sci ? label.en : (ecologyEn ?? label.sci);
+}
+
 export function formatTime(seconds: number): string {
   const s = Math.max(0, Math.round(seconds));
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;

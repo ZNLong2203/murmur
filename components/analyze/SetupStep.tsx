@@ -44,7 +44,7 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
     try {
       const res = await fetch(sample.file);
       if (!res.ok) throw new Error(`${res.status}`);
-      onChoose({ file: await res.blob(), name: sample.title, sample }, samplePlace(sample, sites), sample.recordedAt?.slice(0, 10) ?? undefined);
+      onChoose({ file: await res.blob(), name: sample.title, sample }, samplePlace(sample, sites) ?? undefined, sample.recordedAt?.slice(0, 10) ?? undefined);
     } catch {
       setSampleError("Could not load that recording. Check your connection and try again.");
     } finally {
@@ -119,9 +119,13 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
                     }`}
                   >
                     <span>
-                      <span className="block font-medium text-ink">{s.title}</span>
+                      <span className="block font-medium text-ink">
+                        {s.kind === "amphibian" && <span className="mr-1.5 rounded bg-amphibian px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-paper">Frog</span>}
+                        {s.kind === "video" && <span className="mr-1.5 rounded bg-water px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-paper">Video</span>}
+                        {s.title}
+                      </span>
                       <span className="block text-xs text-muted">
-                        {s.recordist} · {s.license} · xeno-canto
+                        {s.recordist} · {s.license} · {new URL(s.sourceUrl).hostname.replace(/^www\./, "")}
                       </span>
                     </span>
                     <span className="shrink-0 font-mono text-xs text-muted">{loadingSample === s.id ? "loading…" : formatTime(s.durationS)}</span>

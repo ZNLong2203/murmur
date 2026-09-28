@@ -1576,5 +1576,321 @@
     "maxP": 0.61
    }
   ]
+ },
+ {
+  "id": "co-frog-perezi",
+  "file": "/samples/co-frog-perezi.mp3",
+  "kind": "amphibian",
+  "title": "Iberian green frog by a stream, Vale das Flores, Coimbra (near C3)",
+  "recordist": "Ricardo Martins",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "sourceUrl": "https://www.inaturalist.org/observations/85824396",
+  "lat": 40.194213,
+  "lon": -8.414857,
+  "recordedAt": "2021-07-05",
+  "cityId": "CO",
+  "nearestSiteCode": "C3",
+  "nearestSiteDistanceKm": 0.41,
+  "durationS": 27.5,
+  "trimmed": false,
+  "notes": "An amphibian, one of OneAquaHealth's indicators, recorded 0.4 km from site C3; stream noise then masks most of the clip.",
+  "detections": [
+   {
+    "labelIdx": 7871,
+    "sci": "Pelophylax perezi",
+    "en": "Pelophylax perezi",
+    "startS": 0.0,
+    "endS": 6.0,
+    "maxP": 0.707
+   }
+  ]
+ },
+ {
+  "id": "to-frog-hyla",
+  "file": "/samples/to-frog-hyla.mp3",
+  "kind": "amphibian",
+  "title": "Mediterranean tree frogs at night, near Toulouse (T25)",
+  "recordist": "Cedric Mroczko",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/1087864",
+  "lat": 43.6332,
+  "lon": 1.5211,
+  "recordedAt": "2026-03-13",
+  "cityId": "TO",
+  "nearestSiteCode": "T25",
+  "nearestSiteDistanceKm": 1.78,
+  "durationS": 90.0,
+  "trimmed": true,
+  "notes": "A frog chorus 1.8 km from site T25; the call is heard in almost every window.",
+  "detections": [
+   {
+    "labelIdx": 1494,
+    "sci": "Epidalea calamita",
+    "en": "Epidalea calamita",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.322
+   },
+   {
+    "labelIdx": 5168,
+    "sci": "Hyla meridionalis",
+    "en": "Hyla meridionalis",
+    "startS": 3.0,
+    "endS": 63.0,
+    "maxP": 0.898
+   },
+   {
+    "labelIdx": 1494,
+    "sci": "Epidalea calamita",
+    "en": "Epidalea calamita",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.431
+   },
+   {
+    "labelIdx": 1494,
+    "sci": "Epidalea calamita",
+    "en": "Epidalea calamita",
+    "startS": 60.0,
+    "endS": 63.0,
+    "maxP": 0.408
+   },
+   {
+    "labelIdx": 5168,
+    "sci": "Hyla meridionalis",
+    "en": "Hyla meridionalis",
+    "startS": 66.0,
+    "endS": 90.0,
+    "maxP": 0.845
+   }
+  ]
+ },
+ {
+  "id": "to-arize-dawn",
+  "file": "/samples/to-arize-dawn.mp3",
+  "kind": "soundscape",
+  "title": "Dawn chorus over the Arize river, south of Toulouse",
+  "recordist": "Olivier SWIFT",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/659972",
+  "lat": 43.0936,
+  "lon": 1.3858,
+  "recordedAt": "2021-06-04",
+  "cityId": "TO",
+  "nearestSiteCode": "T9",
+  "nearestSiteDistanceKm": 47.71,
+  "durationS": 60.0,
+  "trimmed": false,
+  "notes": "Seven species singing over audible river noise: a realistic stream soundscape.",
+  "detections": [
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 0.0,
+    "endS": 36.0,
+    "maxP": 0.944
+   },
+   {
+    "labelIdx": 10393,
+    "sci": "Sylvia borin",
+    "en": "Garden Warbler",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.356
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 3.0,
+    "endS": 6.0,
+    "maxP": 0.394
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 18.0,
+    "endS": 24.0,
+    "maxP": 0.487
+   },
+   {
+    "labelIdx": 2070,
+    "sci": "Certhia brachydactyla",
+    "en": "Short-toed Treecreeper",
+    "startS": 21.0,
+    "endS": 24.0,
+    "maxP": 0.596
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 21.0,
+    "endS": 24.0,
+    "maxP": 0.267
+   },
+   {
+    "labelIdx": 2070,
+    "sci": "Certhia brachydactyla",
+    "en": "Short-toed Treecreeper",
+    "startS": 27.0,
+    "endS": 33.0,
+    "maxP": 0.915
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 36.0,
+    "endS": 39.0,
+    "maxP": 0.573
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 36.0,
+    "endS": 39.0,
+    "maxP": 0.475
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 39.0,
+    "endS": 42.0,
+    "maxP": 0.684
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 39.0,
+    "endS": 45.0,
+    "maxP": 0.289
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 42.0,
+    "endS": 45.0,
+    "maxP": 0.763
+   },
+   {
+    "labelIdx": 2070,
+    "sci": "Certhia brachydactyla",
+    "en": "Short-toed Treecreeper",
+    "startS": 42.0,
+    "endS": 48.0,
+    "maxP": 0.707
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 42.0,
+    "endS": 48.0,
+    "maxP": 0.443
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 48.0,
+    "endS": 60.0,
+    "maxP": 0.947
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 57.0,
+    "endS": 60.0,
+    "maxP": 0.653
+   }
+  ]
+ },
+ {
+  "id": "cz-brook-video",
+  "file": "/samples/cz-brook-video.mp4",
+  "kind": "video",
+  "title": "Short video of a brook with birdsong (Czech Republic)",
+  "recordist": "Juandev (Wikimedia Commons user)",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zv%C3%A1novick%C3%BD_potok,_stru%C5%BEky.ogv",
+  "lat": null,
+  "lon": null,
+  "recordedAt": "2016-04-13",
+  "cityId": null,
+  "nearestSiteCode": null,
+  "nearestSiteDistanceKm": null,
+  "durationS": 20.4,
+  "trimmed": false,
+  "notes": "A 20-second video like the one the OneAquaHealth app asks for: Murmur reads its sound.",
+  "detections": [
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.458
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.33
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 3.0,
+    "endS": 20.4,
+    "maxP": 0.879
+   },
+   {
+    "labelIdx": 10314,
+    "sci": "Streptopelia decaocto",
+    "en": "Eurasian Collared Dove",
+    "startS": 3.0,
+    "endS": 9.0,
+    "maxP": 0.739
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.418
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 15.0,
+    "endS": 18.0,
+    "maxP": 0.477
+   },
+   {
+    "labelIdx": 10314,
+    "sci": "Streptopelia decaocto",
+    "en": "Eurasian Collared Dove",
+    "startS": 18.0,
+    "endS": 20.4,
+    "maxP": 0.424
+   }
+  ]
  }
 ]

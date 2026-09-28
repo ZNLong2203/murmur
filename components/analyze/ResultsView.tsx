@@ -9,7 +9,7 @@ import { TAGS, type EcologyEntry } from "@/lib/analysis/ecology";
 import { summarize } from "@/lib/analysis/postprocess";
 import { placeLabel, type DemoRecording, type Place } from "@/lib/analysis/session";
 import { summarizeSoundscape } from "@/lib/analysis/soundscape";
-import { GROUPS, formatTime, groupOf, likelihood, localName, type SoundGroup } from "@/lib/analysis/taxa";
+import { GROUPS, englishName, formatTime, groupOf, likelihood, localName, type SoundGroup } from "@/lib/analysis/taxa";
 import type { Label, SpeciesSummary, WindowScores } from "@/lib/analysis/types";
 import type { LabSummary } from "@/lib/oah/types";
 import { ExportCard } from "./ExportCard";
@@ -101,7 +101,7 @@ export function ResultsView(props: Props) {
       startS: d.startS,
       endS: d.endS,
       color: GROUPS[groupOf(labels[s.labelIdx])].color,
-      label: labels[s.labelIdx].en,
+      label: englishName(labels[s.labelIdx], ecology.get(s.labelIdx)?.en),
       selected: selected === s.labelIdx,
     })),
   );
@@ -244,7 +244,7 @@ export function ResultsView(props: Props) {
 
         <aside className="space-y-5">
           <SoundscapeCard soundscape={soundscape} thresholdDb={audibilityThresholdDb} />
-          <OneHealthCard soundscape={soundscape} labels={labels} confirmed={Object.values(votes).filter((v) => v === "yes").length} />
+          <OneHealthCard soundscape={soundscape} labels={labels} ecology={ecology} confirmed={Object.values(votes).filter((v) => v === "yes").length} />
           {lab && <LabCard lab={lab} />}
           <Card>
             <CardTitle hint="Species plausible here and now, from the BirdNET geomodel.">Range filter</CardTitle>
@@ -311,6 +311,7 @@ function SpeciesCard({
   const group = groupOf(label);
   const color = GROUPS[group].color;
   const local = localName(label, cityId);
+  const english = englishName(label, eco?.en);
   const like = likelihood(summary.maxP);
   const best = summary.detections.reduce((a, b) => (b.maxP > a.maxP ? b : a));
   const clipKey = `clip:${label.idx}`;
@@ -326,9 +327,9 @@ function SpeciesCard({
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <h3 className="font-display text-lg font-semibold leading-tight tracking-tight">{local ?? label.en}</h3>
+          <h3 className="font-display text-lg font-semibold leading-tight tracking-tight">{local ?? english}</h3>
           <p className="text-sm text-ink-2">
-            {local && <span>{label.en} · </span>}
+            {local && local !== english && <span>{english} · </span>}
             <span className="italic">{label.sci}</span>
           </p>
         </div>
@@ -337,7 +338,7 @@ function SpeciesCard({
             {like.word} <span className="font-mono text-xs text-muted">{summary.maxP.toFixed(2)}</span>
           </p>
           <div className="mt-1">
-            <Meter value={summary.maxP} color={color} label={`Model score for ${label.en}`} />
+            <Meter value={summary.maxP} color={color} label={`Model score for ${english}`} />
           </div>
         </div>
       </div>
@@ -377,7 +378,7 @@ function SpeciesCard({
       )}
 
       <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-line pt-3">
-        <Button variant="secondary" onClick={() => onPlay(clipKey, clipFrom, clipFrom + 3)} aria-label={`Play the clearest 3 seconds of ${label.en}`}>
+        <Button variant="secondary" onClick={() => onPlay(clipKey, clipFrom, clipFrom + 3)} aria-label={`Play the clearest 3 seconds of ${english}`}>
           {playingKey === clipKey ? "■ Stop" : "▶ Play the clip"}
         </Button>
         <span className="text-sm text-muted">Did you hear it?</span>
@@ -454,7 +455,17 @@ function SoundscapeCard({ soundscape, thresholdDb }: { soundscape: ReturnType<ty
   );
 }
 
-function OneHealthCard({ soundscape, labels, confirmed }: { soundscape: ReturnType<typeof summarizeSoundscape>; labels: Label[]; confirmed: number }) {
+function OneHealthCard({
+  soundscape,
+  labels,
+  ecology,
+  confirmed,
+}: {
+  soundscape: ReturnType<typeof summarizeSoundscape>;
+  labels: Label[];
+  ecology: Map<number, EcologyEntry>;
+  confirmed: number;
+}) {
   const animals = soundscape.byGroup.bird + soundscape.byGroup.amphibian;
   return (
     <Card>
@@ -466,7 +477,7 @@ function OneHealthCard({ soundscape, labels, confirmed }: { soundscape: ReturnTy
             {animals === 1 ? "One bird or amphibian species" : `${animals} bird and amphibian species`}
             {confirmed ? `, ${confirmed} confirmed by ear` : ""}.
             {soundscape.indicators.length > 0 && (
-              <> Habitat signals: {soundscape.indicators.map((i) => labels[i.labelIdx].en).join(", ")}.</>
+              <> Habitat signals: {soundscape.indicators.map((i) => englishName(labels[i.labelIdx], ecology.get(i.labelIdx)?.en)).join(", ")}.</>
             )}
             {soundscape.insectEaters > 0 && <> {soundscape.insectEaters} insect-eating species, part of the natural control of mosquitoes and other disease carriers.</>}
             {soundscape.nonNative > 0 && <> {soundscape.nonNative} non-native species worth reporting.</>}

@@ -9,10 +9,11 @@ export interface DemoRecording {
   license: string;
   licenseUrl: string;
   sourceUrl: string;
-  lat: number;
-  lon: number;
+  lat: number | null;
+  lon: number | null;
   recordedAt: string | null;
-  cityId: string;
+  cityId: string | null;
+  kind?: "soundscape" | "amphibian" | "video";
   nearestSiteCode: string | null;
   nearestSiteDistanceKm: number | null;
   durationS: number;
@@ -26,12 +27,12 @@ export type Place =
   | { kind: "site"; site: OahSite }
   | { kind: "point"; lat: number; lon: number; label: string };
 
-/** Where a public sample belongs: its research site if within 3 km, otherwise its own point. */
-export function samplePlace(sample: DemoRecording, sites: OahSite[]): Place {
+/** Where a public sample belongs: its research site if within 3 km, its own point, or unknown. */
+export function samplePlace(sample: DemoRecording, sites: OahSite[]): Place | null {
   const site = sites.find((s) => s.code === sample.nearestSiteCode);
-  return site && (sample.nearestSiteDistanceKm ?? 99) <= 3
-    ? { kind: "site", site }
-    : { kind: "point", lat: sample.lat, lon: sample.lon, label: sample.title };
+  if (site && (sample.nearestSiteDistanceKm ?? 99) <= 3) return { kind: "site", site };
+  if (sample.lat == null || sample.lon == null) return null;
+  return { kind: "point", lat: sample.lat, lon: sample.lon, label: sample.title };
 }
 
 export function placeLatLon(place: Place): { lat: number; lon: number } {
