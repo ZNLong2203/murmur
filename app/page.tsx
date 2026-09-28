@@ -31,6 +31,13 @@ const STEPS = [
 /** The one-click example: five birds singing at C5, where the lab found very high microbial risk. */
 const EXAMPLE_ID = "co-xc785865";
 
+const EXAMPLES = [
+  { id: "co-xc785865", label: "Five birds, very high lab risk", where: "C5 · Coimbra", color: "var(--bird)" },
+  { id: "co-frog-perezi", label: "A frog by a stream", where: "near C3 · Coimbra", color: "var(--amphibian)" },
+  { id: "to-frog-hyla", label: "Tree frogs at night", where: "near T25 · Toulouse", color: "var(--amphibian)" },
+  { id: "cz-brook-video", label: "A short brook video", where: "like the OAH app's", color: "var(--water)" },
+];
+
 const ADOPTION = [
   { title: "No new fieldwork", body: "The OneAquaHealth app already asks for a 5–10 second video at every assessment. Murmur reads its sound, so every past and future visit can carry a biodiversity reading." },
   { title: "Same sites, same data", body: "Recordings attach to the project's own site codes (C1–C20, BN1–BN20, G1–G22, O1–O20, T1–T25) and sit beside its lab results from the public API." },
@@ -67,6 +74,23 @@ export default function Home() {
             </Link>
           </div>
           <p className="mt-4 text-sm text-muted">Free, open source, and private by design: analysis runs in your browser.</p>
+          <div className="mt-6">
+            <p className="text-xs font-medium uppercase tracking-wide text-muted">Or open an example</p>
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {EXAMPLES.map((e) => (
+                <li key={e.id}>
+                  <Link
+                    href={`/analyze?sample=${e.id}`}
+                    className="flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1.5 text-sm text-ink-2 hover:border-line-strong hover:text-ink"
+                  >
+                    <span className="h-2 w-2 rounded-full" style={{ background: e.color }} aria-hidden="true" />
+                    {e.label}
+                    <span className="text-xs text-muted">{e.where}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         {featured ? (
           <HeroListening sample={featured} />
