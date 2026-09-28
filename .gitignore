@@ -1,0 +1,25 @@
+# ─────────────────────────────────────────────────────────────
+#  Private — never pushed. The repo goes public; these do not.
+# ─────────────────────────────────────────────────────────────
+/private/
+*.private.md
+
+# ─── Secrets ─────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ─── OS / editor ─────────────────────────────────────────────
+.DS_Store
+.idea/
+
+# ─── Build / dependencies ────────────────────────────────────
+/node_modules
+/.next/
+/out/
+*.tsbuildinfo
+next-env.d.ts
+/coverage
+.vercel
