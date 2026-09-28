@@ -1,0 +1,13 @@
+# Never uploaded to Vercel: the private workspace, local data and caches.
+# Model files and WASM are fetched during the Vercel build (prebuild).
+private
+.data
+pipeline/.venv
+pipeline/.cache
+public/models
+public/ort
+public/maplibre
+*.f32
+.env
+.env.*
+!.env.example

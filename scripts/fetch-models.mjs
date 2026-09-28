@@ -19,6 +19,10 @@ const modelsDir = path.join(root, "public", "models");
 const ortDir = path.join(root, "public", "ort");
 
 const ZENODO = "https://zenodo.org/records/20703646/files";
+// Unmodified copies on this repository's release, tried when the primary
+// source refuses a build machine (Zenodo answers some cloud IPs with 403).
+const MIRROR = "https://github.com/ZNLong2203/murmur/releases/download/models-v1";
+const USER_AGENT = "MurmurBuild/0.1 (+https://github.com/ZNLong2203/murmur)";
 
 export const SOURCES = {
   model: {
@@ -72,15 +76,22 @@ async function download(source) {
   if (await isValid(target, source)) return target;
 
   console.log(`[models] downloading ${source.name} (${(source.bytes / 1e6).toFixed(1)} MB)`);
-  const res = await fetch(source.url, { redirect: "follow" });
-  if (!res.ok) throw new Error(`GET ${source.url} failed: ${res.status}`);
-  const tmp = `${target}.part`;
-  await writeFile(tmp, Buffer.from(await res.arrayBuffer()));
-  await rename(tmp, target);
-  if (!(await isValid(target, source))) {
-    throw new Error(`${source.name}: size or SHA-256 does not match the pinned value`);
+  const urls = [source.url, `${MIRROR}/${encodeURIComponent(source.name)}`];
+  const failures = [];
+  for (const url of urls) {
+    try {
+      const res = await fetch(url, { redirect: "follow", headers: { "user-agent": USER_AGENT } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const tmp = `${target}.part`;
+      await writeFile(tmp, Buffer.from(await res.arrayBuffer()));
+      await rename(tmp, target);
+      if (await isValid(target, source)) return target;
+      throw new Error("size or SHA-256 does not match the pinned value");
+    } catch (err) {
+      failures.push(`${url}: ${err.message}`);
+    }
   }
-  return target;
+  throw new Error(`${source.name} could not be fetched:\n  ${failures.join("\n  ")}`);
 }
 
 // Minimal CSV parsing that handles quoted fields (taxonomy names contain commas).
