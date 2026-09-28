@@ -1,6 +1,7 @@
 "use client";
 
 import type { WindowScores } from "@/lib/analysis/types";
+import type { SpectrogramImage } from "@/lib/audio/spectrogram";
 import type { FromWorker, ModelManifest } from "./protocol";
 
 export interface ModelProgress {
@@ -19,7 +20,12 @@ class Analyzer {
   private modelListeners = new Set<(p: ModelProgress) => void>();
   private pending = new Map<
     string,
-    { resolve: (w: { windows: WindowScores[]; ms: number }) => void; reject: (e: Error) => void; onProgress?: (done: number, total: number) => void }
+    {
+      resolve: (w: { windows: WindowScores[]; ms: number }) => void;
+      reject: (e: Error) => void;
+      onProgress?: (done: number, total: number) => void;
+      onSpectrogram?: (image: SpectrogramImage) => void;
+    }
   >();
 
   private spawn(): Worker {
@@ -32,6 +38,7 @@ class Analyzer {
 
   private handle(msg: FromWorker) {
     if (msg.type === "model-progress") this.modelListeners.forEach((l) => l(msg));
+    else if (msg.type === "spectrogram") this.pending.get(msg.id)?.onSpectrogram?.(msg.image);
     else if (msg.type === "analyze-progress") this.pending.get(msg.id)?.onProgress?.(msg.done, msg.total);
     else if (msg.type === "result") {
       this.pending.get(msg.id)?.resolve({ windows: msg.windows, ms: msg.ms });
@@ -74,11 +81,15 @@ class Analyzer {
   }
 
   /** Score every 3-second window. The samples buffer is transferred, not copied. */
-  async analyze(samples: Float32Array, onProgress?: (done: number, total: number) => void, floor = 0.05) {
+  async analyze(
+    samples: Float32Array,
+    handlers: { onProgress?: (done: number, total: number) => void; onSpectrogram?: (image: SpectrogramImage) => void } = {},
+    floor = 0.05,
+  ) {
     await this.load();
     const id = crypto.randomUUID();
     return new Promise<{ windows: WindowScores[]; ms: number }>((resolve, reject) => {
-      this.pending.set(id, { resolve, reject, onProgress });
+      this.pending.set(id, { resolve, reject, ...handlers });
       const copy = samples.slice();
       this.spawn().postMessage({ type: "analyze", id, samples: copy, floor }, [copy.buffer]);
     });

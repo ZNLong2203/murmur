@@ -5,6 +5,7 @@
 
 import * as ort from "onnxruntime-web/wasm";
 import { windowFeatures } from "@/lib/audio/features";
+import { computeSpectrogram } from "@/lib/audio/spectrogram";
 import { planWindows, sliceWindow } from "@/lib/analysis/postprocess";
 import type { WindowScores } from "@/lib/analysis/types";
 import type { FromWorker, ModelManifest, ToWorker } from "./protocol";
@@ -71,6 +72,10 @@ async function analyze(id: string, samples: Float32Array, floor: number) {
   const plan = planWindows(samples.length, windowSamples);
   const windows: WindowScores[] = [];
   const started = performance.now();
+
+  // Draw first, listen second: the page can show the sound while it waits.
+  const image = computeSpectrogram(samples, sampleRate);
+  post({ type: "spectrogram", id, image }, [image.data.buffer]);
 
   for (let b = 0; b < plan.length; b += BATCH) {
     const batch = plan.slice(b, b + BATCH);

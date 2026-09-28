@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
+/* Murmur design tokens: a field notebook that listens. Warm paper, deep
+   stream-teal ink, and one colour per kind of sound, used the same way on
+   every page (spectrogram overlays, chips, charts, map markers). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --paper: #f7f5ef;
+  --paper-2: #efece3;
+  --card: #fffdf8;
+  --ink: #14201d;
+  --ink-2: #33423e;
+  --muted: #5f6e69;
+  --line: #d9d6cb;
+  --line-strong: #bdb9ab;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --brand: #0e6e62;
+  --brand-ink: #0a4f46;
+  --brand-soft: #dcefe9;
+
+  --bird: #a8650c;
+  --amphibian: #2c7a4b;
+  --insect: #6a45b8;
+  --mammal: #9a3f1c;
+  --other: #5f6e69;
+  --water: #2a66a8;
+  --human: #4b5563;
+
+  --ok: #2c7a4b;
+  --warn: #a8650c;
+  --bad: #b42318;
+
+  --focus: #1d4ed8;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --paper: #0f1614;
+    --paper-2: #151e1b;
+    --card: #18221f;
+    --ink: #e6ece9;
+    --ink-2: #c3ccc8;
+    --muted: #93a19c;
+    --line: #2a3632;
+    --line-strong: #3b4a45;
+
+    --brand: #3fb8a5;
+    --brand-ink: #7fd6c8;
+    --brand-soft: #173a34;
+
+    --bird: #e0a445;
+    --amphibian: #5cc187;
+    --insect: #a98cf0;
+    --mammal: #e07a52;
+    --other: #93a19c;
+    --water: #6aa7ea;
+    --human: #a3adbb;
+
+    --ok: #5cc187;
+    --warn: #e0a445;
+    --bad: #f07167;
+
+    --focus: #93b4ff;
   }
 }
 
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-bird: var(--bird);
+  --color-amphibian: var(--amphibian);
+  --color-insect: var(--insect);
+  --color-mammal: var(--mammal);
+  --color-other: var(--other);
+  --color-water: var(--water);
+  --color-human: var(--human);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-mono-face), ui-monospace, "SFMono-Regular", monospace;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--brand-soft);
+}
+
+/* Windows where steady noise (rushing water, traffic) masks quiet calls. */
+.hatch-masked {
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--muted) 38%, transparent) 0 2px,
+    transparent 2px 7px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

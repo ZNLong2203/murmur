@@ -1,4 +1,5 @@
 import type { WindowScores } from "@/lib/analysis/types";
+import type { SpectrogramImage } from "@/lib/audio/spectrogram";
 
 export interface ModelManifest {
   model: {
@@ -22,6 +23,7 @@ export type ToWorker =
 export type FromWorker =
   | { type: "model-progress"; loaded: number; total: number; cached: boolean }
   | { type: "ready"; backend: string; threads: number }
+  | { type: "spectrogram"; id: string; image: SpectrogramImage }
   | { type: "analyze-progress"; id: string; done: number; total: number }
   | { type: "result"; id: string; windows: WindowScores[]; ms: number }
   | { type: "error"; id?: string; message: string };

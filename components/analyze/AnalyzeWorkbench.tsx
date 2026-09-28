@@ -1,66 +1,145 @@
 "use client";
 
-import { useState } from "react";
-import { decodeToMono } from "@/lib/audio/decode";
-import { analyzer, type ModelProgress } from "@/lib/ml/analyzer";
+import { useMemo, useState } from "react";
+import { Button, Card } from "@/components/ui/primitives";
+import { decodeToMono, type DecodedAudio } from "@/lib/audio/decode";
+import type { SpectrogramImage } from "@/lib/audio/spectrogram";
+import type { EcologyEntry } from "@/lib/analysis/ecology";
 import { loadLabels } from "@/lib/analysis/labels";
-import { summarize } from "@/lib/analysis/postprocess";
-import type { AnalysisResult, Label } from "@/lib/analysis/types";
+import { placeLatLon, type Place, type WorkbenchData } from "@/lib/analysis/session";
+import type { Label, WindowScores } from "@/lib/analysis/types";
+import { birdnetWeek } from "@/lib/geo";
+import { analyzer } from "@/lib/ml/analyzer";
+import { ListeningStep, type ListeningProgress } from "./ListeningStep";
+import { ResultsView, type RangeInfo, type Vote } from "./ResultsView";
+import { SetupStep, type Chosen } from "./SetupStep";
 
-type Stage =
-  | { kind: "idle" }
-  | { kind: "model"; progress: ModelProgress | null }
-  | { kind: "decoding" }
-  | { kind: "analysing"; done: number; total: number }
-  | { kind: "done"; result: AnalysisResult; labels: Label[]; ms: number }
+type Phase =
+  | { kind: "setup" }
+  | { kind: "listening"; progress: ListeningProgress; image: SpectrogramImage | null; durationS: number | null }
+  | {
+      kind: "results";
+      audio: DecodedAudio;
+      image: SpectrogramImage;
+      windows: WindowScores[];
+      ms: number;
+      labels: Label[];
+      range: RangeInfo;
+    }
   | { kind: "error"; message: string };
 
-export function AnalyzeWorkbench() {
-  const [stage, setStage] = useState<Stage>({ kind: "idle" });
+interface Props extends WorkbenchData {
+  ecology: EcologyEntry[];
+}
 
-  async function run(file: File) {
+const today = () => new Date().toISOString().slice(0, 10);
+
+async function fetchRange(place: Place | null, date: string): Promise<RangeInfo> {
+  const week = birdnetWeek(new Date(`${date}T12:00:00Z`));
+  if (!place) return { location: null, week, allowed: null };
+  const { lat, lon } = placeLatLon(place);
+  const res = await fetch(`/api/range?lat=${lat}&lon=${lon}&week=${week}`);
+  if (!res.ok) return { location: null, week, allowed: null };
+  return (await res.json()) as RangeInfo;
+}
+
+export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, ecology }: Props) {
+  const [phase, setPhase] = useState<Phase>({ kind: "setup" });
+  const [chosen, setChosen] = useState<Chosen | null>(null);
+  const [place, setPlace] = useState<Place | null>(null);
+  const [date, setDate] = useState(today);
+  const [votes, setVotes] = useState<Record<number, Vote>>({});
+  const ecologyByIdx = useMemo(() => new Map(ecology.map((e) => [e.labelIdx, e])), [ecology]);
+
+  async function listen() {
+    if (!chosen) return;
+    setVotes({});
+    let image: SpectrogramImage | null = null;
+    let durationS: number | null = null;
+    const update = (progress: ListeningProgress) => setPhase({ kind: "listening", progress, image, durationS });
     try {
-      setStage({ kind: "model", progress: null });
-      const [manifest, labels] = await Promise.all([
-        analyzer.load((progress) => setStage({ kind: "model", progress })),
+      update({ stage: "model", progress: null });
+      const [manifest, labels, range] = await Promise.all([
+        analyzer.load((progress) => update({ stage: "model", progress })),
         loadLabels(),
+        fetchRange(place, date),
       ]);
-      setStage({ kind: "decoding" });
-      const audio = await decodeToMono(file, manifest.model.sampleRate);
-      setStage({ kind: "analysing", done: 0, total: 1 });
-      const { windows, ms } = await analyzer.analyze(audio.samples, (done, total) => setStage({ kind: "analysing", done, total }));
-      const summary = summarize(windows, { threshold: 0.25, allowed: null });
-      setStage({ kind: "done", result: { durationS: audio.durationS, windows, ...summary }, labels, ms });
+      update({ stage: "decoding" });
+      const audio = await decodeToMono(chosen.file, manifest.model.sampleRate);
+      durationS = audio.durationS;
+      update({ stage: "listening", done: 0, total: 1 });
+      const { windows, ms } = await analyzer.analyze(audio.samples, {
+        onSpectrogram: (img) => {
+          image = img;
+        },
+        onProgress: (done, total) => update({ stage: "listening", done, total }),
+      });
+      if (!image) throw new Error("The spectrogram was not produced.");
+      setPhase({ kind: "results", audio, image, windows, ms, labels, range });
     } catch (err) {
-      setStage({ kind: "error", message: err instanceof Error ? err.message : String(err) });
+      setPhase({ kind: "error", message: err instanceof Error ? err.message : String(err) });
     }
   }
 
+  const lab = place?.kind === "site" ? (labs[place.site.code] ?? null) : null;
+
   return (
-    <main className="mx-auto max-w-3xl p-6">
-      <h1 className="text-2xl font-semibold">Analyse a recording</h1>
-      <input
-        type="file"
-        accept="audio/*,video/*"
-        data-testid="file-input"
-        className="mt-4 block"
-        onChange={(e) => e.target.files?.[0] && run(e.target.files[0])}
-      />
-      <p data-testid="stage" className="mt-4 text-sm">
-        {stage.kind}
-        {stage.kind === "model" && stage.progress && ` ${Math.round((100 * stage.progress.loaded) / stage.progress.total)}%`}
-        {stage.kind === "analysing" && ` ${stage.done}/${stage.total}`}
-      </p>
-      {stage.kind === "error" && <p className="text-red-700">{stage.message}</p>}
-      {stage.kind === "done" && (
-        <ul data-testid="species" className="mt-4 space-y-1">
-          {stage.result.species.map((s) => (
-            <li key={s.labelIdx}>
-              {stage.labels[s.labelIdx].en} ({stage.labels[s.labelIdx].sci}) — {s.maxP.toFixed(2)} in {s.windows} window(s)
-            </li>
-          ))}
-          <li className="text-xs text-neutral-500">{stage.ms} ms for {stage.result.windows.length} windows</li>
-        </ul>
+    <main className="mx-auto max-w-6xl px-4 py-8">
+      <header className="mb-6 max-w-3xl">
+        <h1 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">Listen to a stream</h1>
+        <p className="mt-2 text-ink-2">
+          Murmur names the birds and frogs in a recording, measures how much of it is water and traffic, and lets you confirm every call by ear. At a OneAquaHealth research site, it sets what you heard beside what the lab found.
+        </p>
+      </header>
+
+      {phase.kind === "setup" && (
+        <SetupStep
+          sites={sites}
+          samples={samples}
+          chosen={chosen}
+          place={place}
+          date={date}
+          onChoose={(c, p, d) => {
+            setChosen(c);
+            if (p) setPlace(p);
+            if (d) setDate(d);
+          }}
+          onPlace={setPlace}
+          onDate={setDate}
+          onListen={listen}
+        />
+      )}
+
+      {phase.kind === "listening" && <ListeningStep name={chosen?.name ?? "Recording"} progress={phase.progress} image={phase.image} durationS={phase.durationS} />}
+
+      {phase.kind === "results" && chosen && (
+        <ResultsView
+          name={chosen.name}
+          place={place}
+          date={date}
+          audio={phase.audio}
+          image={phase.image}
+          windows={phase.windows}
+          ms={phase.ms}
+          labels={phase.labels}
+          ecology={ecologyByIdx}
+          lab={lab}
+          range={phase.range}
+          audibilityThresholdDb={audibilityThresholdDb}
+          votes={votes}
+          onVote={(labelIdx, vote) => setVotes((v) => ({ ...v, [labelIdx]: vote }))}
+          onReset={() => setPhase({ kind: "setup" })}
+        />
+      )}
+
+      {phase.kind === "error" && (
+        <Card role="alert">
+          <h2 className="font-display text-xl font-semibold">Murmur could not finish listening</h2>
+          <p className="mt-1 text-ink-2">{phase.message}</p>
+          <Button className="mt-4" onClick={() => setPhase({ kind: "setup" })}>
+            Back
+          </Button>
+        </Card>
       )}
     </main>
   );
