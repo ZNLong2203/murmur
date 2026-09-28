@@ -63,7 +63,7 @@ export default async function SitePage({ params }: PageProps<"/sites/[code]">) {
                       <span className="flex items-center gap-2">
                         <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: GROUPS[group].color }} aria-hidden="true" />
                         <span className="font-medium">{s.en}</span>
-                        <span className="text-sm italic text-muted">{s.sci}</span>
+                        {s.en !== s.sci && <span className="text-sm italic text-muted">{s.sci}</span>}
                       </span>
                       <span className="flex items-center gap-2 text-sm">
                         <Chip color={TONE_COLOR[status.tone]}>{status.label}</Chip>

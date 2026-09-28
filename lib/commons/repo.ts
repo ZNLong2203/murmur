@@ -4,7 +4,7 @@ import { loadDemoRecordings } from "@/lib/content";
 import type { Db } from "@/lib/db/client";
 import { getSite } from "@/lib/oah/data";
 import { handleFor, Token } from "@/lib/server/identity";
-import { labelCount, serverLabel } from "@/lib/server/labels";
+import { commonName, labelCount, serverLabel } from "@/lib/server/labels";
 import { isValidClip } from "@/lib/server/wav";
 import { decideStatus, OPEN_FOR_COMMUNITY, STATUS_SQL, type CommunityVote, type DetectionStatus } from "./consensus";
 
@@ -204,7 +204,7 @@ function toItem(r: DetectionRow): QueueItem {
     id: r.id,
     labelIdx: r.label_idx,
     sci: r.sci,
-    en: r.en,
+    en: commonName(r.label_idx, r.en, r.sci),
     className: r.class_name,
     maxP: Number(r.max_p),
     status: r.status,
@@ -317,7 +317,7 @@ export async function sessionsAt(db: Db, siteCode: string | null): Promise<SiteS
       attribution: s.attribution ? parse(s.attribution) : null,
       detections: dets
         .filter((d) => d.session_id === s.id)
-        .map((d) => ({ labelIdx: d.label_idx, sci: d.sci, en: d.en, className: d.class_name, maxP: Number(d.max_p), status: d.status })),
+        .map((d) => ({ labelIdx: d.label_idx, sci: d.sci, en: commonName(d.label_idx, d.en, d.sci), className: d.class_name, maxP: Number(d.max_p), status: d.status })),
     }));
 }
 
