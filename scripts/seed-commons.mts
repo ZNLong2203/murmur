@@ -16,7 +16,6 @@ const base = process.argv[2] ?? "http://localhost:3000";
 const root = process.cwd();
 const recordings = JSON.parse(readFileSync(path.join(root, "data/demo/recordings.json"), "utf8"));
 const sites = JSON.parse(readFileSync(path.join(root, "data/oah/sites.json"), "utf8"));
-const labels = JSON.parse(readFileSync(path.join(root, "public/models/labels.v3.json"), "utf8"));
 const SR = 32_000;
 
 function uuidFrom(text: string): string {
@@ -54,9 +53,10 @@ for (const r of recordings) {
 
   const body = {
     id: uuidFrom(r.id),
-    contributor: "anon-xeno-canto",
+    // A fixed token so re-seeding keeps one contributor for all public recordings.
+    token: "murmur-public-recordings-xeno-canto",
     place: nearSite
-      ? { kind: "site", siteCode: site.code, cityId: site.cityId, lat: site.lat, lon: site.lon, label: `${site.code} · ${site.name}, ${site.cityName}` }
+      ? { kind: "site", siteCode: site.code }
       : { kind: "point", lat: Math.round(r.lat * 1000) / 1000, lon: Math.round(r.lon * 1000) / 1000, label: r.title },
     recordedOn: date,
     week: birdnetWeek(new Date(`${date}T12:00:00Z`)),
@@ -70,14 +70,10 @@ for (const r of recordings) {
       windows: feats.length,
     },
     source: "public-sample",
-    attribution: { recordist: r.recordist, license: r.license, url: r.sourceUrl },
     audioSha256: createHash("sha256").update(readFileSync(path.join(root, "public", r.file))).digest("hex"),
     feelings: null,
     detections: [...bySpecies].map(([labelIdx, d]) => ({
       labelIdx,
-      sci: labels.items[labelIdx][0],
-      en: labels.items[labelIdx][1],
-      className: labels.classes[labels.items[labelIdx][2]],
       maxP: Math.round(d.maxP * 1000) / 1000,
       startS: d.startS,
       endS: d.endS,

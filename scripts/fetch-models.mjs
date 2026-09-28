@@ -181,6 +181,14 @@ async function main() {
 
   const labels = await buildLabels(labelsCsv, taxonomyCsv);
   await writeFile(path.join(modelsDir, LABELS_FILE), JSON.stringify(labels));
+  // The server resolves species names from the label index itself instead
+  // of trusting names sent by a browser: a compact copy it can read.
+  const generatedDir = path.join(root, "data", "generated");
+  await mkdir(generatedDir, { recursive: true });
+  await writeFile(
+    path.join(generatedDir, "labels.json"),
+    JSON.stringify(labels.items.map(([sci, en, classIdx]) => [sci, en, labels.classes[classIdx]])),
+  );
 
   // MapLibre's module worker, served as static files: bundlers rewrite the
   // URL MapLibre derives from import.meta.url, so the page points it here.

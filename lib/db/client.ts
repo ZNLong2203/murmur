@@ -44,10 +44,12 @@ async function pgliteDb(dataDir: string | undefined): Promise<Db> {
   };
 }
 
+/** Idempotent schema, applied in one round trip (one transaction). */
 async function migrate(db: Db) {
-  for (const statement of SCHEMA.split(/;\s*$/m).map((s) => s.trim()).filter(Boolean)) {
-    await db.query(statement);
-  }
+  const statements = SCHEMA.split(/;\s*$/m)
+    .map((s) => s.replace(/^--.*$/gm, "").trim())
+    .filter(Boolean);
+  await db.batch(statements.map((text) => ({ text })));
 }
 
 const globalForDb = globalThis as unknown as { murmurDb?: Promise<Db> };

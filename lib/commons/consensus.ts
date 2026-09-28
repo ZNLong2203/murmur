@@ -22,6 +22,8 @@ export interface Tally {
   no: number;
   unsure: number;
   expertVote: "yes" | "no" | null;
+  /** Once a call is waiting for an expert, only the expert can move it. */
+  previous?: DetectionStatus;
 }
 
 export const MIN_VOTES = 3;
@@ -31,6 +33,7 @@ export const EXPERT_AFTER = 6;
 export function decideStatus(t: Tally): DetectionStatus {
   if (t.expertVote === "yes") return "expert-verified";
   if (t.expertVote === "no") return "expert-rejected";
+  if (t.previous === "needs-expert") return "needs-expert";
 
   const yes = t.yes + (t.recordistVote === "yes" ? 1 : 0);
   const decided = yes + t.no;
@@ -56,3 +59,23 @@ export const STATUS_LABEL: Record<DetectionStatus, { label: string; tone: "good"
 
 /** Statuses that still want votes from the community queue. */
 export const OPEN_FOR_COMMUNITY: DetectionStatus[] = ["ai-suggested", "confirmed-by-recordist", "uncertain-by-recordist"];
+
+/**
+ * The same rules as decideStatus, as one SQL expression over a detections
+ * row, so the status is recomputed inside the transaction that records the
+ * vote. lib/commons/repo.test.ts checks the two agree.
+ */
+export const STATUS_SQL = `case
+  when expert_vote = 'yes' then 'expert-verified'
+  when expert_vote = 'no' then 'expert-rejected'
+  when status = 'needs-expert' then 'needs-expert'
+  when votes_yes + (case when recordist_vote = 'yes' then 1 else 0 end) >= ${MIN_VOTES}
+   and 3 * (votes_yes + (case when recordist_vote = 'yes' then 1 else 0 end))
+       >= 2 * (votes_yes + (case when recordist_vote = 'yes' then 1 else 0 end) + votes_no) then 'community-agreed'
+  when votes_no >= ${MIN_VOTES}
+   and 3 * votes_no >= 2 * (votes_yes + (case when recordist_vote = 'yes' then 1 else 0 end) + votes_no) then 'community-rejected'
+  when votes_yes + votes_no + votes_unsure >= ${EXPERT_AFTER} or votes_unsure >= ${MIN_VOTES} then 'needs-expert'
+  when recordist_vote = 'yes' then 'confirmed-by-recordist'
+  when recordist_vote = 'unsure' then 'uncertain-by-recordist'
+  else 'ai-suggested'
+end`;

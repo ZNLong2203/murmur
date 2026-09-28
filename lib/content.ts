@@ -8,7 +8,7 @@ import type { DemoRecording } from "@/lib/analysis/session";
 // build time; a missing file means "not generated yet", not an error.
 
 // Scoped to data/ so the server bundle traces that folder, not the project.
-function readJson<T>(relative: string, fallback: T): T {
+export function readJson<T>(relative: string, fallback: T): T {
   const file = path.join(process.cwd(), "data", relative);
   return existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as T) : fallback;
 }

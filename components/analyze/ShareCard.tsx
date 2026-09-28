@@ -10,7 +10,7 @@ import type { SoundscapeSummary } from "@/lib/analysis/soundscape";
 import type { Label, SpeciesSummary } from "@/lib/analysis/types";
 import { analyzer } from "@/lib/ml/analyzer";
 import { MAX_SPEECH_SHARE, muteSegments, speechShare } from "@/lib/privacy/speech";
-import { contributorId } from "./ExportCard";
+import { identityToken } from "@/lib/identity";
 import type { Vote } from "./ResultsView";
 
 const FEELINGS = [
@@ -44,10 +44,13 @@ type State =
   | { kind: "error"; message: string };
 
 export function ShareCard(props: Props) {
-  const { place, audio, species, votes, labels, sample } = props;
+  const { place, audio, species, votes, sample } = props;
   const [state, setState] = useState<State>({ kind: "idle" });
   const [feelings, setFeelings] = useState<Partial<Record<Feeling, number>>>({});
-  const kept = species.filter((s) => votes[s.labelIdx] !== "no");
+  // The strongest 40 calls go; the 12 strongest carry clips (a share must stay
+  // under the 4.5 MB request limit of the host).
+  const kept = species.filter((s) => votes[s.labelIdx] !== "no").sort((a, b) => b.maxP - a.maxP).slice(0, 40);
+  const withClip = new Set(kept.slice(0, 12).map((s) => s.labelIdx));
   const clipStart = (s: SpeciesSummary) => s.detections.reduce((a, b) => (b.maxP > a.maxP ? b : a)).bestWindow * 3;
 
   async function share() {
@@ -59,11 +62,16 @@ export function ShareCard(props: Props) {
       if (!sample) {
         setState({ kind: "working", step: "Listening for voices in the clips…" });
         const raw = kept.map((s) => {
+          if (!withClip.has(s.labelIdx)) return null;
           const start = Math.round(clipStart(s) * audio.sampleRate);
           return audio.samples.slice(start, start + 3 * audio.sampleRate);
         });
-        const segments = await analyzer.screenSpeech(raw, audio.sampleRate);
+        const present = raw.flatMap((c) => (c ? [c] : []));
+        const found = await analyzer.screenSpeech(present, audio.sampleRate);
+        let next = 0;
+        const segments = raw.map((c) => (c ? found[next++] : []));
         clips = raw.map((clip, i) => {
+          if (!clip) return null;
           const durationS = clip.length / audio.sampleRate;
           if (speechShare(segments[i], durationS) > MAX_SPEECH_SHARE) {
             withheld++;
@@ -78,12 +86,12 @@ export function ShareCard(props: Props) {
       const round = (v: number) => Math.round(v * 1000) / 1000; // ~100 m: never a doorstep
       const body = {
         id: props.sessionId,
-        contributor: contributorId(),
+        token: identityToken(),
         place:
           place?.kind === "site"
-            ? { kind: "site", siteCode: place.site.code, cityId: place.site.cityId, lat: place.site.lat, lon: place.site.lon, label: `${place.site.code} · ${place.site.name}, ${place.site.cityName}` }
+            ? { kind: "site", siteCode: place.site.code }
             : place
-              ? { kind: "point", lat: round(place.lat), lon: round(place.lon), label: place.label }
+              ? { kind: "point", lat: round(place.lat), lon: round(place.lon), label: place.label.slice(0, 120) }
               : null,
         recordedOn: props.date,
         week: props.week,
@@ -92,17 +100,12 @@ export function ShareCard(props: Props) {
         threshold: props.threshold,
         soundscape: { ndsi: props.soundscape.ndsi, audibleShare: props.soundscape.audibleShare, lifeShare: props.soundscape.lifeShare, windows: props.soundscape.windows },
         source: sample ? "public-sample" : "upload",
-        attribution: sample ? { recordist: sample.recordist, license: sample.license, url: sample.sourceUrl } : null,
         audioSha256: props.audioSha256,
         feelings: Object.keys(feelings).length ? feelings : null,
         detections: kept.map((s, i) => {
-          const label = labels[s.labelIdx];
           const vote = votes[s.labelIdx];
           return {
             labelIdx: s.labelIdx,
-            sci: label.sci,
-            en: label.en,
-            className: label.className,
             maxP: s.maxP,
             startS: s.detections[0].startS,
             endS: s.detections.at(-1)!.endS,
@@ -114,6 +117,7 @@ export function ShareCard(props: Props) {
         }),
       };
       const res = await fetch("/api/sessions", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+      if (res.status === 413) throw new Error("That share was too large for the server. Reject a few calls you are unsure about and try again.");
       if (!res.ok) throw new Error((await res.json().catch(() => null))?.error ?? `Sharing failed (${res.status})`);
       setState({ kind: "done", shared: kept.length, withheld, muted });
     } catch (err) {

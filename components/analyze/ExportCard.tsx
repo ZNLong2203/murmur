@@ -7,6 +7,7 @@ import type { SoundscapeSummary } from "@/lib/analysis/soundscape";
 import type { Label, SpeciesSummary } from "@/lib/analysis/types";
 import { buildDwcCsv } from "@/lib/interop/dwc";
 import { buildFhirBundle, type Verification } from "@/lib/interop/fhir";
+import { publicHandle } from "@/lib/identity";
 import type { Vote } from "./ResultsView";
 
 export interface ExportInput {
@@ -24,20 +25,6 @@ export interface ExportInput {
 }
 
 const MODEL = { id: "birdnet-v3.0-p3.1-fp16-pruned", name: "BirdNET+ V3.0 developer preview 3.1", version: "3.0-preview3.1", license: "CC BY-SA 4.0" };
-
-/** A stable pseudonym per browser, so a contributor's records can be grouped without an account. */
-export function contributorId(): string {
-  const key = "murmur-contributor";
-  try {
-    const existing = localStorage.getItem(key);
-    if (existing) return existing;
-    const id = `anon-${crypto.randomUUID().slice(0, 8)}`;
-    localStorage.setItem(key, id);
-    return id;
-  } catch {
-    return "anon-session";
-  }
-}
 
 export function verificationFromVotes(votes: Record<number, Vote>): Record<number, Verification> {
   const out: Record<number, Verification> = {};
@@ -79,7 +66,7 @@ export function ExportCard(input: ExportInput) {
       sessionId: input.sessionId,
       place: input.place,
       recordedAt: input.date,
-      contributor: contributorId(),
+      contributor: await publicHandle(),
       species: kept,
       verification: verificationFromVotes(input.votes),
       labels: input.labels,
@@ -99,7 +86,7 @@ export function ExportCard(input: ExportInput) {
       sessionId: input.sessionId,
       place: input.place,
       recordedAt: input.date,
-      contributor: contributorId(),
+      contributor: await publicHandle(),
       species: kept,
       verification: verificationFromVotes(input.votes),
       labels: input.labels,
