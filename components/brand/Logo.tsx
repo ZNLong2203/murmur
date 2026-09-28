@@ -19,7 +19,7 @@ export function Wordmark() {
   return (
     <span className="flex items-center gap-2 text-brand-ink">
       <LogoMark />
-      <span className="font-display text-xl font-semibold tracking-tight text-ink">Murmur</span>
+      <span className="hidden font-display text-xl font-semibold tracking-tight text-ink min-[420px]:inline">Murmur</span>
     </span>
   );
 }

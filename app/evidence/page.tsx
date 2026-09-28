@@ -138,7 +138,7 @@ export default function EvidencePage() {
 
       <section aria-labelledby="data" className="mt-10">
         <h2 id="data" className="font-display text-2xl font-semibold tracking-tight">Data, models and licences</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-card">
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-card" tabIndex={0} role="region" aria-label="Table of data sources, scrollable">
           <table className="w-full text-left text-sm">
             <thead className="text-muted">
               <tr>

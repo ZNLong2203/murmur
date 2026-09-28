@@ -163,7 +163,7 @@ export function VerifyQueue() {
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-2">
               <Button onClick={togglePlay} disabled={!clip} data-testid="verify-play">
-                {playhead !== null ? "■ Stop" : "▶ Play"} <kbd className="font-mono text-xs opacity-70">space</kbd>
+                {playhead !== null ? "■ Stop" : "▶ Play"} <kbd className="hidden font-mono text-xs text-brand-soft sm:inline">space</kbd>
               </Button>
               <a
                 className="text-sm text-muted underline decoration-line-strong underline-offset-2"
@@ -176,16 +176,16 @@ export function VerifyQueue() {
             </div>
             <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Your verdict">
               <button type="button" onClick={() => vote("yes")} className="rounded-xl bg-ok px-3 py-3 font-medium text-paper hover:opacity-90" data-testid="vote-yes">
-                Yes, that&apos;s it <kbd className="ml-1 font-mono text-xs opacity-70">Y</kbd>
+                Yes, that&apos;s it <kbd className="ml-1 hidden font-mono text-xs sm:inline">Y</kbd>
               </button>
               <button type="button" onClick={() => vote("no")} className="rounded-xl bg-bad px-3 py-3 font-medium text-paper hover:opacity-90">
-                No <kbd className="ml-1 font-mono text-xs opacity-70">N</kbd>
+                No <kbd className="ml-1 hidden font-mono text-xs sm:inline">N</kbd>
               </button>
               <button type="button" onClick={() => vote("unsure")} className="rounded-xl border border-line-strong px-3 py-3 font-medium hover:border-ink-2">
-                Can&apos;t tell <kbd className="ml-1 font-mono text-xs text-muted">U</kbd>
+                Can&apos;t tell <kbd className="ml-1 hidden font-mono text-xs text-muted sm:inline">U</kbd>
               </button>
               <button type="button" onClick={() => next()} className="rounded-xl px-3 py-3 text-ink-2 hover:bg-paper-2">
-                Skip <kbd className="ml-1 font-mono text-xs text-muted">S</kbd>
+                Skip <kbd className="ml-1 hidden font-mono text-xs text-muted sm:inline">S</kbd>
               </button>
             </div>
             {error && <p className="mt-3 text-sm text-bad">{error}</p>}

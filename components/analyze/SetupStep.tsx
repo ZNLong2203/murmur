@@ -1,9 +1,10 @@
 "use client";
 
-import { useId, useMemo, useRef, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { Button, Card, CardTitle } from "@/components/ui/primitives";
 import { formatTime } from "@/lib/analysis/taxa";
-import type { DemoRecording, Place } from "@/lib/analysis/session";
+import { samplePlace, type DemoRecording, type Place } from "@/lib/analysis/session";
+import type { ModelProgress } from "@/lib/ml/analyzer";
 import type { OahSite } from "@/lib/oah/types";
 
 export interface Chosen {
@@ -22,12 +23,12 @@ interface Props {
   onPlace: (place: Place | null) => void;
   onDate: (date: string) => void;
   onListen: () => void;
+  model: { ready: boolean; progress: ModelProgress | null; failed: boolean };
 }
 
 const CITY_ORDER = ["CO", "BE", "GH", "OS", "TO"] as const;
 
-export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPlace, onDate, onListen }: Props) {
-  const fileInput = useRef<HTMLInputElement>(null);
+export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPlace, onDate, onListen, model }: Props) {
   const [dragging, setDragging] = useState(false);
   const [loadingSample, setLoadingSample] = useState<string | null>(null);
   const [sampleError, setSampleError] = useState<string | null>(null);
@@ -42,11 +43,7 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
     try {
       const res = await fetch(sample.file);
       if (!res.ok) throw new Error(`${res.status}`);
-      const site = sites.find((s) => s.code === sample.nearestSiteCode);
-      const samplePlace: Place = site && (sample.nearestSiteDistanceKm ?? 99) <= 3
-        ? { kind: "site", site }
-        : { kind: "point", lat: sample.lat, lon: sample.lon, label: sample.title };
-      onChoose({ file: await res.blob(), name: sample.title, sample }, samplePlace, sample.recordedAt?.slice(0, 10) ?? undefined);
+      onChoose({ file: await res.blob(), name: sample.title, sample }, samplePlace(sample, sites), sample.recordedAt?.slice(0, 10) ?? undefined);
     } catch {
       setSampleError("Could not load that recording. Check your connection and try again.");
     } finally {
@@ -60,12 +57,7 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
         <CardTitle hint="A phone voice memo, a field recorder file, or the short video the OneAquaHealth app already collects. Up to 10 minutes.">
           1 · Recording
         </CardTitle>
-        <div
-          role="button"
-          tabIndex={0}
-          aria-label="Choose an audio or video file"
-          onClick={() => fileInput.current?.click()}
-          onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && fileInput.current?.click()}
+        <label
           onDragOver={(e) => {
             e.preventDefault();
             setDragging(true);
@@ -76,30 +68,29 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
             setDragging(false);
             takeFile(e.dataTransfer.files[0]);
           }}
-          className={`flex min-h-36 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed px-4 py-6 text-center transition-colors ${
+          className={`flex min-h-36 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed px-4 py-6 text-center transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[var(--focus)] ${
             dragging ? "border-brand bg-brand-soft" : "border-line-strong hover:border-brand hover:bg-paper-2"
           }`}
         >
           {chosen ? (
             <>
-              <p className="font-medium text-ink">{chosen.name}</p>
-              <p className="text-sm text-muted">Ready to listen · choose another file to replace it</p>
+              <span className="font-medium text-ink">{chosen.name}</span>
+              <span className="text-sm text-muted">Ready to listen · choose another file to replace it</span>
             </>
           ) : (
             <>
-              <p className="font-medium text-ink">Drop a recording here, or click to choose</p>
-              <p className="text-sm text-muted">WAV, MP3, M4A, OGG, or an MP4/MOV video with sound</p>
+              <span className="font-medium text-ink">Drop a recording here, or click to choose</span>
+              <span className="text-sm text-muted">WAV, MP3, M4A, OGG, or an MP4/MOV video with sound</span>
             </>
           )}
           <input
-            ref={fileInput}
             type="file"
             accept="audio/*,video/*"
             data-testid="file-input"
             className="sr-only"
             onChange={(e) => takeFile(e.target.files?.[0])}
           />
-        </div>
+        </label>
 
         {samples.length > 0 && (
           <div className="mt-5">
@@ -150,7 +141,15 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
         <Button className="mt-5 w-full py-3 text-base" disabled={!chosen} onClick={onListen} data-testid="listen">
           Listen
         </Button>
-        <p className="mt-2 text-center text-xs text-muted">The recording is analysed on this device and is not uploaded.</p>
+        <p className="mt-2 text-center text-xs text-muted" aria-live="polite">
+          {model.ready
+            ? "Listening model ready on this device. The recording is analysed here and is not uploaded."
+            : model.failed
+              ? "The listening model will load when you press Listen."
+              : model.progress && !model.progress.cached
+                ? `Preparing the listening model: ${Math.round(model.progress.loaded / 1e6)} of ${Math.round(model.progress.total / 1e6)} MB, once per device.`
+                : "Preparing the listening model…"}
+        </p>
       </Card>
     </div>
   );
