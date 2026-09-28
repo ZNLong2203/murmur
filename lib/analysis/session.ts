@@ -18,6 +18,8 @@ export interface DemoRecording {
   durationS: number;
   trimmed: boolean;
   notes?: string;
+  /** Offline analysis (same model, range filter, threshold 0.25). */
+  detections?: Array<{ labelIdx: number; sci: string; en: string; startS: number; endS: number; maxP: number }>;
 }
 
 export type Place =
