@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { Spectrogram } from "@/components/analyze/Spectrogram";
-import { contributorId } from "@/components/analyze/ExportCard";
+import { identityToken } from "@/lib/identity";
 import { Button, Card, Chip } from "@/components/ui/primitives";
 import { decodeToMono, type DecodedAudio } from "@/lib/audio/decode";
 import { ClipPlayer } from "@/lib/audio/player";
@@ -27,8 +27,8 @@ async function loadClip(item: QueueItem): Promise<{ audio: DecodedAudio; image: 
 const noSubscribe = () => () => {};
 
 export function VerifyQueue() {
-  // The pseudonym lives in localStorage: read it on the client only.
-  const voter = useSyncExternalStore(noSubscribe, contributorId, () => null);
+  // The listener's secret token lives in localStorage: read it on the client only.
+  const voter = useSyncExternalStore(noSubscribe, identityToken, () => null);
   const [expertCode, setExpertCode] = useState("");
   const [expertOn, setExpertOn] = useState(false);
   const [reloadKey, setReloadKey] = useState(0);
@@ -39,6 +39,8 @@ export function VerifyQueue() {
   const [error, setError] = useState<string | null>(null);
   const [stats, setStats] = useState<Stats | null>(null);
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const skipped = useRef<string[]>([]);
   const busy = useRef(false);
 
   // Load the next call whenever the listener, the mode or reloadKey changes.
@@ -46,21 +48,30 @@ export function VerifyQueue() {
     if (!voter) return;
     let cancelled = false;
     (async () => {
+      const skip = skipped.current.length ? `?skip=${skipped.current.slice(-50).join(",")}` : "";
+      const headers: Record<string, string> = { "x-murmur-token": voter };
+      if (expertOn && expertCode) headers["x-murmur-expert"] = expertCode;
       const [res, statsRes] = await Promise.all([
-        fetch(`/api/verify/next?voter=${encodeURIComponent(voter)}${expertOn ? "&expert=1" : ""}`),
+        fetch(`/api/verify/next${skip}`, { headers }).catch(() => null),
         fetch("/api/commons/stats").catch(() => null),
       ]);
-      const { item: nextItem } = (await res.json()) as { item: QueueItem | null };
+      const body = res ? ((await res.json().catch(() => null)) as { item?: QueueItem | null; error?: string } | null) : null;
       const nextStats = statsRes?.ok ? ((await statsRes.json()) as Stats) : null;
       if (cancelled) return;
       if (nextStats) setStats(nextStats);
       setClip(null);
       setPlayhead(null);
+      setLoading(false);
+      if (!res?.ok || !body || body.item === undefined) {
+        setError(body?.error ?? "Could not reach the listening queue. Check your connection and try again.");
+        setItem(null);
+        return;
+      }
       setError(null);
-      setItem(nextItem);
-      if (!nextItem) return;
+      setItem(body.item);
+      if (!body.item) return;
       try {
-        const loaded = await loadClip(nextItem);
+        const loaded = await loadClip(body.item);
         if (!cancelled) setClip(loaded);
       } catch {
         if (!cancelled) setError("This clip could not be loaded. Skip it and try the next one.");
@@ -69,9 +80,19 @@ export function VerifyQueue() {
     return () => {
       cancelled = true;
     };
+    // expertCode is read when the mode is switched on or the next call loads.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [voter, expertOn, reloadKey]);
 
-  const next = useCallback(() => setReloadKey((k) => k + 1), []);
+  const next = useCallback(() => {
+    setLoading(true);
+    setReloadKey((k) => k + 1);
+  }, []);
+
+  const skip = useCallback(() => {
+    if (item) skipped.current.push(item.id);
+    next();
+  }, [item, next]);
 
   const player = useMemo(() => (clip ? new ClipPlayer(clip.audio.samples, clip.audio.sampleRate) : null), [clip]);
   useEffect(() => () => player?.dispose(), [player]);
@@ -86,13 +107,13 @@ export function VerifyQueue() {
 
   const vote = useCallback(
     async (v: "yes" | "no" | "unsure") => {
-      if (!item || !voter || busy.current) return;
+      if (!item || !voter || busy.current || loading) return;
       busy.current = true;
       try {
         const res = await fetch("/api/verify/vote", {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ detectionId: item.id, voter, vote: v, ...(expertOn && expertCode ? { expertCode } : {}) }),
+          body: JSON.stringify({ detectionId: item.id, token: voter, vote: v, ...(expertOn && expertCode ? { expertCode } : {}) }),
         });
         const body = await res.json();
         if (!res.ok) throw new Error(body.error ?? "Vote failed");
@@ -105,24 +126,27 @@ export function VerifyQueue() {
         busy.current = false;
       }
     },
-    [item, voter, expertOn, expertCode, next],
+    [item, voter, expertOn, expertCode, next, loading],
   );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement || e.metaKey || e.ctrlKey) return;
+      const target = e.target as HTMLElement | null;
+      if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (target?.closest("input, textarea, select, [contenteditable]")) return;
       const key = e.key.toLowerCase();
       if (key === " ") {
+        if (target?.closest("button, a")) return; // let Space press the focused control
         e.preventDefault();
         togglePlay();
       } else if (key === "y") void vote("yes");
       else if (key === "n") void vote("no");
       else if (key === "u") void vote("unsure");
-      else if (key === "s") next();
+      else if (key === "s") skip();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [togglePlay, vote, next]);
+  }, [togglePlay, vote, skip]);
 
   const group = item ? GROUPS[GROUP_OF[item.className] ?? "other"] : null;
 
@@ -130,10 +154,19 @@ export function VerifyQueue() {
     <div className="grid gap-5 lg:grid-cols-[1.6fr_1fr]">
       <div className="space-y-4">
         {item === undefined && <Card className="h-80 animate-pulse bg-paper-2" />}
-        {item === null && (
+        {item === null && !error && (
           <Card>
             <h2 className="font-display text-xl font-semibold">You have heard every call in the queue</h2>
             <p className="mt-1 text-ink-2">Thank you. Share a recording of your own, or come back when others have.</p>
+          </Card>
+        )}
+        {item === null && error && (
+          <Card role="alert">
+            <h2 className="font-display text-xl font-semibold">The queue is out of reach</h2>
+            <p className="mt-1 text-ink-2">{error}</p>
+            <Button className="mt-3" onClick={next}>
+              Try again
+            </Button>
           </Card>
         )}
         {item && group && (
@@ -175,16 +208,16 @@ export function VerifyQueue() {
               </a>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Your verdict">
-              <button type="button" onClick={() => vote("yes")} className="rounded-xl bg-ok px-3 py-3 font-medium text-paper hover:opacity-90" data-testid="vote-yes">
+              <button type="button" onClick={() => vote("yes")} disabled={loading} className="rounded-xl bg-ok px-3 py-3 font-medium text-paper hover:opacity-90 disabled:opacity-50" data-testid="vote-yes">
                 Yes, that&apos;s it <kbd className="ml-1 hidden font-mono text-xs sm:inline">Y</kbd>
               </button>
-              <button type="button" onClick={() => vote("no")} className="rounded-xl bg-bad px-3 py-3 font-medium text-paper hover:opacity-90">
+              <button type="button" onClick={() => vote("no")} disabled={loading} className="rounded-xl bg-bad px-3 py-3 font-medium text-paper hover:opacity-90 disabled:opacity-50">
                 No <kbd className="ml-1 hidden font-mono text-xs sm:inline">N</kbd>
               </button>
-              <button type="button" onClick={() => vote("unsure")} className="rounded-xl border border-line-strong px-3 py-3 font-medium hover:border-ink-2">
+              <button type="button" onClick={() => vote("unsure")} disabled={loading} className="rounded-xl border border-line-strong px-3 py-3 font-medium hover:border-ink-2">
                 Can&apos;t tell <kbd className="ml-1 hidden font-mono text-xs text-muted sm:inline">U</kbd>
               </button>
-              <button type="button" onClick={() => next()} className="rounded-xl px-3 py-3 text-ink-2 hover:bg-paper-2">
+              <button type="button" onClick={skip} className="rounded-xl px-3 py-3 text-ink-2 hover:bg-paper-2">
                 Skip <kbd className="ml-1 hidden font-mono text-xs text-muted sm:inline">S</kbd>
               </button>
             </div>
