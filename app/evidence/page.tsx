@@ -58,8 +58,17 @@ export default function EvidencePage() {
             </CardTitle>
             <SnrChart rows={snr.bySnr} />
             <p className="mt-3 text-sm text-ink-2">
-              On the recordings themselves, Murmur cannot know the true signal-to-noise ratio, so it uses the audibility index instead. Windows below {AUDIBILITY_THRESHOLD_DB} dB are hatched as too noisy to judge
-              {snr.falsePositiveRate03 != null && `; on water noise alone, the model named a plausible species in ${pct(snr.falsePositiveRate03)} of windows at score ≥ 0.3`}.
+              On a real recording Murmur cannot know the true signal-to-noise ratio, so it uses the audibility index measured from the sound itself.
+              {snr.byAudibility && (
+                <>
+                  {" "}Below {AUDIBILITY_THRESHOLD_DB} dB the benchmark detected only{" "}
+                  {pct(Math.min(...snr.byAudibility.filter((b) => b.hi != null && b.hi <= AUDIBILITY_THRESHOLD_DB).map((b) => b.recall03)))}–
+                  {pct(Math.max(...snr.byAudibility.filter((b) => b.hi != null && b.hi <= AUDIBILITY_THRESHOLD_DB).map((b) => b.recall03)))} of calls, against{" "}
+                  {pct(Math.min(...snr.byAudibility.filter((b) => b.lo != null && b.lo >= AUDIBILITY_THRESHOLD_DB).map((b) => b.recall03)))}–
+                  {pct(Math.max(...snr.byAudibility.filter((b) => b.lo != null && b.lo >= AUDIBILITY_THRESHOLD_DB).map((b) => b.recall03)))} above it, so those windows are hatched as hard to hear.
+                </>
+              )}
+              {snr.falsePositiveRate03 != null && ` On water noise alone, the model named a plausible species in ${pct(snr.falsePositiveRate03)} of windows at score ≥ 0.3.`}
             </p>
           </Card>
         )}

@@ -144,7 +144,7 @@ export function ResultsView(props: Props) {
             ))}
             {masked.length > 0 && (
               <span className="inline-flex items-center gap-1.5">
-                <span className="hatch-masked inline-block h-3 w-5 rounded-sm border border-line" /> Too noisy to hear small birds
+                <span className="hatch-masked inline-block h-3 w-5 rounded-sm border border-line" /> Hard to hear quiet calls here
               </span>
             )}
           </div>
@@ -406,12 +406,14 @@ function SoundscapeCard({ soundscape, thresholdDb }: { soundscape: ReturnType<ty
       <dl className="space-y-4 text-sm">
         <div>
           <dt className="flex justify-between text-ink-2">
-            <span>Clear enough to hear small birds</span>
+            <span>Clear enough to hear quiet calls</span>
             <span className="font-mono">{Math.round(soundscape.audibleShare * 100)}%</span>
           </dt>
           <dd className="mt-1.5">
-            <Meter value={soundscape.audibleShare} label="Share of the recording clear enough to hear small birds" />
-            <p className="mt-1 text-xs text-muted">Windows where song can rise {thresholdDb} dB above the 2–8 kHz background. Rushing water lowers this.</p>
+            <Meter value={soundscape.audibleShare} label="Share of the recording clear enough to hear quiet calls" />
+            <p className="mt-1 text-xs text-muted">
+              Windows where sound rises at least {thresholdDb} dB above the 2–8 kHz background. Below that, our benchmark missed about 4 in 10 calls; rushing water is the usual cause.
+            </p>
           </dd>
         </div>
         <div>

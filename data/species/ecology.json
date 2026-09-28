@@ -1,0 +1,1717 @@
+[
+ {
+  "sci": "Cinclus cinclus",
+  "labelIdx": 2465,
+  "en": "White-throated Dipper",
+  "tags": [
+   "clean-water",
+   "flowing-water",
+   "insect-eater"
+  ],
+  "meaning": "Walks and dives under water in fast streams to catch small invertebrates; it is very sensitive to acid and polluted water.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Dipper",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/dipper"
+   },
+   {
+    "title": "Wikipedia: White-throated dipper",
+    "url": "https://en.wikipedia.org/wiki/White-throated_dipper"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Motacilla cinerea",
+  "labelIdx": 6680,
+  "en": "Grey Wagtail",
+  "tags": [
+   "flowing-water",
+   "insect-eater"
+  ],
+  "meaning": "Bobs its long tail beside fast-flowing streams, catching insects at the water's edge.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Grey Wagtail",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/grey-wagtail"
+   },
+   {
+    "title": "Wikipedia: Grey wagtail",
+    "url": "https://en.wikipedia.org/wiki/Grey_wagtail"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Alcedo atthis",
+  "labelIdx": 294,
+  "en": "Common Kingfisher",
+  "tags": [
+   "flowing-water",
+   "open-water"
+  ],
+  "meaning": "Dives from a perch to catch small fish in slow rivers, canals and lakes; nests in holes in earth banks.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Kingfisher",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/kingfisher"
+   },
+   {
+    "title": "Wikipedia: Common kingfisher",
+    "url": "https://en.wikipedia.org/wiki/Common_kingfisher"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Cettia cetti",
+  "labelIdx": 2097,
+  "en": "Cetti's Warbler",
+  "tags": [
+   "reedbed-wetland",
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Hidden in dense waterside scrub and reeds, it gives sudden, very loud bursts of song; feeds on insects.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Cetti's Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/cettis-warbler"
+   },
+   {
+    "title": "Wikipedia: Cetti's warbler",
+    "url": "https://en.wikipedia.org/wiki/Cetti's_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Actitis hypoleucos",
+  "labelIdx": 140,
+  "en": "Common Sandpiper",
+  "tags": [
+   "flowing-water",
+   "open-water",
+   "insect-eater"
+  ],
+  "meaning": "Small wader that bobs along stony riverbanks and lake shores, picking insects from the water's edge.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Common Sandpiper",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/common-sandpiper"
+   },
+   {
+    "title": "Wikipedia: Common sandpiper",
+    "url": "https://en.wikipedia.org/wiki/Common_sandpiper"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Gallinula chloropus",
+  "labelIdx": 4427,
+  "en": "Common Moorhen",
+  "tags": [
+   "open-water",
+   "reedbed-wetland",
+   "urban-tolerant"
+  ],
+  "meaning": "Common on ponds, canals and slow streams with plenty of bankside plants, including in city parks.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Moorhen",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/moorhen"
+   },
+   {
+    "title": "Wikipedia: Common moorhen",
+    "url": "https://en.wikipedia.org/wiki/Common_moorhen"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Fulica atra",
+  "labelIdx": 4353,
+  "en": "Eurasian Coot",
+  "tags": [
+   "open-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Black waterbird with a white forehead shield, found on lakes, ponds and slow rivers, including park lakes.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Coot",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/coot"
+   },
+   {
+    "title": "Wikipedia: Eurasian coot",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_coot"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Tachybaptus ruficollis",
+  "labelIdx": 10482,
+  "en": "Little Grebe",
+  "tags": [
+   "open-water",
+   "reedbed-wetland",
+   "urban-tolerant"
+  ],
+  "meaning": "Small waterbird of ponds, lakes, slow rivers and other small wetlands, even in urban parks.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Little Grebe",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/little-grebe"
+   },
+   {
+    "title": "Wikipedia: Little grebe",
+    "url": "https://en.wikipedia.org/wiki/Little_grebe"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Rallus aquaticus",
+  "labelIdx": 9409,
+  "en": "Water Rail",
+  "tags": [
+   "reedbed-wetland"
+  ],
+  "meaning": "Secretive bird of reedbeds and marshes, more often heard than seen; its calls include pig-like squeals.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Water Rail",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/water-rail"
+   },
+   {
+    "title": "Wikipedia: Water rail",
+    "url": "https://en.wikipedia.org/wiki/Water_rail"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Anas platyrhynchos",
+  "labelIdx": 556,
+  "en": "Mallard",
+  "tags": [
+   "open-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Familiar duck of almost any water, from rivers and lakes to ponds in city parks.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Mallard",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/mallard"
+   },
+   {
+    "title": "Wikipedia: Mallard",
+    "url": "https://en.wikipedia.org/wiki/Mallard"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Anas crecca",
+  "labelIdx": 539,
+  "en": "Eurasian Teal",
+  "tags": [
+   "open-water",
+   "reedbed-wetland"
+  ],
+  "meaning": "Small duck of shallow wetlands and pond edges, most numerous in winter.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Teal",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/teal"
+   },
+   {
+    "title": "Wikipedia: Eurasian teal",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_teal"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Aythya fuligula",
+  "labelIdx": 1212,
+  "en": "Tufted Duck",
+  "tags": [
+   "open-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Diving duck of lakes, reservoirs and park ponds.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Tufted Duck",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/tufted-duck"
+   },
+   {
+    "title": "Wikipedia: Tufted duck",
+    "url": "https://en.wikipedia.org/wiki/Tufted_duck"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Cygnus olor",
+  "labelIdx": 3303,
+  "en": "Mute Swan",
+  "tags": [
+   "open-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Large white swan of lakes, slow rivers and park ponds.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Mute Swan",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/mute-swan"
+   },
+   {
+    "title": "Wikipedia: Mute swan",
+    "url": "https://en.wikipedia.org/wiki/Mute_swan"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Anser anser",
+  "labelIdx": 625,
+  "en": "Greylag Goose",
+  "tags": [
+   "open-water",
+   "reedbed-wetland"
+  ],
+  "meaning": "Large grey goose that breeds by lakes and wetlands and grazes on nearby grassland.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Greylag Goose",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/greylag-goose"
+   },
+   {
+    "title": "Wikipedia: Greylag goose",
+    "url": "https://en.wikipedia.org/wiki/Greylag_goose"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Chroicocephalus ridibundus",
+  "labelIdx": 2360,
+  "en": "Black-headed Gull",
+  "tags": [
+   "open-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Small gull that nests by lakes and marshes and often feeds in towns and parks.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Black-headed Gull",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/black-headed-gull"
+   },
+   {
+    "title": "Wikipedia: Black-headed gull",
+    "url": "https://en.wikipedia.org/wiki/Black-headed_gull"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Ardea cinerea",
+  "labelIdx": 931,
+  "en": "Grey Heron",
+  "tags": [
+   "open-water",
+   "flowing-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Stands still in shallow water of rivers and ponds to catch fish, frogs and other small animals.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Grey Heron",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/grey-heron"
+   },
+   {
+    "title": "Wikipedia: Grey heron",
+    "url": "https://en.wikipedia.org/wiki/Grey_heron"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Egretta garzetta",
+  "labelIdx": 3777,
+  "en": "Little Egret",
+  "tags": [
+   "open-water",
+   "reedbed-wetland"
+  ],
+  "meaning": "Small white heron that hunts fish and other small animals in the shallow water of wetlands and rivers.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Little Egret",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/little-egret"
+   },
+   {
+    "title": "Wikipedia: Little egret",
+    "url": "https://en.wikipedia.org/wiki/Little_egret"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Nycticorax nycticorax",
+  "labelIdx": 7220,
+  "en": "Black-crowned Night Heron",
+  "tags": [
+   "reedbed-wetland",
+   "open-water"
+  ],
+  "meaning": "Stocky heron that feeds mainly at dusk and at night in wetlands and along rivers.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Night Heron",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/night-heron"
+   },
+   {
+    "title": "Wikipedia: Black-crowned night heron",
+    "url": "https://en.wikipedia.org/wiki/Black-crowned_night_heron"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Tringa ochropus",
+  "labelIdx": 10966,
+  "en": "Green Sandpiper",
+  "tags": [
+   "open-water",
+   "flowing-water"
+  ],
+  "meaning": "Wader that visits small pools, ditches and stream edges, mostly on migration and in winter.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Green Sandpiper",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/green-sandpiper"
+   },
+   {
+    "title": "Wikipedia: Green sandpiper",
+    "url": "https://en.wikipedia.org/wiki/Green_sandpiper"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Motacilla alba",
+  "labelIdx": 6678,
+  "en": "White Wagtail",
+  "tags": [
+   "insect-eater",
+   "urban-tolerant"
+  ],
+  "meaning": "Runs and bobs after insects on open ground, shores and town streets.",
+  "sources": [
+   {
+    "title": "Wikipedia: White wagtail",
+    "url": "https://en.wikipedia.org/wiki/White_wagtail"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Riparia riparia",
+  "labelIdx": 9634,
+  "en": "Sand Martin",
+  "tags": [
+   "flowing-water",
+   "insect-eater"
+  ],
+  "meaning": "Nests in colonies in holes dug into sandy river banks and hunts flying insects over water.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Sand Martin",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/sand-martin"
+   },
+   {
+    "title": "Wikipedia: Sand martin",
+    "url": "https://en.wikipedia.org/wiki/Sand_martin"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Acrocephalus scirpaceus",
+  "labelIdx": 117,
+  "en": "Common Reed Warbler",
+  "tags": [
+   "reedbed-wetland",
+   "insect-eater"
+  ],
+  "meaning": "Summer visitor that nests in reedbeds and sings a steady, chattering song; feeds on insects.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Reed Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/reed-warbler"
+   },
+   {
+    "title": "Wikipedia: Common reed warbler",
+    "url": "https://en.wikipedia.org/wiki/Common_reed_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Acrocephalus arundinaceus",
+  "labelIdx": 91,
+  "en": "Great Reed Warbler",
+  "tags": [
+   "reedbed-wetland",
+   "insect-eater"
+  ],
+  "meaning": "Large warbler of tall reedbeds along lakes and rivers, with a loud, croaking song.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Great Reed Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/great-reed-warbler"
+   },
+   {
+    "title": "Wikipedia: Great reed warbler",
+    "url": "https://en.wikipedia.org/wiki/Great_reed_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Acrocephalus schoenobaenus",
+  "labelIdx": 116,
+  "en": "Sedge Warbler",
+  "tags": [
+   "reedbed-wetland",
+   "insect-eater"
+  ],
+  "meaning": "Summer visitor that sings from reedbeds and waterside vegetation; feeds on insects.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Sedge Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/sedge-warbler"
+   },
+   {
+    "title": "Wikipedia: Sedge warbler",
+    "url": "https://en.wikipedia.org/wiki/Sedge_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Acrocephalus palustris",
+  "labelIdx": 110,
+  "en": "Marsh Warbler",
+  "tags": [
+   "reedbed-wetland",
+   "insect-eater"
+  ],
+  "meaning": "Summer visitor to tall, dense plants near water, famous for copying the songs of many other birds.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Marsh Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/marsh-warbler"
+   },
+   {
+    "title": "Wikipedia: Marsh warbler",
+    "url": "https://en.wikipedia.org/wiki/Marsh_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Emberiza schoeniclus",
+  "labelIdx": 3885,
+  "en": "Common Reed Bunting",
+  "tags": [
+   "reedbed-wetland"
+  ],
+  "meaning": "Sparrow-sized bunting of reedbeds, wet meadows and other damp, tall vegetation.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Reed Bunting",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/reed-bunting"
+   },
+   {
+    "title": "Wikipedia: Common reed bunting",
+    "url": "https://en.wikipedia.org/wiki/Common_reed_bunting"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Panurus biarmicus",
+  "labelIdx": 7705,
+  "en": "Bearded Reedling",
+  "tags": [
+   "reedbed-wetland",
+   "insect-eater"
+  ],
+  "meaning": "Lives in large reedbeds, eating insects in summer and reed seeds in winter.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Bearded Tit",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/bearded-tit"
+   },
+   {
+    "title": "Wikipedia: Bearded reedling",
+    "url": "https://en.wikipedia.org/wiki/Bearded_reedling"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Remiz pendulinus",
+  "labelIdx": 9495,
+  "en": "Eurasian Penduline Tit",
+  "tags": [
+   "reedbed-wetland",
+   "riparian-woodland"
+  ],
+  "meaning": "Tiny bird that weaves a hanging nest in trees near water, in reedbeds and along rivers.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Penduline Tit",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/penduline-tit"
+   },
+   {
+    "title": "Wikipedia: Eurasian penduline tit",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_penduline_tit"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Cisticola juncidis",
+  "labelIdx": 2574,
+  "en": "Zitting Cisticola",
+  "tags": [
+   "reedbed-wetland"
+  ],
+  "meaning": "Tiny bird of grassland and wetlands, named after the repeated 'zit' calls of its display flight.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Zitting Cisticola",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/zitting-cisticola"
+   },
+   {
+    "title": "Wikipedia: Zitting cisticola",
+    "url": "https://en.wikipedia.org/wiki/Zitting_cisticola"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Troglodytes troglodytes",
+  "labelIdx": 11011,
+  "en": "Eurasian Wren",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater",
+   "urban-tolerant"
+  ],
+  "meaning": "Tiny bird with a very loud song, living in dense undergrowth from woods to gardens; eats insects and spiders.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Wren",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/wren"
+   },
+   {
+    "title": "Wikipedia: Eurasian wren",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_wren"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Luscinia megarhynchos",
+  "labelIdx": 6041,
+  "en": "Common Nightingale",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Summer visitor that sings by day and night from dense thickets and scrub; feeds on insects.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Nightingale",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/nightingale"
+   },
+   {
+    "title": "Wikipedia: Common nightingale",
+    "url": "https://en.wikipedia.org/wiki/Common_nightingale"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Phylloscopus collybita",
+  "labelIdx": 8253,
+  "en": "Common Chiffchaff",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Small warbler named after its 'chiff-chaff' song; picks small insects from trees and bushes.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Chiffchaff",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/chiffchaff"
+   },
+   {
+    "title": "Wikipedia: Common chiffchaff",
+    "url": "https://en.wikipedia.org/wiki/Common_chiffchaff"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Phylloscopus trochilus",
+  "labelIdx": 8310,
+  "en": "Willow Warbler",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Summer visitor to young woods and scrub with a soft, falling song; eats small insects.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Willow Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/willow-warbler"
+   },
+   {
+    "title": "Wikipedia: Willow warbler",
+    "url": "https://en.wikipedia.org/wiki/Willow_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Sylvia atricapilla",
+  "labelIdx": 10392,
+  "en": "Eurasian Blackcap",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater",
+   "urban-tolerant"
+  ],
+  "meaning": "Rich-voiced warbler of woods, parks and gardens; eats insects in summer and berries later in the year.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Blackcap",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/blackcap"
+   },
+   {
+    "title": "Wikipedia: Eurasian blackcap",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_blackcap"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Sylvia borin",
+  "labelIdx": 10393,
+  "en": "Garden Warbler",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Plain summer warbler of dense scrub and woodland undergrowth, with a long, flowing song.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Garden Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/garden-warbler"
+   },
+   {
+    "title": "Wikipedia: Garden warbler",
+    "url": "https://en.wikipedia.org/wiki/Garden_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Hippolais polyglotta",
+  "labelIdx": 5079,
+  "en": "Melodious Warbler",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Summer visitor to scrub and bushy places in south-west Europe, with a fast, chattering song.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Melodious Warbler",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/melodious-warbler"
+   },
+   {
+    "title": "Wikipedia: Melodious warbler",
+    "url": "https://en.wikipedia.org/wiki/Melodious_warbler"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Muscicapa striata",
+  "labelIdx": 6709,
+  "en": "Spotted Flycatcher",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater",
+   "urban-tolerant"
+  ],
+  "meaning": "Summer visitor that flies out from a perch to catch flying insects in open woods, parks and gardens.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Spotted Flycatcher",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/spotted-flycatcher"
+   },
+   {
+    "title": "Wikipedia: Spotted flycatcher",
+    "url": "https://en.wikipedia.org/wiki/Spotted_flycatcher"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Erithacus rubecula",
+  "labelIdx": 4005,
+  "en": "European Robin",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Sings almost all year from woods, parks and gardens; hunts small invertebrates on the ground.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Robin",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/robin"
+   },
+   {
+    "title": "Wikipedia: European robin",
+    "url": "https://en.wikipedia.org/wiki/European_robin"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Turdus merula",
+  "labelIdx": 11103,
+  "en": "Common Blackbird",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Common songbird of woods, parks and gardens; feeds on earthworms, insects and berries.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Blackbird",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/blackbird"
+   },
+   {
+    "title": "Wikipedia: Common blackbird",
+    "url": "https://en.wikipedia.org/wiki/Common_blackbird"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Turdus philomelos",
+  "labelIdx": 11120,
+  "en": "Song Thrush",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Repeats each song phrase two to four times from trees in woods, parks and gardens; eats snails and worms.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Song Thrush",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/song-thrush"
+   },
+   {
+    "title": "Wikipedia: Song thrush",
+    "url": "https://en.wikipedia.org/wiki/Song_thrush"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Aegithalos caudatus",
+  "labelIdx": 155,
+  "en": "Long-tailed Tit",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Tiny long-tailed bird that moves through trees and scrub in chattering flocks, eating small insects.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Long-tailed Tit",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/long-tailed-tit"
+   },
+   {
+    "title": "Wikipedia: Long-tailed tit",
+    "url": "https://en.wikipedia.org/wiki/Long-tailed_tit"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Cyanistes caeruleus",
+  "labelIdx": 3216,
+  "en": "Eurasian Blue Tit",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Small, colourful tit of woods, parks and gardens that feeds its chicks on caterpillars.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Blue Tit",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/blue-tit"
+   },
+   {
+    "title": "Wikipedia: Eurasian blue tit",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_blue_tit"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Parus major",
+  "labelIdx": 7764,
+  "en": "Great Tit",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Common tit of woods, parks and gardens with a loud, two-note 'teacher-teacher' song.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Great Tit",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/great-tit"
+   },
+   {
+    "title": "Wikipedia: Great tit",
+    "url": "https://en.wikipedia.org/wiki/Great_tit"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Certhia brachydactyla",
+  "labelIdx": 2070,
+  "en": "Short-toed Treecreeper",
+  "tags": [
+   "riparian-woodland",
+   "insect-eater"
+  ],
+  "meaning": "Creeps up tree trunks in woodland, picking insects from the bark as it climbs.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Short-toed Treecreeper",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/short-toed-treecreeper"
+   },
+   {
+    "title": "Wikipedia: Short-toed treecreeper",
+    "url": "https://en.wikipedia.org/wiki/Short-toed_treecreeper"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Sitta europaea",
+  "labelIdx": 10039,
+  "en": "Eurasian Nuthatch",
+  "tags": [
+   "riparian-woodland"
+  ],
+  "meaning": "Climbs up and down tree trunks, even head first, searching for insects and seeds; also visits bird tables.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Nuthatch",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/nuthatch"
+   },
+   {
+    "title": "Wikipedia: Eurasian nuthatch",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_nuthatch"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Dendrocopos major",
+  "labelIdx": 3446,
+  "en": "Great Spotted Woodpecker",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Drums on dead branches in spring; lives in woods, parks and large gardens.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Great Spotted Woodpecker",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/great-spotted-woodpecker"
+   },
+   {
+    "title": "Wikipedia: Great spotted woodpecker",
+    "url": "https://en.wikipedia.org/wiki/Great_spotted_woodpecker"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Dryobates minor",
+  "labelIdx": 3448,
+  "en": "Lesser Spotted Woodpecker",
+  "tags": [
+   "riparian-woodland"
+  ],
+  "meaning": "Sparrow-sized woodpecker of open woods with old trees; it has declined in many areas.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Lesser Spotted Woodpecker",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/lesser-spotted-woodpecker"
+   },
+   {
+    "title": "Wikipedia: Lesser spotted woodpecker",
+    "url": "https://en.wikipedia.org/wiki/Lesser_spotted_woodpecker"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Picus viridis",
+  "labelIdx": 8393,
+  "en": "European Green Woodpecker",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Feeds mainly on ants on the ground in parks and open woodland; known for its laughing call.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Green Woodpecker",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/green-woodpecker"
+   },
+   {
+    "title": "Wikipedia: European green woodpecker",
+    "url": "https://en.wikipedia.org/wiki/European_green_woodpecker"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Garrulus glandarius",
+  "labelIdx": 4498,
+  "en": "Eurasian Jay",
+  "tags": [
+   "riparian-woodland"
+  ],
+  "meaning": "Colourful woodland crow that buries acorns, spreading more than a thousand of them a year.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Jay",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/jay"
+   },
+   {
+    "title": "Wikipedia: Eurasian jay",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_jay"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Oriolus oriolus",
+  "labelIdx": 7472,
+  "en": "Eurasian Golden Oriole",
+  "tags": [
+   "riparian-woodland"
+  ],
+  "meaning": "Summer visitor that sings a fluty whistle from tall trees, such as poplars and woods by rivers.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Golden Oriole",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/golden-oriole"
+   },
+   {
+    "title": "Wikipedia: Eurasian golden oriole",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_golden_oriole"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Strix aluco",
+  "labelIdx": 10331,
+  "en": "Tawny Owl",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Owl of woods and parks, heard at night hooting and giving sharp 'ke-wick' calls.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Tawny Owl",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/tawny-owl"
+   },
+   {
+    "title": "Wikipedia: Tawny owl",
+    "url": "https://en.wikipedia.org/wiki/Tawny_owl"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Fringilla coelebs",
+  "labelIdx": 4342,
+  "en": "Eurasian Chaffinch",
+  "tags": [
+   "riparian-woodland",
+   "urban-tolerant"
+  ],
+  "meaning": "Very common finch of woods, parks and gardens with a cheerful, descending song.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Chaffinch",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/chaffinch"
+   },
+   {
+    "title": "Wikipedia: Common chaffinch",
+    "url": "https://en.wikipedia.org/wiki/Common_chaffinch"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Carduelis carduelis",
+  "labelIdx": 1875,
+  "en": "European Goldfinch",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Colourful finch that feeds mainly on small seeds and often visits garden feeders.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Goldfinch",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/goldfinch"
+   },
+   {
+    "title": "Wikipedia: European goldfinch",
+    "url": "https://en.wikipedia.org/wiki/European_goldfinch"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Chloris chloris",
+  "labelIdx": 2251,
+  "en": "European Greenfinch",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Seed-eating finch of gardens, parks and woodland edges.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Greenfinch",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/greenfinch"
+   },
+   {
+    "title": "Wikipedia: European greenfinch",
+    "url": "https://en.wikipedia.org/wiki/European_greenfinch"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Serinus serinus",
+  "labelIdx": 9941,
+  "en": "European Serin",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Small yellow finch with a fast, jingling song, often found in parks and gardens.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Serin",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/serin"
+   },
+   {
+    "title": "Wikipedia: European serin",
+    "url": "https://en.wikipedia.org/wiki/European_serin"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Hirundo rustica",
+  "labelIdx": 5094,
+  "en": "Barn Swallow",
+  "tags": [
+   "insect-eater",
+   "open-water"
+  ],
+  "meaning": "Catches flying insects low over fields and water; nests inside barns and other buildings.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Swallow",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/swallow"
+   },
+   {
+    "title": "Wikipedia: Barn swallow",
+    "url": "https://en.wikipedia.org/wiki/Barn_swallow"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Delichon urbicum",
+  "labelIdx": 3408,
+  "en": "Western House Martin",
+  "tags": [
+   "insect-eater",
+   "urban-tolerant"
+  ],
+  "meaning": "Builds mud nests under the eaves of houses and catches flying insects high in the air.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: House Martin",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/house-martin"
+   },
+   {
+    "title": "Wikipedia: Common house martin",
+    "url": "https://en.wikipedia.org/wiki/Common_house_martin"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Apus apus",
+  "labelIdx": 824,
+  "en": "Common Swift",
+  "tags": [
+   "insect-eater",
+   "urban-tolerant"
+  ],
+  "meaning": "Spends nearly its whole life flying, feeding on airborne insects; nests in gaps in buildings.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Swift",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/swift"
+   },
+   {
+    "title": "Wikipedia: Common swift",
+    "url": "https://en.wikipedia.org/wiki/Common_swift"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Columba palumbus",
+  "labelIdx": 2742,
+  "en": "Common Wood Pigeon",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Large pigeon of farmland, woods, parks and gardens with a soft, repeated cooing song.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Woodpigeon",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/woodpigeon"
+   },
+   {
+    "title": "Wikipedia: Common wood pigeon",
+    "url": "https://en.wikipedia.org/wiki/Common_wood_pigeon"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Streptopelia decaocto",
+  "labelIdx": 10314,
+  "en": "Eurasian Collared Dove",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Spread across Europe during the 20th century and now lives mostly close to houses and gardens.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Collared Dove",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/collared-dove"
+   },
+   {
+    "title": "Wikipedia: Eurasian collared dove",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_collared_dove"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Sturnus vulgaris",
+  "labelIdx": 10364,
+  "en": "Common Starling",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Noisy, sociable bird of towns and farmland that copies other sounds in its song.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Starling",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/starling"
+   },
+   {
+    "title": "Wikipedia: Common starling",
+    "url": "https://en.wikipedia.org/wiki/Common_starling"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Passer domesticus",
+  "labelIdx": 7773,
+  "en": "House Sparrow",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Lives close to people in towns and villages; it has declined in many European cities.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: House Sparrow",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/house-sparrow"
+   },
+   {
+    "title": "Wikipedia: House sparrow",
+    "url": "https://en.wikipedia.org/wiki/House_sparrow"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Pica pica",
+  "labelIdx": 8343,
+  "en": "Eurasian Magpie",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "Black-and-white member of the crow family, common in towns, parks and farmland.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Magpie",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/magpie"
+   },
+   {
+    "title": "Wikipedia: Eurasian magpie",
+    "url": "https://en.wikipedia.org/wiki/Eurasian_magpie"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Corvus corone",
+  "labelIdx": 2907,
+  "en": "Carrion Crow",
+  "tags": [
+   "urban-tolerant"
+  ],
+  "meaning": "All-black crow that eats almost anything and is common in towns, parks and farmland.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Carrion Crow",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/carrion-crow"
+   },
+   {
+    "title": "Wikipedia: Carrion crow",
+    "url": "https://en.wikipedia.org/wiki/Carrion_crow"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Psittacula krameri",
+  "labelIdx": 9074,
+  "en": "Rose-ringed Parakeet",
+  "tags": [
+   "non-native",
+   "urban-tolerant"
+  ],
+  "meaning": "Parrot from Africa and South Asia, now living wild in many European cities after birds escaped or were released.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Ring-necked Parakeet",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/ring-necked-parakeet"
+   },
+   {
+    "title": "Wikipedia: Rose-ringed parakeet",
+    "url": "https://en.wikipedia.org/wiki/Rose-ringed_parakeet"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Alopochen aegyptiaca",
+  "labelIdx": 363,
+  "en": "Egyptian Goose",
+  "tags": [
+   "non-native",
+   "open-water"
+  ],
+  "meaning": "African goose introduced to Europe, now breeding around lakes, rivers and park ponds.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Egyptian Goose",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/egyptian-goose"
+   },
+   {
+    "title": "Wikipedia: Egyptian goose",
+    "url": "https://en.wikipedia.org/wiki/Egyptian_goose"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Branta canadensis",
+  "labelIdx": 1425,
+  "en": "Canada Goose",
+  "tags": [
+   "non-native",
+   "open-water",
+   "urban-tolerant"
+  ],
+  "meaning": "North American goose introduced to Europe, common on lakes and park ponds.",
+  "sources": [
+   {
+    "title": "BTO BirdFacts: Canada Goose",
+    "url": "https://www.bto.org/learn/about-birds/birdfacts/canada-goose"
+   },
+   {
+    "title": "Wikipedia: Canada goose",
+    "url": "https://en.wikipedia.org/wiki/Canada_goose"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Estrilda astrild",
+  "labelIdx": 4039,
+  "en": "Common Waxbill",
+  "tags": [
+   "non-native",
+   "reedbed-wetland"
+  ],
+  "meaning": "Small African finch introduced to Portugal, living in reeds and tall grass, often near water.",
+  "sources": [
+   {
+    "title": "Wikipedia: Common waxbill",
+    "url": "https://en.wikipedia.org/wiki/Common_waxbill"
+   },
+   {
+    "title": "Silva, Reino & Borralho (2002). A model for range expansion of an introduced species: the common waxbill Estrilda astrild in Portugal. Diversity and Distributions 8: 319-326",
+    "url": "https://doi.org/10.1046/j.1472-4642.2002.00156.x"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Hyla meridionalis",
+  "labelIdx": 5168,
+  "en": "Mediterranean Tree Frog",
+  "tags": [
+   "amphibian",
+   "insect-eater",
+   "open-water"
+  ],
+  "meaning": "Tree frog whose males call in chorus at night from ponds; adults feed on insects.",
+  "sources": [
+   {
+    "title": "Wikipedia: Hyla meridionalis",
+    "url": "https://en.wikipedia.org/wiki/Hyla_meridionalis"
+   },
+   {
+    "title": "Enciclopedia Virtual de los Vertebrados Españoles: Hyla meridionalis",
+    "url": "https://www.vertebradosibericos.org/anfibios/hylmer.html"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Hyla molleri",
+  "labelIdx": 5169,
+  "en": "Iberian Tree Frog",
+  "tags": [
+   "amphibian",
+   "open-water",
+   "insect-eater"
+  ],
+  "meaning": "Small green tree frog of Iberia and south-west France; males call at night from ponds.",
+  "sources": [
+   {
+    "title": "Wikipedia: Hyla molleri",
+    "url": "https://en.wikipedia.org/wiki/Hyla_molleri"
+   },
+   {
+    "title": "Enciclopedia Virtual de los Vertebrados Españoles: Hyla molleri",
+    "url": "https://www.vertebradosibericos.org/anfibios/hylmol.html"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Hyla arborea",
+  "labelIdx": 5164,
+  "en": "European Tree Frog",
+  "tags": [
+   "amphibian",
+   "insect-eater",
+   "open-water"
+  ],
+  "meaning": "Small green frog that climbs in bushes and trees and calls loudly from ponds in spring.",
+  "sources": [
+   {
+    "title": "Wikipedia: Hyla arborea",
+    "url": "https://en.wikipedia.org/wiki/Hyla_arborea"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Hyla intermedia",
+  "labelIdx": 5167,
+  "en": "Italian Tree Frog",
+  "tags": [
+   "amphibian",
+   "insect-eater",
+   "open-water"
+  ],
+  "meaning": "Tree frog of Italy and nearby countries; males call near ponds in the breeding season, and it eats small insects such as flies.",
+  "sources": [
+   {
+    "title": "Wikipedia: Hyla intermedia",
+    "url": "https://en.wikipedia.org/wiki/Hyla_intermedia"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Bufo bufo",
+  "labelIdx": 1493,
+  "en": "Common Toad",
+  "tags": [
+   "amphibian",
+   "insect-eater",
+   "open-water"
+  ],
+  "meaning": "Returns each spring to breed in the same ponds, often crossing roads; eats insects, slugs and worms.",
+  "sources": [
+   {
+    "title": "Wikipedia: Bufo bufo",
+    "url": "https://en.wikipedia.org/wiki/Bufo_bufo"
+   },
+   {
+    "title": "Amphibian and Reptile Conservation Trust: Common toad",
+    "url": "https://www.arc-trust.org/common-toad"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Bufo spinosus",
+  "labelIdx": 1495,
+  "en": "Spiny Toad",
+  "tags": [
+   "amphibian",
+   "insect-eater",
+   "open-water",
+   "flowing-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Large toad that lives on land, even in towns, and visits ponds, rivers and streams mainly to breed; eats ants and other insects.",
+  "sources": [
+   {
+    "title": "Wikipedia: Bufo spinosus",
+    "url": "https://en.wikipedia.org/wiki/Bufo_spinosus"
+   },
+   {
+    "title": "Enciclopedia Virtual de los Vertebrados Españoles: Bufo spinosus",
+    "url": "https://www.vertebradosibericos.org/anfibios/bufspi.html"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Epidalea calamita",
+  "labelIdx": 1494,
+  "en": "Natterjack Toad",
+  "tags": [
+   "amphibian",
+   "open-water"
+  ],
+  "meaning": "Toad of sandy, open places that breeds in shallow, warm pools; males have a very loud call.",
+  "sources": [
+   {
+    "title": "Wikipedia: Epidalea calamita",
+    "url": "https://en.wikipedia.org/wiki/Epidalea_calamita"
+   },
+   {
+    "title": "Amphibian and Reptile Conservation Trust: Natterjack toad",
+    "url": "https://www.arc-trust.org/natterjack-toad"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Alytes obstetricans",
+  "labelIdx": 373,
+  "en": "Common Midwife Toad",
+  "tags": [
+   "amphibian"
+  ],
+  "meaning": "Males carry the eggs wrapped around their back and thighs until they are ready to hatch.",
+  "sources": [
+   {
+    "title": "Wikipedia: Alytes obstetricans",
+    "url": "https://en.wikipedia.org/wiki/Alytes_obstetricans"
+   },
+   {
+    "title": "Enciclopedia Virtual de los Vertebrados Españoles: Alytes obstetricans",
+    "url": "https://www.vertebradosibericos.org/anfibios/alyobs.html"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Pelophylax perezi",
+  "labelIdx": 7871,
+  "en": "Perez's Frog",
+  "tags": [
+   "amphibian",
+   "open-water",
+   "flowing-water"
+  ],
+  "meaning": "Common green frog of Iberia and southern France, found in almost any water, from rivers to ponds.",
+  "sources": [
+   {
+    "title": "Wikipedia: Pelophylax perezi",
+    "url": "https://en.wikipedia.org/wiki/Pelophylax_perezi"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Pelophylax ridibundus",
+  "labelIdx": 7873,
+  "en": "Marsh Frog",
+  "tags": [
+   "amphibian",
+   "open-water",
+   "flowing-water"
+  ],
+  "meaning": "Large green frog of deep ponds, lakes and rivers; highly adaptable, it even lives in fish ponds.",
+  "sources": [
+   {
+    "title": "Wikipedia: Pelophylax ridibundus",
+    "url": "https://en.wikipedia.org/wiki/Pelophylax_ridibundus"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Pelophylax lessonae",
+  "labelIdx": 7868,
+  "en": "Pool Frog",
+  "tags": [
+   "amphibian",
+   "open-water"
+  ],
+  "meaning": "Small green frog of shallow, still water such as ditches, ponds and lakes, often with dense vegetation.",
+  "sources": [
+   {
+    "title": "Wikipedia: Pelophylax lessonae",
+    "url": "https://en.wikipedia.org/wiki/Pelophylax_lessonae"
+   },
+   {
+    "title": "Amphibian and Reptile Conservation Trust: Pool frog",
+    "url": "https://www.arc-trust.org/pool-frog"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Pelophylax esculentus",
+  "labelIdx": 7867,
+  "en": "Edible Frog",
+  "tags": [
+   "amphibian"
+  ],
+  "meaning": "Green frog that arises from crosses between pool frogs and marsh frogs.",
+  "sources": [
+   {
+    "title": "Wikipedia: Pelophylax esculentus",
+    "url": "https://en.wikipedia.org/wiki/Pelophylax_esculentus"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Rana temporaria",
+  "labelIdx": 9455,
+  "en": "Common Frog",
+  "tags": [
+   "amphibian",
+   "insect-eater",
+   "open-water",
+   "urban-tolerant"
+  ],
+  "meaning": "Brown frog that breeds early in spring in ponds, including garden ponds; adults eat insects, slugs and worms.",
+  "sources": [
+   {
+    "title": "Wikipedia: Rana temporaria",
+    "url": "https://en.wikipedia.org/wiki/Rana_temporaria"
+   },
+   {
+    "title": "Amphibian and Reptile Conservation Trust: Common frog",
+    "url": "https://www.arc-trust.org/common-frog"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Rana dalmatina",
+  "labelIdx": 9454,
+  "en": "Agile Frog",
+  "tags": [
+   "amphibian",
+   "riparian-woodland"
+  ],
+  "meaning": "Long-legged brown frog of damp deciduous woods that breeds in ponds and ditches.",
+  "sources": [
+   {
+    "title": "Wikipedia: Rana dalmatina",
+    "url": "https://en.wikipedia.org/wiki/Rana_dalmatina"
+   }
+  ],
+  "needsReview": false
+ },
+ {
+  "sci": "Bufotes viridis",
+  "labelIdx": 1496,
+  "en": "European Green Toad",
+  "tags": [
+   "amphibian",
+   "urban-tolerant"
+  ],
+  "meaning": "Green-spotted toad of steppes, dry open land and even urban areas; it prefers warm summers.",
+  "sources": [
+   {
+    "title": "Wikipedia: Bufotes viridis",
+    "url": "https://en.wikipedia.org/wiki/Bufotes_viridis"
+   }
+  ],
+  "needsReview": false
+ }
+]

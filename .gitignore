@@ -45,3 +45,8 @@ npm-debug.log*
 /pipeline/.cache/
 __pycache__/
 *.f32
+
+# ─── Local agent tooling (installed by CLIs, not part of the app) ───
+/.agents/
+/.claude/skills/
+/skills-lock.json

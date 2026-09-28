@@ -32,7 +32,7 @@ export interface SnrBenchmark {
   nPositives?: number;
   bySnr?: Array<{ snrDb: number; n: number; recall03: number; recall05: number; meanP: number }>;
   bySpecies?: Array<{ sci: string; en: string; bySnr: Array<{ snrDb: number; n: number; recall03: number; recall05?: number; meanP?: number }> }>;
-  byAudibility?: Array<{ bin: string; n: number; recall03: number }>;
+  byAudibility?: Array<{ bin: string; lo: number | null; hi: number | null; n: number; recall03: number }>;
   falsePositiveRate03?: number;
   suggestedAudibilityThresholdDb?: number;
   noiseRecordings?: unknown[];
@@ -69,5 +69,11 @@ export function loadOahFindings(): OahFindings | null {
   return readJson<OahFindings | null>("benchmark/oah-findings.json", null);
 }
 
-/** Below this audibility, small-bird calls are often missed (see /evidence). */
-export const AUDIBILITY_THRESHOLD_DB: number = loadSnrBenchmark()?.suggestedAudibilityThresholdDb ?? 6;
+/**
+ * Below this audibility, quiet calls are often missed (see /evidence): the
+ * lowest audibility bin in which the benchmark still detected at least 80% of
+ * calls. Every bin under 10 dB recovered only 53–66%, so a 50% crossing
+ * would flag too little.
+ */
+export const AUDIBILITY_THRESHOLD_DB: number =
+  loadSnrBenchmark()?.byAudibility?.find((b) => b.lo != null && b.recall03 >= 0.8)?.lo ?? 10;

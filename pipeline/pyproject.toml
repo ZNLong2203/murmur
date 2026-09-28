@@ -1,0 +1,17 @@
+[project]
+name = "murmur-pipeline"
+version = "0.1.0"
+description = "Offline data pipeline for Murmur: OneAquaHealth API snapshot, BirdNET range lists, demo recordings and a noise-robustness benchmark."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0",
+    "onnxruntime>=1.20",
+    "requests>=2.32",
+]
+
+[tool.uv]
+# Not an installable package: run the steps from this directory with
+# `uv run python -m murmur_pipeline.<step>`.
+package = false

@@ -1,0 +1,1407 @@
+{
+ "model": "BirdNET+ V3.0 developer preview 3.1 (Global 11K, FP16 pruned ONNX)",
+ "createdAt": "2026-09-28T14:44:05Z",
+ "species": [
+  {
+   "sci": "Cinclus cinclus",
+   "en": "White-throated Dipper",
+   "labelIdx": 2465,
+   "nRecordings": 5,
+   "nPositives": 12
+  },
+  {
+   "sci": "Motacilla cinerea",
+   "en": "Grey Wagtail",
+   "labelIdx": 6680,
+   "nRecordings": 5,
+   "nPositives": 15
+  },
+  {
+   "sci": "Alcedo atthis",
+   "en": "Common Kingfisher",
+   "labelIdx": 294,
+   "nRecordings": 5,
+   "nPositives": 11
+  },
+  {
+   "sci": "Cettia cetti",
+   "en": "Cetti's Warbler",
+   "labelIdx": 2097,
+   "nRecordings": 5,
+   "nPositives": 7
+  },
+  {
+   "sci": "Troglodytes troglodytes",
+   "en": "Eurasian Wren",
+   "labelIdx": 11011,
+   "nRecordings": 5,
+   "nPositives": 11
+  },
+  {
+   "sci": "Luscinia megarhynchos",
+   "en": "Common Nightingale",
+   "labelIdx": 6041,
+   "nRecordings": 5,
+   "nPositives": 15
+  },
+  {
+   "sci": "Actitis hypoleucos",
+   "en": "Common Sandpiper",
+   "labelIdx": 140,
+   "nRecordings": 5,
+   "nPositives": 8
+  },
+  {
+   "sci": "Gallinula chloropus",
+   "en": "Common Moorhen",
+   "labelIdx": 4427,
+   "nRecordings": 5,
+   "nPositives": 13
+  },
+  {
+   "sci": "Phylloscopus collybita",
+   "en": "Common Chiffchaff",
+   "labelIdx": 8253,
+   "nRecordings": 5,
+   "nPositives": 14
+  },
+  {
+   "sci": "Sylvia atricapilla",
+   "en": "Eurasian Blackcap",
+   "labelIdx": 10392,
+   "nRecordings": 5,
+   "nPositives": 11
+  },
+  {
+   "sci": "Turdus merula",
+   "en": "Common Blackbird",
+   "labelIdx": 11103,
+   "nRecordings": 5,
+   "nPositives": 12
+  },
+  {
+   "sci": "Erithacus rubecula",
+   "en": "European Robin",
+   "labelIdx": 4005,
+   "nRecordings": 5,
+   "nPositives": 15
+  },
+  {
+   "sci": "Hyla arborea",
+   "en": "European Tree Frog",
+   "labelIdx": 5164,
+   "nRecordings": 5,
+   "nPositives": 10
+  },
+  {
+   "sci": "Epidalea calamita",
+   "en": "Natterjack Toad",
+   "labelIdx": 1494,
+   "nRecordings": 5,
+   "nPositives": 13
+  }
+ ],
+ "nPositives": 167,
+ "nMixtures": 1002,
+ "snrDefinition": "20*log10(rms(clean 3 s window) / rms(scaled noise 3 s window)); mixture = sum, rescaled to peak 0.99 only if it would clip",
+ "noiseRecordings": [
+  {
+   "file": "Rivernoise.ogg",
+   "recordist": "Secretlondon",
+   "license": "CC BY-SA 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Rivernoise.ogg",
+   "nWindows": 9,
+   "nWindowsKept": 9,
+   "nWindowsFalsePositive03": 0
+  },
+  {
+   "file": "Sound Effects - The sound of a small stream.ogg",
+   "recordist": "Amada44",
+   "license": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Sound_Effects_-_The_sound_of_a_small_stream.ogg",
+   "nWindows": 10,
+   "nWindowsKept": 10,
+   "nWindowsFalsePositive03": 0
+  },
+  {
+   "file": "Shallow small river with stony riverbed.ogg",
+   "recordist": "stephan",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Shallow_small_river_with_stony_riverbed.ogg",
+   "nWindows": 5,
+   "nWindowsKept": 5,
+   "nWindowsFalsePositive03": 0
+  },
+  {
+   "file": "Welling rivulet in the woods.ogg",
+   "recordist": "stephan",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Welling_rivulet_in_the_woods.ogg",
+   "nWindows": 3,
+   "nWindowsKept": 3,
+   "nWindowsFalsePositive03": 0
+  },
+  {
+   "file": "Freiburger Bächle.mp3",
+   "recordist": "Andreas Schwarzkopf",
+   "license": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Freiburger_B%C3%A4chle.mp3",
+   "nWindows": 22,
+   "nWindowsKept": 22,
+   "nWindowsFalsePositive03": 0
+  },
+  {
+   "file": "Vojníkov, 3. jez, středa.ogg",
+   "recordist": "Juandev",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Vojn%C3%ADkov,_3._jez,_st%C5%99eda.ogg",
+   "nWindows": 40,
+   "nWindowsKept": 39,
+   "nWindowsFalsePositive03": 1
+  }
+ ],
+ "bySnr": [
+  {
+   "snrDb": 10,
+   "n": 167,
+   "recall03": 0.946,
+   "recall05": 0.91,
+   "meanP": 0.809
+  },
+  {
+   "snrDb": 5,
+   "n": 167,
+   "recall03": 0.916,
+   "recall05": 0.88,
+   "meanP": 0.764
+  },
+  {
+   "snrDb": 0,
+   "n": 167,
+   "recall03": 0.844,
+   "recall05": 0.76,
+   "meanP": 0.681
+  },
+  {
+   "snrDb": -5,
+   "n": 167,
+   "recall03": 0.743,
+   "recall05": 0.641,
+   "meanP": 0.583
+  },
+  {
+   "snrDb": -10,
+   "n": 167,
+   "recall03": 0.569,
+   "recall05": 0.479,
+   "meanP": 0.443
+  },
+  {
+   "snrDb": -15,
+   "n": 167,
+   "recall03": 0.347,
+   "recall05": 0.275,
+   "meanP": 0.262
+  }
+ ],
+ "bySpecies": [
+  {
+   "sci": "Cinclus cinclus",
+   "en": "White-throated Dipper",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 12,
+     "recall03": 1.0,
+     "recall05": 0.917,
+     "meanP": 0.767
+    },
+    {
+     "snrDb": 5,
+     "n": 12,
+     "recall03": 1.0,
+     "recall05": 0.917,
+     "meanP": 0.756
+    },
+    {
+     "snrDb": 0,
+     "n": 12,
+     "recall03": 0.917,
+     "recall05": 0.667,
+     "meanP": 0.616
+    },
+    {
+     "snrDb": -5,
+     "n": 12,
+     "recall03": 0.667,
+     "recall05": 0.5,
+     "meanP": 0.461
+    },
+    {
+     "snrDb": -10,
+     "n": 12,
+     "recall03": 0.333,
+     "recall05": 0.25,
+     "meanP": 0.257
+    },
+    {
+     "snrDb": -15,
+     "n": 12,
+     "recall03": 0.333,
+     "recall05": 0.167,
+     "meanP": 0.191
+    }
+   ]
+  },
+  {
+   "sci": "Motacilla cinerea",
+   "en": "Grey Wagtail",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 15,
+     "recall03": 0.867,
+     "recall05": 0.867,
+     "meanP": 0.79
+    },
+    {
+     "snrDb": 5,
+     "n": 15,
+     "recall03": 0.867,
+     "recall05": 0.867,
+     "meanP": 0.758
+    },
+    {
+     "snrDb": 0,
+     "n": 15,
+     "recall03": 0.8,
+     "recall05": 0.8,
+     "meanP": 0.704
+    },
+    {
+     "snrDb": -5,
+     "n": 15,
+     "recall03": 0.733,
+     "recall05": 0.667,
+     "meanP": 0.63
+    },
+    {
+     "snrDb": -10,
+     "n": 15,
+     "recall03": 0.667,
+     "recall05": 0.667,
+     "meanP": 0.572
+    },
+    {
+     "snrDb": -15,
+     "n": 15,
+     "recall03": 0.667,
+     "recall05": 0.667,
+     "meanP": 0.529
+    }
+   ]
+  },
+  {
+   "sci": "Alcedo atthis",
+   "en": "Common Kingfisher",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 11,
+     "recall03": 0.727,
+     "recall05": 0.636,
+     "meanP": 0.612
+    },
+    {
+     "snrDb": 5,
+     "n": 11,
+     "recall03": 0.636,
+     "recall05": 0.636,
+     "meanP": 0.508
+    },
+    {
+     "snrDb": 0,
+     "n": 11,
+     "recall03": 0.545,
+     "recall05": 0.364,
+     "meanP": 0.373
+    },
+    {
+     "snrDb": -5,
+     "n": 11,
+     "recall03": 0.364,
+     "recall05": 0.273,
+     "meanP": 0.283
+    },
+    {
+     "snrDb": -10,
+     "n": 11,
+     "recall03": 0.364,
+     "recall05": 0.273,
+     "meanP": 0.275
+    },
+    {
+     "snrDb": -15,
+     "n": 11,
+     "recall03": 0.273,
+     "recall05": 0.182,
+     "meanP": 0.199
+    }
+   ]
+  },
+  {
+   "sci": "Cettia cetti",
+   "en": "Cetti's Warbler",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 7,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.893
+    },
+    {
+     "snrDb": 5,
+     "n": 7,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.871
+    },
+    {
+     "snrDb": 0,
+     "n": 7,
+     "recall03": 1.0,
+     "recall05": 0.857,
+     "meanP": 0.856
+    },
+    {
+     "snrDb": -5,
+     "n": 7,
+     "recall03": 1.0,
+     "recall05": 0.857,
+     "meanP": 0.846
+    },
+    {
+     "snrDb": -10,
+     "n": 7,
+     "recall03": 0.714,
+     "recall05": 0.714,
+     "meanP": 0.677
+    },
+    {
+     "snrDb": -15,
+     "n": 7,
+     "recall03": 0.429,
+     "recall05": 0.429,
+     "meanP": 0.407
+    }
+   ]
+  },
+  {
+   "sci": "Troglodytes troglodytes",
+   "en": "Eurasian Wren",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 11,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.887
+    },
+    {
+     "snrDb": 5,
+     "n": 11,
+     "recall03": 0.909,
+     "recall05": 0.909,
+     "meanP": 0.802
+    },
+    {
+     "snrDb": 0,
+     "n": 11,
+     "recall03": 0.909,
+     "recall05": 0.818,
+     "meanP": 0.753
+    },
+    {
+     "snrDb": -5,
+     "n": 11,
+     "recall03": 0.818,
+     "recall05": 0.818,
+     "meanP": 0.739
+    },
+    {
+     "snrDb": -10,
+     "n": 11,
+     "recall03": 0.818,
+     "recall05": 0.818,
+     "meanP": 0.683
+    },
+    {
+     "snrDb": -15,
+     "n": 11,
+     "recall03": 0.455,
+     "recall05": 0.364,
+     "meanP": 0.367
+    }
+   ]
+  },
+  {
+   "sci": "Luscinia megarhynchos",
+   "en": "Common Nightingale",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 15,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.889
+    },
+    {
+     "snrDb": 5,
+     "n": 15,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.883
+    },
+    {
+     "snrDb": 0,
+     "n": 15,
+     "recall03": 0.933,
+     "recall05": 0.867,
+     "meanP": 0.794
+    },
+    {
+     "snrDb": -5,
+     "n": 15,
+     "recall03": 0.8,
+     "recall05": 0.6,
+     "meanP": 0.568
+    },
+    {
+     "snrDb": -10,
+     "n": 15,
+     "recall03": 0.467,
+     "recall05": 0.333,
+     "meanP": 0.334
+    },
+    {
+     "snrDb": -15,
+     "n": 15,
+     "recall03": 0.2,
+     "recall05": 0.133,
+     "meanP": 0.154
+    }
+   ]
+  },
+  {
+   "sci": "Actitis hypoleucos",
+   "en": "Common Sandpiper",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 8,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.914
+    },
+    {
+     "snrDb": 5,
+     "n": 8,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.886
+    },
+    {
+     "snrDb": 0,
+     "n": 8,
+     "recall03": 0.875,
+     "recall05": 0.75,
+     "meanP": 0.75
+    },
+    {
+     "snrDb": -5,
+     "n": 8,
+     "recall03": 0.625,
+     "recall05": 0.375,
+     "meanP": 0.448
+    },
+    {
+     "snrDb": -10,
+     "n": 8,
+     "recall03": 0.25,
+     "recall05": 0.25,
+     "meanP": 0.304
+    },
+    {
+     "snrDb": -15,
+     "n": 8,
+     "recall03": 0.375,
+     "recall05": 0.25,
+     "meanP": 0.294
+    }
+   ]
+  },
+  {
+   "sci": "Gallinula chloropus",
+   "en": "Common Moorhen",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 13,
+     "recall03": 0.923,
+     "recall05": 0.923,
+     "meanP": 0.839
+    },
+    {
+     "snrDb": 5,
+     "n": 13,
+     "recall03": 0.923,
+     "recall05": 0.923,
+     "meanP": 0.829
+    },
+    {
+     "snrDb": 0,
+     "n": 13,
+     "recall03": 0.769,
+     "recall05": 0.769,
+     "meanP": 0.736
+    },
+    {
+     "snrDb": -5,
+     "n": 13,
+     "recall03": 0.692,
+     "recall05": 0.692,
+     "meanP": 0.637
+    },
+    {
+     "snrDb": -10,
+     "n": 13,
+     "recall03": 0.538,
+     "recall05": 0.538,
+     "meanP": 0.427
+    },
+    {
+     "snrDb": -15,
+     "n": 13,
+     "recall03": 0.385,
+     "recall05": 0.308,
+     "meanP": 0.236
+    }
+   ]
+  },
+  {
+   "sci": "Phylloscopus collybita",
+   "en": "Common Chiffchaff",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 14,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.891
+    },
+    {
+     "snrDb": 5,
+     "n": 14,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.858
+    },
+    {
+     "snrDb": 0,
+     "n": 14,
+     "recall03": 1.0,
+     "recall05": 0.929,
+     "meanP": 0.807
+    },
+    {
+     "snrDb": -5,
+     "n": 14,
+     "recall03": 0.929,
+     "recall05": 0.929,
+     "meanP": 0.767
+    },
+    {
+     "snrDb": -10,
+     "n": 14,
+     "recall03": 0.786,
+     "recall05": 0.786,
+     "meanP": 0.678
+    },
+    {
+     "snrDb": -15,
+     "n": 14,
+     "recall03": 0.571,
+     "recall05": 0.5,
+     "meanP": 0.414
+    }
+   ]
+  },
+  {
+   "sci": "Sylvia atricapilla",
+   "en": "Eurasian Blackcap",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 11,
+     "recall03": 1.0,
+     "recall05": 0.909,
+     "meanP": 0.828
+    },
+    {
+     "snrDb": 5,
+     "n": 11,
+     "recall03": 0.818,
+     "recall05": 0.727,
+     "meanP": 0.717
+    },
+    {
+     "snrDb": 0,
+     "n": 11,
+     "recall03": 0.818,
+     "recall05": 0.727,
+     "meanP": 0.66
+    },
+    {
+     "snrDb": -5,
+     "n": 11,
+     "recall03": 0.636,
+     "recall05": 0.545,
+     "meanP": 0.521
+    },
+    {
+     "snrDb": -10,
+     "n": 11,
+     "recall03": 0.364,
+     "recall05": 0.273,
+     "meanP": 0.312
+    },
+    {
+     "snrDb": -15,
+     "n": 11,
+     "recall03": 0.273,
+     "recall05": 0.182,
+     "meanP": 0.186
+    }
+   ]
+  },
+  {
+   "sci": "Turdus merula",
+   "en": "Common Blackbird",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 12,
+     "recall03": 0.917,
+     "recall05": 0.917,
+     "meanP": 0.792
+    },
+    {
+     "snrDb": 5,
+     "n": 12,
+     "recall03": 0.917,
+     "recall05": 0.75,
+     "meanP": 0.738
+    },
+    {
+     "snrDb": 0,
+     "n": 12,
+     "recall03": 0.833,
+     "recall05": 0.75,
+     "meanP": 0.66
+    },
+    {
+     "snrDb": -5,
+     "n": 12,
+     "recall03": 0.833,
+     "recall05": 0.5,
+     "meanP": 0.578
+    },
+    {
+     "snrDb": -10,
+     "n": 12,
+     "recall03": 0.583,
+     "recall05": 0.417,
+     "meanP": 0.425
+    },
+    {
+     "snrDb": -15,
+     "n": 12,
+     "recall03": 0.333,
+     "recall05": 0.25,
+     "meanP": 0.233
+    }
+   ]
+  },
+  {
+   "sci": "Erithacus rubecula",
+   "en": "European Robin",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 15,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.852
+    },
+    {
+     "snrDb": 5,
+     "n": 15,
+     "recall03": 1.0,
+     "recall05": 0.933,
+     "meanP": 0.798
+    },
+    {
+     "snrDb": 0,
+     "n": 15,
+     "recall03": 0.867,
+     "recall05": 0.8,
+     "meanP": 0.67
+    },
+    {
+     "snrDb": -5,
+     "n": 15,
+     "recall03": 0.8,
+     "recall05": 0.8,
+     "meanP": 0.625
+    },
+    {
+     "snrDb": -10,
+     "n": 15,
+     "recall03": 0.733,
+     "recall05": 0.733,
+     "meanP": 0.53
+    },
+    {
+     "snrDb": -15,
+     "n": 15,
+     "recall03": 0.4,
+     "recall05": 0.333,
+     "meanP": 0.303
+    }
+   ]
+  },
+  {
+   "sci": "Hyla arborea",
+   "en": "European Tree Frog",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 10,
+     "recall03": 0.8,
+     "recall05": 0.5,
+     "meanP": 0.526
+    },
+    {
+     "snrDb": 5,
+     "n": 10,
+     "recall03": 0.7,
+     "recall05": 0.7,
+     "meanP": 0.495
+    },
+    {
+     "snrDb": 0,
+     "n": 10,
+     "recall03": 0.6,
+     "recall05": 0.5,
+     "meanP": 0.435
+    },
+    {
+     "snrDb": -5,
+     "n": 10,
+     "recall03": 0.5,
+     "recall05": 0.3,
+     "meanP": 0.373
+    },
+    {
+     "snrDb": -10,
+     "n": 10,
+     "recall03": 0.6,
+     "recall05": 0.1,
+     "meanP": 0.315
+    },
+    {
+     "snrDb": -15,
+     "n": 10,
+     "recall03": 0.1,
+     "recall05": 0.0,
+     "meanP": 0.093
+    }
+   ]
+  },
+  {
+   "sci": "Epidalea calamita",
+   "en": "Natterjack Toad",
+   "bySnr": [
+    {
+     "snrDb": 10,
+     "n": 13,
+     "recall03": 1.0,
+     "recall05": 1.0,
+     "meanP": 0.822
+    },
+    {
+     "snrDb": 5,
+     "n": 13,
+     "recall03": 1.0,
+     "recall05": 0.923,
+     "meanP": 0.762
+    },
+    {
+     "snrDb": 0,
+     "n": 13,
+     "recall03": 0.923,
+     "recall05": 0.923,
+     "meanP": 0.699
+    },
+    {
+     "snrDb": -5,
+     "n": 13,
+     "recall03": 0.923,
+     "recall05": 0.923,
+     "meanP": 0.642
+    },
+    {
+     "snrDb": -10,
+     "n": 13,
+     "recall03": 0.615,
+     "recall05": 0.385,
+     "meanP": 0.378
+    },
+    {
+     "snrDb": -15,
+     "n": 13,
+     "recall03": 0.0,
+     "recall05": 0.0,
+     "meanP": 0.05
+    }
+   ]
+  }
+ ],
+ "byAudibility": [
+  {
+   "bin": "<3",
+   "lo": null,
+   "hi": 3,
+   "n": 41,
+   "recall03": 0.659
+  },
+  {
+   "bin": "3-6",
+   "lo": 3,
+   "hi": 6,
+   "n": 109,
+   "recall03": 0.532
+  },
+  {
+   "bin": "6-10",
+   "lo": 6,
+   "hi": 10,
+   "n": 397,
+   "recall03": 0.602
+  },
+  {
+   "bin": "10-15",
+   "lo": 10,
+   "hi": 15,
+   "n": 251,
+   "recall03": 0.821
+  },
+  {
+   "bin": ">=15",
+   "lo": 15,
+   "hi": null,
+   "n": 204,
+   "recall03": 0.975
+  }
+ ],
+ "audibilityMethod": "STFT n_fft=1024, hop=512, periodic Hann, frames at 0,512,... (full frames only, no padding); E = sum |X|^2 for 2000 <= f < 8000 Hz; E_db = 10 log10(E + 1e-12); audibilityDb = P95(E_db) - P20(E_db), numpy linear percentiles",
+ "audibilityTestVectors": [
+  {
+   "name": "sine4k",
+   "definition": "x[n] = 0.5*sin(2*pi*4000*n/32000), n = 0..95999",
+   "audibilityDb": 0.0
+  },
+  {
+   "name": "sine1k",
+   "definition": "x[n] = 0.5*sin(2*pi*1000*n/32000) (outside the band)",
+   "audibilityDb": 0.0
+  },
+  {
+   "name": "pulsed4k",
+   "definition": "sine4k where (n mod 16000) < 3200, else 0 (silent frames hit the 1e-12 floor)",
+   "audibilityDb": 163.9051
+  },
+  {
+   "name": "ramp4k",
+   "definition": "sine4k * n/96000 (linear fade-in)",
+   "audibilityDb": 13.3513
+  }
+ ],
+ "audibilityCleanMedianDb": 23.21,
+ "audibilityNoiseOnlyMedianDb": 7.29,
+ "logistic50Db": 4.99,
+ "falsePositiveRate03": 0.0112,
+ "falsePositiveDefinition": "share of all noise-only 3 s windows in which any species on the union of the five OAH cities' year-round range lists has p >= 0.3",
+ "nNoiseWindows": 89,
+ "suggestedAudibilityThresholdDb": 5.0,
+ "suggestedAudibilityThresholdMethod": "no audibility bin fell below 50% recall, so the audibility at which a logistic fit of P(target p >= 0.3) crosses 50% is used",
+ "credits": [
+  {
+   "file": "XC1089855 (Cinclus cinclus)",
+   "recordist": "Aku Kalliomäki",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1089855"
+  },
+  {
+   "file": "XC1086333 (Cinclus cinclus)",
+   "recordist": "Dag Österlund",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1086333"
+  },
+  {
+   "file": "XC1080707 (Cinclus cinclus)",
+   "recordist": "Marketa Rusarova",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1080707"
+  },
+  {
+   "file": "XC1075361 (Cinclus cinclus)",
+   "recordist": "Olivier SWIFT",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1075361"
+  },
+  {
+   "file": "XC1059402 (Cinclus cinclus)",
+   "recordist": "Igor Kim",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1059402"
+  },
+  {
+   "file": "XC1139179 (Motacilla cinerea)",
+   "recordist": "bert de bruin",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139179"
+  },
+  {
+   "file": "XC1120701 (Motacilla cinerea)",
+   "recordist": "David Darrell-Lambert",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1120701"
+  },
+  {
+   "file": "XC1120700 (Motacilla cinerea)",
+   "recordist": "David Darrell-Lambert",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1120700"
+  },
+  {
+   "file": "XC1120699 (Motacilla cinerea)",
+   "recordist": "David Darrell-Lambert",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1120699"
+  },
+  {
+   "file": "XC1107864 (Motacilla cinerea)",
+   "recordist": "Ian Roberts",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1107864"
+  },
+  {
+   "file": "XC1137043 (Alcedo atthis)",
+   "recordist": "Jocce Ekstrom",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1137043"
+  },
+  {
+   "file": "XC1133062 (Alcedo atthis)",
+   "recordist": "Adrien Peillon",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1133062"
+  },
+  {
+   "file": "XC1133061 (Alcedo atthis)",
+   "recordist": "Adrien Peillon",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1133061"
+  },
+  {
+   "file": "XC1133055 (Alcedo atthis)",
+   "recordist": "Adrien Peillon",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1133055"
+  },
+  {
+   "file": "XC1103843 (Alcedo atthis)",
+   "recordist": "Cedric Mroczko",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1103843"
+  },
+  {
+   "file": "XC1136059 (Cettia cetti)",
+   "recordist": "Paul van Nuys",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1136059"
+  },
+  {
+   "file": "XC1136040 (Cettia cetti)",
+   "recordist": "Paul van Nuys",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1136040"
+  },
+  {
+   "file": "XC1135841 (Cettia cetti)",
+   "recordist": "Harry Hussey",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1135841"
+  },
+  {
+   "file": "XC1135421 (Cettia cetti)",
+   "recordist": "David Darrell-Lambert",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1135421"
+  },
+  {
+   "file": "XC1106315 (Cettia cetti)",
+   "recordist": "Harry Hussey",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1106315"
+  },
+  {
+   "file": "XC1140320 (Troglodytes troglodytes)",
+   "recordist": "Walter Wallner",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1140320"
+  },
+  {
+   "file": "XC1137509 (Troglodytes troglodytes)",
+   "recordist": "Walter Wallner",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1137509"
+  },
+  {
+   "file": "XC1136892 (Troglodytes troglodytes)",
+   "recordist": "Walter Wallner",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1136892"
+  },
+  {
+   "file": "XC1135240 (Troglodytes troglodytes)",
+   "recordist": "Bert Verboog",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1135240"
+  },
+  {
+   "file": "XC1135232 (Troglodytes troglodytes)",
+   "recordist": "David Darrell-Lambert",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1135232"
+  },
+  {
+   "file": "XC1141465 (Luscinia megarhynchos)",
+   "recordist": "Pablo Guillemaud",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1141465"
+  },
+  {
+   "file": "XC1141464 (Luscinia megarhynchos)",
+   "recordist": "Pablo Guillemaud",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1141464"
+  },
+  {
+   "file": "XC1139821 (Luscinia megarhynchos)",
+   "recordist": "Walter Wallner",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139821"
+  },
+  {
+   "file": "XC1139492 (Luscinia megarhynchos)",
+   "recordist": "Dan Persson",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139492"
+  },
+  {
+   "file": "XC1136058 (Luscinia megarhynchos)",
+   "recordist": "Paul van Nuys",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1136058"
+  },
+  {
+   "file": "XC1141546 (Actitis hypoleucos)",
+   "recordist": "Mark James Pearson",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1141546"
+  },
+  {
+   "file": "XC1138966 (Actitis hypoleucos)",
+   "recordist": "Stef van Zimmeren",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138966"
+  },
+  {
+   "file": "XC1138444 (Actitis hypoleucos)",
+   "recordist": "Dimitri",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138444"
+  },
+  {
+   "file": "XC1136035 (Actitis hypoleucos)",
+   "recordist": "Paul van Nuys",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1136035"
+  },
+  {
+   "file": "XC1135783 (Actitis hypoleucos)",
+   "recordist": "Samuel RAUBER",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1135783"
+  },
+  {
+   "file": "XC1139816 (Gallinula chloropus)",
+   "recordist": "Daniel Goris",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139816"
+  },
+  {
+   "file": "XC1138903 (Gallinula chloropus)",
+   "recordist": "Michael John O Mahony",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138903"
+  },
+  {
+   "file": "XC1138684 (Gallinula chloropus)",
+   "recordist": "Robin Gailly",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138684"
+  },
+  {
+   "file": "XC1138665 (Gallinula chloropus)",
+   "recordist": "S Hares",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138665"
+  },
+  {
+   "file": "XC1138436 (Gallinula chloropus)",
+   "recordist": "Dimitri",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138436"
+  },
+  {
+   "file": "XC1102084 (Phylloscopus collybita)",
+   "recordist": "Steven Heywood",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1102084"
+  },
+  {
+   "file": "XC1101993 (Phylloscopus collybita)",
+   "recordist": "Ingemar Gard",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101993"
+  },
+  {
+   "file": "XC1101902 (Phylloscopus collybita)",
+   "recordist": "David Gustafsson",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101902"
+  },
+  {
+   "file": "XC1101849 (Phylloscopus collybita)",
+   "recordist": "Marketa Rusarova",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101849"
+  },
+  {
+   "file": "XC1101717 (Phylloscopus collybita)",
+   "recordist": "Tony Rinaud",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101717"
+  },
+  {
+   "file": "XC1141748 (Sylvia atricapilla)",
+   "recordist": "András Schmidt",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1141748"
+  },
+  {
+   "file": "XC1141354 (Sylvia atricapilla)",
+   "recordist": "Philippe_Grange",
+   "license": "CC0 1.0",
+   "url": "https://xeno-canto.org/1141354"
+  },
+  {
+   "file": "XC1140139 (Sylvia atricapilla)",
+   "recordist": "Noah Telang",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1140139"
+  },
+  {
+   "file": "XC1139892 (Sylvia atricapilla)",
+   "recordist": "Sean Collins",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139892"
+  },
+  {
+   "file": "XC1138561 (Sylvia atricapilla)",
+   "recordist": "László Szemán",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138561"
+  },
+  {
+   "file": "XC1141342 (Turdus merula)",
+   "recordist": "Philippe_Grange",
+   "license": "CC0 1.0",
+   "url": "https://xeno-canto.org/1141342"
+  },
+  {
+   "file": "XC1139524 (Turdus merula)",
+   "recordist": "Adrien Peillon",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139524"
+  },
+  {
+   "file": "XC1139342 (Turdus merula)",
+   "recordist": "Clement Bruneau",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139342"
+  },
+  {
+   "file": "XC1139339 (Turdus merula)",
+   "recordist": "Clement Bruneau",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139339"
+  },
+  {
+   "file": "XC1139235 (Turdus merula)",
+   "recordist": "Lacour Fabrice",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1139235"
+  },
+  {
+   "file": "XC1102058 (Erithacus rubecula)",
+   "recordist": "Colm Philpott",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1102058"
+  },
+  {
+   "file": "XC1101959 (Erithacus rubecula)",
+   "recordist": "Marketa Rusarova",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101959"
+  },
+  {
+   "file": "XC1101957 (Erithacus rubecula)",
+   "recordist": "Marketa Rusarova",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101957"
+  },
+  {
+   "file": "XC1101955 (Erithacus rubecula)",
+   "recordist": "Marketa Rusarova",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101955"
+  },
+  {
+   "file": "XC1100872 (Erithacus rubecula)",
+   "recordist": "Cedric Mroczko",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1100872"
+  },
+  {
+   "file": "XC1138661 (Hyla arborea)",
+   "recordist": "Olivier SWIFT",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1138661"
+  },
+  {
+   "file": "XC1134909 (Hyla arborea)",
+   "recordist": "Stanislas Wroza",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1134909"
+  },
+  {
+   "file": "XC1134158 (Hyla arborea)",
+   "recordist": "András Schmidt",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1134158"
+  },
+  {
+   "file": "XC1101834 (Hyla arborea)",
+   "recordist": "Lionel FREDERIC",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1101834"
+  },
+  {
+   "file": "XC1099397 (Hyla arborea)",
+   "recordist": "Henning Pehlemann",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1099397"
+  },
+  {
+   "file": "XC1140121 (Epidalea calamita)",
+   "recordist": "Lars Burnus",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1140121"
+  },
+  {
+   "file": "XC1106303 (Epidalea calamita)",
+   "recordist": "Alain Malengreau",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1106303"
+  },
+  {
+   "file": "XC1106201 (Epidalea calamita)",
+   "recordist": "Andre Eden",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1106201"
+  },
+  {
+   "file": "XC1105920 (Epidalea calamita)",
+   "recordist": "Thierry THOMAS",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1105920"
+  },
+  {
+   "file": "XC1105919 (Epidalea calamita)",
+   "recordist": "Thierry THOMAS",
+   "license": "CC BY-NC-SA 4.0",
+   "url": "https://xeno-canto.org/1105919"
+  },
+  {
+   "file": "Rivernoise.ogg",
+   "recordist": "Secretlondon",
+   "license": "CC BY-SA 3.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Rivernoise.ogg"
+  },
+  {
+   "file": "Sound Effects - The sound of a small stream.ogg",
+   "recordist": "Amada44",
+   "license": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Sound_Effects_-_The_sound_of_a_small_stream.ogg"
+  },
+  {
+   "file": "Shallow small river with stony riverbed.ogg",
+   "recordist": "stephan",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Shallow_small_river_with_stony_riverbed.ogg"
+  },
+  {
+   "file": "Welling rivulet in the woods.ogg",
+   "recordist": "stephan",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Welling_rivulet_in_the_woods.ogg"
+  },
+  {
+   "file": "Freiburger Bächle.mp3",
+   "recordist": "Andreas Schwarzkopf",
+   "license": "CC BY-SA 4.0",
+   "url": "https://commons.wikimedia.org/wiki/File:Freiburger_B%C3%A4chle.mp3"
+  },
+  {
+   "file": "Vojníkov, 3. jez, středa.ogg",
+   "recordist": "Juandev",
+   "license": "Public domain",
+   "url": "https://commons.wikimedia.org/wiki/File:Vojn%C3%ADkov,_3._jez,_st%C5%99eda.ogg"
+  }
+ ]
+}
