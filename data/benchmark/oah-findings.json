@@ -1,0 +1,25 @@
+{
+ "createdAt": "2026-09-28T14:09:18.556Z",
+ "source": "OneAquaHealth public API snapshot (data/oah) + ERA5 reanalysis via the Open-Meteo archive API",
+ "samples": 96,
+ "sampledAfterThreeDryDays": 90,
+ "dryDefinition": "less than 5 mm of rain in the 3 days before the sampling day",
+ "correlations": [
+  {
+   "what": "Pathogen risk vs distance to the nearest sewage works",
+   "rho": -0.35,
+   "n": 96
+  },
+  {
+   "what": "Pathogen risk vs maximum temperature on the sampling day",
+   "rho": 0.43,
+   "n": 96
+  },
+  {
+   "what": "Faecal risk vs rain in the 3 days before sampling",
+   "rho": 0.01,
+   "n": 96
+  }
+ ],
+ "note": "Single samples per site, pooled across five cities: associations, not causes. City differences (climate, sewer systems) are confounders."
+}

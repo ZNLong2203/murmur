@@ -1,0 +1,124 @@
+{
+ "createdAt": "2026-09-28T14:10:22.163Z",
+ "method": "Browser: decodeAudioData + OfflineAudioContext resampling to 32 kHz, onnxruntime-web WASM. Reference: ffmpeg resampling, onnxruntime CPU. Same model file, range filter and 0.25 threshold.",
+ "recordings": 10,
+ "pooledJaccard": 0.875,
+ "results": [
+  {
+   "id": "co-xc785865",
+   "browser": 5,
+   "offline": 5,
+   "shared": 5,
+   "jaccard": 1,
+   "meanAbsScoreDiff": 0.019400000000000018,
+   "onlyBrowser": [],
+   "onlyOffline": []
+  },
+  {
+   "id": "co-xc771864",
+   "browser": 6,
+   "offline": 6,
+   "shared": 6,
+   "jaccard": 1,
+   "meanAbsScoreDiff": 0.015666666666666672,
+   "onlyBrowser": [],
+   "onlyOffline": []
+  },
+  {
+   "id": "to-xc1018292",
+   "browser": 11,
+   "offline": 12,
+   "shared": 11,
+   "jaccard": 0.9166666666666666,
+   "meanAbsScoreDiff": 0.047000000000000014,
+   "onlyBrowser": [],
+   "onlyOffline": [
+    6036
+   ]
+  },
+  {
+   "id": "to-xc1090129",
+   "browser": 16,
+   "offline": 15,
+   "shared": 14,
+   "jaccard": 0.8235294117647058,
+   "meanAbsScoreDiff": 0.05014285714285712,
+   "onlyBrowser": [
+    11120,
+    1523
+   ],
+   "onlyOffline": [
+    11011
+   ]
+  },
+  {
+   "id": "gh-xc371673",
+   "browser": 7,
+   "offline": 7,
+   "shared": 7,
+   "jaccard": 1,
+   "meanAbsScoreDiff": 0.045142857142857144,
+   "onlyBrowser": [],
+   "onlyOffline": []
+  },
+  {
+   "id": "gh-xc509476",
+   "browser": 3,
+   "offline": 4,
+   "shared": 3,
+   "jaccard": 0.75,
+   "meanAbsScoreDiff": 0.11133333333333334,
+   "onlyBrowser": [],
+   "onlyOffline": [
+    2097
+   ]
+  },
+  {
+   "id": "be-xc729283",
+   "browser": 5,
+   "offline": 4,
+   "shared": 4,
+   "jaccard": 0.8,
+   "meanAbsScoreDiff": 0.06775,
+   "onlyBrowser": [
+    3877
+   ],
+   "onlyOffline": []
+  },
+  {
+   "id": "be-xc362572",
+   "browser": 7,
+   "offline": 7,
+   "shared": 7,
+   "jaccard": 1,
+   "meanAbsScoreDiff": 0.010714285714285723,
+   "onlyBrowser": [],
+   "onlyOffline": []
+  },
+  {
+   "id": "os-xc906543",
+   "browser": 4,
+   "offline": 5,
+   "shared": 3,
+   "jaccard": 0.5,
+   "meanAbsScoreDiff": 0.043333333333333335,
+   "onlyBrowser": [
+    4005
+   ],
+   "onlyOffline": [
+    11089,
+    140
+   ]
+  },
+  {
+   "id": "os-xc411156",
+   "browser": 3,
+   "offline": 3,
+   "shared": 3,
+   "jaccard": 1,
+   "meanAbsScoreDiff": 0.01733333333333333,
+   "onlyBrowser": [],
+   "onlyOffline": []
+  }
+ ]
+}

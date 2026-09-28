@@ -24,9 +24,49 @@ export function loadGbifKeys(): { source?: string; byLabelIdx: Record<string, { 
   return readJson("data/species/gbif.json", { byLabelIdx: {} });
 }
 
-interface Benchmark {
+export interface SnrBenchmark {
+  model?: string;
+  createdAt?: string;
+  species?: string[];
+  nPositives?: number;
+  bySnr?: Array<{ snrDb: number; n: number; recall03: number; recall05: number; meanP: number }>;
+  bySpecies?: Array<{ sci: string; en: string; bySnr: Array<{ snrDb: number; n: number; recall03: number; recall05?: number; meanP?: number }> }>;
+  byAudibility?: Array<{ bin: string; n: number; recall03: number }>;
+  falsePositiveRate03?: number;
   suggestedAudibilityThresholdDb?: number;
+  noiseRecordings?: unknown[];
+  credits?: Array<{ file: string; recordist: string; license: string; url: string }>;
+}
+
+export function loadSnrBenchmark(): SnrBenchmark | null {
+  return readJson<SnrBenchmark | null>("data/benchmark/snr.json", null);
+}
+
+export interface ParityReport {
+  createdAt: string;
+  method: string;
+  recordings: number;
+  pooledJaccard: number;
+  results: Array<{ id: string; browser: number; offline: number; shared: number; jaccard: number; meanAbsScoreDiff: number | null }>;
+}
+
+export function loadParity(): ParityReport | null {
+  return readJson<ParityReport | null>("data/benchmark/parity.json", null);
+}
+
+export interface OahFindings {
+  createdAt: string;
+  source: string;
+  samples: number;
+  sampledAfterThreeDryDays: number;
+  dryDefinition: string;
+  correlations: Array<{ what: string; rho: number; n: number }>;
+  note: string;
+}
+
+export function loadOahFindings(): OahFindings | null {
+  return readJson<OahFindings | null>("data/benchmark/oah-findings.json", null);
 }
 
 /** Below this audibility, small-bird calls are often missed (see /evidence). */
-export const AUDIBILITY_THRESHOLD_DB: number = readJson<Benchmark>("data/benchmark/snr.json", {}).suggestedAudibilityThresholdDb ?? 6;
+export const AUDIBILITY_THRESHOLD_DB: number = loadSnrBenchmark()?.suggestedAudibilityThresholdDb ?? 6;

@@ -177,7 +177,7 @@ export function ResultsView(props: Props) {
             </p>
           </div>
           {species.length === 0 ? (
-            <Card>
+            <Card data-testid="no-species">
               <p className="text-ink-2">No bird or frog calls above the {SENSITIVITY.find((s) => s.value === threshold)?.label.toLowerCase()} threshold.</p>
               <p className="mt-1 text-sm text-muted">
                 {soundscape.audibleShare < 0.5
@@ -306,6 +306,8 @@ function SpeciesCard({
   return (
     <li
       id={`species-${label.idx}`}
+      data-label-idx={label.idx}
+      data-max-p={summary.maxP}
       className={`rounded-2xl border bg-card p-4 transition-shadow ${selected ? "border-ink-2 shadow-[0_0_0_3px_var(--brand-soft)]" : "border-line"}`}
       style={{ borderLeft: `4px solid ${color}` }}
     >

@@ -30,6 +30,10 @@
   --bad: #b42318;
 
   --focus: #1d4ed8;
+
+  /* Chart series, validated (dataviz six checks) against the card surface. */
+  --chart-1: #1baf7a;
+  --chart-2: #eb6834;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,6 +64,9 @@
     --bad: #f07167;
 
     --focus: #93b4ff;
+
+    --chart-1: #199e70;
+    --chart-2: #d95926;
   }
 }
 
@@ -85,6 +92,8 @@
   --color-ok: var(--ok);
   --color-warn: var(--warn);
   --color-bad: var(--bad);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
