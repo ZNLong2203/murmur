@@ -8,6 +8,12 @@ Built for the **IEEE OneAquaHealth Global Hackathon 2026**, Track 3 (AI-supporte
 
 **Live app: [murmur-streams.vercel.app](https://murmur-streams.vercel.app)** · Try it in a minute: open *Listen*, pick a public recording from Coimbra, press *Listen*, then play a clip and answer *Did you hear it?* · Methods and limits: [/evidence](https://murmur-streams.vercel.app/evidence)
 
+![Murmur's results for a recording at OneAquaHealth site C5, Coimbra: five bird species on the spectrogram, and the lab's very high microbial risk beside them](docs/images/results.png)
+
+| Verify by ear | Five cities, two layers | How water hides birdsong |
+|---|---|---|
+| ![Listening queue](docs/images/verify.png) | ![Map of research sites](docs/images/map.png) | ![Noise benchmark](docs/images/evidence.png) |
+
 ## Why sound
 
 - **Birds and amphibians are two of OneAquaHealth's eleven ecosystem-health indicators**, and the project's policy brief describes birds, amphibians and fish as natural controls of disease-carrying insects.

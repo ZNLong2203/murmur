@@ -53,7 +53,7 @@ export default function EvidencePage() {
 
         {snr?.bySnr && snr.bySnr.length > 0 && (
           <Card>
-            <CardTitle hint={`${snr.nPositives ?? "?"} clean calls of ${snr.species?.length ?? "?"} stream-side species, each mixed with real recordings of flowing water at controlled loudness. scripts: pipeline/murmur_pipeline/benchmark.py`}>
+            <CardTitle hint={`${snr.nPositives ?? "?"} clean calls of ${snr.species?.length ?? "?"} stream-side species, each mixed with real recordings of flowing water at controlled loudness. Script: pipeline/murmur_pipeline/benchmark.py`}>
               How rushing water hides birdsong
             </CardTitle>
             <SnrChart rows={snr.bySnr} />
