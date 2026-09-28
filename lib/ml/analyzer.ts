@@ -33,8 +33,25 @@ class Analyzer {
     if (this.worker) return this.worker;
     const worker = new Worker(new URL("./analyzer.worker.ts", import.meta.url), { type: "module" });
     worker.onmessage = (event: MessageEvent<FromWorker>) => this.handle(event.data);
+    // A worker that fails to start or crashes must not leave promises hanging.
+    worker.onerror = (event) => this.fail(new Error(event.message || "The listening engine stopped unexpectedly. Reload the page to try again."));
+    worker.onmessageerror = () => this.fail(new Error("The listening engine sent an unreadable message."));
     this.worker = worker;
     return worker;
+  }
+
+  private loadReject: ((e: Error) => void) | null = null;
+
+  private fail(error: Error) {
+    this.worker?.terminate();
+    this.worker = null;
+    this.ready = null;
+    this.loadReject?.(error);
+    this.loadReject = null;
+    for (const p of this.pending.values()) p.reject(error);
+    for (const p of this.screens.values()) p.reject(error);
+    this.pending.clear();
+    this.screens.clear();
   }
 
   private handle(msg: FromWorker) {
@@ -66,6 +83,7 @@ class Analyzer {
       const manifest = (await res.json()) as ModelManifest;
       const worker = this.spawn();
       await new Promise<void>((resolve, reject) => {
+        this.loadReject = reject;
         const listener = (event: MessageEvent<FromWorker>) => {
           if (event.data.type === "ready") {
             worker.removeEventListener("message", listener);

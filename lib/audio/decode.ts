@@ -12,12 +12,18 @@ export interface DecodedAudio {
 /** Longest recording analysed in the browser (memory stays under ~80 MB). */
 export const MAX_SECONDS = 10 * 60;
 
+/** Larger files are refused before decoding, which could exhaust memory first. */
+export const MAX_BYTES = 300 * 1024 * 1024;
+
 /**
  * Decode any audio or video file the browser can play (wav, mp3, m4a, ogg,
  * mp4/mov video with sound) and resample it to mono at `sampleRate` with an
  * OfflineAudioContext, which downmixes channels by averaging.
  */
 export async function decodeToMono(file: Blob, sampleRate: number): Promise<DecodedAudio> {
+  if (file.size > MAX_BYTES) {
+    throw new Error(`This file is ${Math.round(file.size / 1024 / 1024)} MB. Murmur analyses recordings up to ${MAX_SECONDS / 60} minutes; trim it first.`);
+  }
   const bytes = await file.arrayBuffer();
   const ctx = new AudioContext();
   let decoded: AudioBuffer;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button, Card } from "@/components/ui/primitives";
 import { decodeToMono, type DecodedAudio } from "@/lib/audio/decode";
 import type { SpectrogramImage } from "@/lib/audio/spectrogram";
@@ -28,6 +28,8 @@ type Phase =
       range: RangeInfo;
       sessionId: string;
       audioSha256: string | null;
+      /** What was chosen when Listen was pressed; later edits cannot change a result. */
+      snapshot: { name: string; place: Place | null; date: string; sample: Chosen["sample"] };
     }
   | { kind: "error"; message: string };
 
@@ -37,7 +39,8 @@ interface Props extends WorkbenchData {
   initialSampleId: string | null;
 }
 
-const today = () => new Date().toISOString().slice(0, 10);
+/** Today in the visitor's own time zone, as YYYY-MM-DD. */
+const today = () => new Date().toLocaleDateString("en-CA");
 
 async function sha256Hex(blob: Blob): Promise<string | null> {
   try {
@@ -50,7 +53,7 @@ async function sha256Hex(blob: Blob): Promise<string | null> {
 
 async function fetchRange(place: Place | null, date: string): Promise<RangeInfo> {
   const week = birdnetWeek(new Date(`${date}T12:00:00Z`));
-  if (!place) return { location: null, week, allowed: null };
+  if (!place || !Number.isFinite(week)) return { location: null, week, allowed: null };
   const { lat, lon } = placeLatLon(place);
   const res = await fetch(`/api/range?lat=${lat}&lon=${lon}&week=${week}`);
   if (!res.ok) return { location: null, week, allowed: null };
@@ -63,6 +66,8 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
   const [place, setPlace] = useState<Place | null>(initialSite ? { kind: "site", site: initialSite } : null);
   const [date, setDate] = useState(today);
   const [votes, setVotes] = useState<Record<number, Vote>>({});
+  const userTouched = useRef(false);
+  const dateOk = /^\d{4}-\d{2}-\d{2}$/.test(date) && date <= today();
   const [model, setModel] = useState<{ ready: boolean; progress: ModelProgress | null; failed: boolean }>({ ready: false, progress: null, failed: false });
   const ecologyByIdx = useMemo(() => new Map(ecology.map((e) => [e.labelIdx, e])), [ecology]);
 
@@ -83,7 +88,8 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
       const res = await fetch(sample.file).catch(() => null);
       if (!res?.ok || cancelled) return;
       const blob = await res.blob();
-      if (cancelled) return;
+      // Never overwrite a choice the visitor made while this was loading.
+      if (cancelled || userTouched.current) return;
       setChosen({ file: blob, name: sample.title, sample });
       setPlace(samplePlace(sample, sites));
       if (sample.recordedAt) setDate(sample.recordedAt.slice(0, 10));
@@ -94,7 +100,9 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
   }, [initialSampleId, samples, sites]);
 
   async function listen() {
-    if (!chosen) return;
+    if (!chosen || !dateOk) return;
+    userTouched.current = true;
+    const snapshot = { name: chosen.name, place, date, sample: chosen.sample };
     setVotes({});
     let image: SpectrogramImage | null = null;
     let durationS: number | null = null;
@@ -118,13 +126,14 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
         onProgress: (done, total) => update({ stage: "listening", done, total }),
       });
       if (!image) throw new Error("The spectrogram was not produced.");
-      setPhase({ kind: "results", audio, image, windows, ms, labels, range, sessionId: crypto.randomUUID(), audioSha256 });
+      setPhase({ kind: "results", audio, image, windows, ms, labels, range, sessionId: crypto.randomUUID(), audioSha256, snapshot });
     } catch (err) {
       setPhase({ kind: "error", message: err instanceof Error ? err.message : String(err) });
     }
   }
 
-  const lab = place?.kind === "site" ? (labs[place.site.code] ?? null) : null;
+  const resultPlace = phase.kind === "results" ? phase.snapshot.place : place;
+  const lab = resultPlace?.kind === "site" ? (labs[resultPlace.site.code] ?? null) : null;
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
@@ -143,12 +152,20 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
           place={place}
           date={date}
           onChoose={(c, p, d) => {
+            userTouched.current = true;
             setChosen(c);
             if (p) setPlace(p);
             if (d) setDate(d);
           }}
-          onPlace={setPlace}
-          onDate={setDate}
+          onPlace={(p) => {
+            userTouched.current = true;
+            setPlace(p);
+          }}
+          onDate={(d) => {
+            userTouched.current = true;
+            setDate(d);
+          }}
+          dateOk={dateOk}
           onListen={listen}
           model={model}
         />
@@ -156,11 +173,11 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
 
       {phase.kind === "listening" && <ListeningStep name={chosen?.name ?? "Recording"} progress={phase.progress} image={phase.image} durationS={phase.durationS} />}
 
-      {phase.kind === "results" && chosen && (
+      {phase.kind === "results" && (
         <ResultsView
-          name={chosen.name}
-          place={place}
-          date={date}
+          name={phase.snapshot.name}
+          place={phase.snapshot.place}
+          date={phase.snapshot.date}
           audio={phase.audio}
           image={phase.image}
           windows={phase.windows}
@@ -171,7 +188,7 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
           range={phase.range}
           sessionId={phase.sessionId}
           audioSha256={phase.audioSha256}
-          sample={chosen.sample}
+          sample={phase.snapshot.sample}
           audibilityThresholdDb={audibilityThresholdDb}
           votes={votes}
           onVote={(labelIdx, vote) => setVotes((v) => ({ ...v, [labelIdx]: vote }))}

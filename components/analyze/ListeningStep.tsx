@@ -26,7 +26,7 @@ const STEPS = [
 export function ListeningStep({ name, progress, image, durationS }: Props) {
   const currentIndex = STEPS.findIndex((s) => s.key === progress.stage);
   return (
-    <Card aria-live="polite" aria-busy="true">
+    <Card aria-live="polite">
       <p className="text-sm text-muted">Listening to</p>
       <h2 className="font-display text-2xl font-semibold tracking-tight">{name}</h2>
 

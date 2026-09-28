@@ -51,6 +51,9 @@ async function fetchModel(m: ModelManifest): Promise<Uint8Array> {
     }
   }
   post({ type: "model-progress", loaded, total, cached: false });
+  // Never cache (or run) a truncated or altered download.
+  const digest = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)), (b) => b.toString(16).padStart(2, "0")).join("");
+  if (loaded !== m.model.bytes || digest !== m.model.sha256) throw new Error("The model download was incomplete. Check your connection and try again.");
   await cache?.put(key, new Response(bytes, { headers: { "content-type": "application/octet-stream" } })).catch(() => undefined);
   return bytes;
 }
@@ -113,8 +116,15 @@ async function screen(id: string, clips: Float32Array[], sampleRate: number) {
   if (!manifest) throw new Error("The model is not loaded yet.");
   const m = manifest;
   vad ??= fetch(m.vad.url)
-    .then((r) => r.arrayBuffer())
-    .then((buf) => ort.InferenceSession.create(new Uint8Array(buf), { executionProviders: ["wasm"] }));
+    .then((r) => {
+      if (!r.ok) throw new Error(`Could not load the voice detector (${r.status}).`);
+      return r.arrayBuffer();
+    })
+    .then((buf) => ort.InferenceSession.create(new Uint8Array(buf), { executionProviders: ["wasm"] }))
+    .catch((err) => {
+      vad = null; // let the next share try again
+      throw err;
+    });
   const detector = await vad;
   const sr = new ort.Tensor("int64", BigInt64Array.from([BigInt(VAD_RATE)]), []);
 

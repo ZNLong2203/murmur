@@ -24,11 +24,12 @@ interface Props {
   onDate: (date: string) => void;
   onListen: () => void;
   model: { ready: boolean; progress: ModelProgress | null; failed: boolean };
+  dateOk: boolean;
 }
 
 const CITY_ORDER = ["CO", "BE", "GH", "OS", "TO"] as const;
 
-export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPlace, onDate, onListen, model }: Props) {
+export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPlace, onDate, onListen, model, dateOk }: Props) {
   const [dragging, setDragging] = useState(false);
   const [loadingSample, setLoadingSample] = useState<string | null>(null);
   const [sampleError, setSampleError] = useState<string | null>(null);
@@ -143,12 +144,15 @@ export function SetupStep({ sites, samples, chosen, place, date, onChoose, onPla
           <input
             type="date"
             value={date}
-            max={new Date().toISOString().slice(0, 10)}
+            max={new Date().toLocaleDateString("en-CA")}
+            required
+            aria-invalid={!dateOk}
             onChange={(e) => onDate(e.target.value)}
             className="mt-1 block w-full rounded-lg border border-line-strong bg-paper px-3 py-2 text-ink"
           />
         </label>
-        <Button className="mt-5 w-full py-3 text-base" disabled={!chosen} onClick={onListen} data-testid="listen">
+        {!dateOk && <p className="mt-1 text-sm text-bad">Choose the day you recorded (not in the future).</p>}
+        <Button className="mt-5 w-full py-3 text-base" disabled={!chosen || !dateOk} onClick={onListen} data-testid="listen">
           Listen
         </Button>
         <p className="mt-2 text-center text-xs text-muted" aria-live="polite">

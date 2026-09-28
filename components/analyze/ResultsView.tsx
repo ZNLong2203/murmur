@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button, Card, CardTitle, Chip, Meter } from "@/components/ui/primitives";
 import { ClipPlayer } from "@/lib/audio/player";
 import type { DecodedAudio } from "@/lib/audio/decode";
@@ -69,6 +69,9 @@ export function ResultsView(props: Props) {
 
   const player = useMemo(() => new ClipPlayer(audio.samples, audio.sampleRate), [audio]);
   useEffect(() => () => player.dispose(), [player]);
+  // Move focus to the result so screen readers announce it.
+  const heading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => heading.current?.focus(), []);
 
   function play(key: string, fromS: number, toS: number) {
     if (playing === key) {
@@ -79,6 +82,14 @@ export function ResultsView(props: Props) {
     }
     setPlaying(key);
     void player.play(fromS, toS, setPlayhead, () => {
+      setPlaying(null);
+      setPlayhead(null);
+    });
+  }
+
+  function seek(fromS: number) {
+    setPlaying("all");
+    void player.play(fromS, audio.durationS, setPlayhead, () => {
       setPlaying(null);
       setPlayhead(null);
     });
@@ -104,7 +115,9 @@ export function ResultsView(props: Props) {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-sm text-muted">{place ? placeLabel(place) : "Place not given"} · {date}</p>
-            <h2 className="font-display text-2xl font-semibold tracking-tight">{name}</h2>
+            <h2 ref={heading} tabIndex={-1} className="font-display text-2xl font-semibold tracking-tight outline-none">
+              {name}
+            </h2>
             <p className="mt-1 text-sm text-muted">
               {formatTime(audio.durationS)} · {windows.length} {windows.length === 1 ? "window" : "windows"} of 3 s · analysed on this device in {(ms / 1000).toFixed(1)} s
             </p>
@@ -126,7 +139,7 @@ export function ResultsView(props: Props) {
             overlays={overlays}
             masked={masked}
             playheadS={playhead}
-            onSeek={(s) => play("all", s, audio.durationS)}
+            onSeek={seek}
             onSelect={(key) => {
               const labelIdx = Number(key.split(":")[0]);
               setSelected(labelIdx);
