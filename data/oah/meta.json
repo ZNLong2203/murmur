@@ -1,0 +1,27 @@
+{
+ "fetchedAt": "2026-09-28T12:06:46Z",
+ "baseUrl": "https://api.enora-oah.eu",
+ "endpoints": {
+  "cities.json": "https://api.enora-oah.eu/api/cities/all",
+  "sites.json": "https://api.enora-oah.eu/api/sites/all",
+  "user-sites.json": "https://api.enora-oah.eu/api/sites/user-generated",
+  "city-dashboards.json": "https://api.enora-oah.eu/api/dashboards/city",
+  "health-risks.json": "https://api.enora-oah.eu/api/resilience-map/health-risks",
+  "urban-parameters.json": "https://api.enora-oah.eu/api/resilience-map/urban-parameters"
+ },
+ "counts": {
+  "cities.json": 5,
+  "site-polygons.json": 33,
+  "sites.json": 106,
+  "user-sites.json": 71,
+  "city-dashboards.json": 221,
+  "health-risks.json": 96,
+  "urban-parameters.json": 104
+ },
+ "files": {
+  "sites.json": "Research sites flattened to {code, name, cityId, cityName, lat, lon, altitude}.",
+  "site-polygons.json": "The API's `polygon` field of /api/sites/all (GeoJSON), by site code; only sites that have one.",
+  "other files": "Verbatim API responses (all fields kept)."
+ },
+ "note": "Snapshot of the public OneAquaHealth API (ENORA Innovation). Research data © OneAquaHealth consortium."
+}
