@@ -30,9 +30,11 @@ npm-debug.log*
 
 # ─── Fetched at install/build, never committed ───────────────
 # BirdNET model and labels (CC BY-SA 4.0, downloaded from Zenodo by
-# scripts/fetch-models.mjs) and the onnxruntime-web WASM binaries.
+# scripts/fetch-models.mjs), the onnxruntime-web WASM binaries and
+# MapLibre's worker bundle.
 /public/models/
 /public/ort/
+/public/maplibre/
 
 # ─── Local data ──────────────────────────────────────────────
 # PGlite database used when DATABASE_URL is unset.

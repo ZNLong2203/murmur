@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
     // Fetched third-party binaries and model files (scripts/fetch-models.mjs).
     "public/ort/**",
     "public/models/**",
+    "public/maplibre/**",
   ]),
 ]);
 

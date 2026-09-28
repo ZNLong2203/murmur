@@ -171,6 +171,14 @@ async function main() {
   const labels = await buildLabels(labelsCsv, taxonomyCsv);
   await writeFile(path.join(modelsDir, LABELS_FILE), JSON.stringify(labels));
 
+  // MapLibre's module worker, served as static files: bundlers rewrite the
+  // URL MapLibre derives from import.meta.url, so the page points it here.
+  const maplibreDir = path.join(root, "public", "maplibre");
+  await mkdir(maplibreDir, { recursive: true });
+  for (const file of ["maplibre-gl-worker.mjs", "maplibre-gl-shared.mjs"]) {
+    await copyFile(path.join(root, "node_modules", "maplibre-gl", "dist", file), path.join(maplibreDir, file));
+  }
+
   const ortPkg = JSON.parse(await readFile(path.join(root, "node_modules", "onnxruntime-web", "package.json"), "utf8"));
   const ortDist = path.join(root, "node_modules", "onnxruntime-web", "dist");
   for (const file of ["ort-wasm-simd-threaded.wasm", "ort-wasm-simd-threaded.mjs"]) {

@@ -202,6 +202,7 @@ export async function getClip(db: Db, detectionId: string): Promise<{ mime: stri
 
 export interface SiteSessionSummary {
   id: string;
+  siteCode: string | null;
   recordedOn: string;
   source: string;
   contributor: string;
@@ -225,6 +226,7 @@ export async function sessionsAt(db: Db, siteCode: string | null): Promise<SiteS
   const parse = <T,>(v: unknown): T => (typeof v === "string" ? JSON.parse(v) : v) as T;
   return sessions.map((s) => ({
     id: s.id,
+    siteCode: s.site_code,
     recordedOn: typeof s.recorded_on === "string" ? s.recorded_on.slice(0, 10) : s.recorded_on.toISOString().slice(0, 10),
     source: s.source,
     contributor: s.contributor,

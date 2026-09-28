@@ -10,6 +10,7 @@ import { placeLatLon, type Place, type WorkbenchData } from "@/lib/analysis/sess
 import type { Label, WindowScores } from "@/lib/analysis/types";
 import { birdnetWeek } from "@/lib/geo";
 import { analyzer } from "@/lib/ml/analyzer";
+import type { OahSite } from "@/lib/oah/types";
 import { ListeningStep, type ListeningProgress } from "./ListeningStep";
 import { ResultsView, type RangeInfo, type Vote } from "./ResultsView";
 import { SetupStep, type Chosen } from "./SetupStep";
@@ -32,6 +33,7 @@ type Phase =
 
 interface Props extends WorkbenchData {
   ecology: EcologyEntry[];
+  initialSite: OahSite | null;
 }
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -54,10 +56,10 @@ async function fetchRange(place: Place | null, date: string): Promise<RangeInfo>
   return (await res.json()) as RangeInfo;
 }
 
-export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, ecology }: Props) {
+export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, ecology, initialSite }: Props) {
   const [phase, setPhase] = useState<Phase>({ kind: "setup" });
   const [chosen, setChosen] = useState<Chosen | null>(null);
-  const [place, setPlace] = useState<Place | null>(null);
+  const [place, setPlace] = useState<Place | null>(initialSite ? { kind: "site", site: initialSite } : null);
   const [date, setDate] = useState(today);
   const [votes, setVotes] = useState<Record<number, Vote>>({});
   const ecologyByIdx = useMemo(() => new Map(ecology.map((e) => [e.labelIdx, e])), [ecology]);
