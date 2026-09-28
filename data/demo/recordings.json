@@ -1,0 +1,1580 @@
+[
+ {
+  "id": "co-xc785865",
+  "file": "/samples/co-xc785865.mp3",
+  "title": "Soundscape, near Coimbra (XC785865)",
+  "recordist": "Alba Villarroya",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/785865",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/4131502986",
+  "lat": 40.2101,
+  "lon": -8.416,
+  "recordedAt": "2023-03-14",
+  "cityId": "CO",
+  "nearestSiteCode": "C5",
+  "nearestSiteDistanceKm": 1.35,
+  "durationS": 35.2,
+  "trimmed": false,
+  "notes": "Recordist's label: soundscape. Background species listed by the recordist: Columba palumbus, Parus major, Erithacus rubecula, Troglodytes troglodytes, Serinus serinus. Locality: Sé Nova (near  Coimbra), Coimbra, Coimbra.",
+  "detections": [
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.64
+   },
+   {
+    "labelIdx": 2742,
+    "sci": "Columba palumbus",
+    "en": "Common Wood Pigeon",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.624
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 0.0,
+    "endS": 12.0,
+    "maxP": 0.613
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 3.0,
+    "endS": 15.0,
+    "maxP": 0.933
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 15.0,
+    "endS": 18.0,
+    "maxP": 0.889
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 18.0,
+    "endS": 21.0,
+    "maxP": 0.892
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 21.0,
+    "endS": 24.0,
+    "maxP": 0.577
+   },
+   {
+    "labelIdx": 9941,
+    "sci": "Serinus serinus",
+    "en": "European Serin",
+    "startS": 24.0,
+    "endS": 35.2,
+    "maxP": 0.958
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 27.0,
+    "endS": 30.0,
+    "maxP": 0.581
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 27.0,
+    "endS": 30.0,
+    "maxP": 0.354
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 30.0,
+    "endS": 33.0,
+    "maxP": 0.398
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 33.0,
+    "endS": 35.2,
+    "maxP": 0.438
+   }
+  ]
+ },
+ {
+  "id": "co-xc771864",
+  "file": "/samples/co-xc771864.mp3",
+  "title": "Common Chaffinch (call), near Coimbra (XC771864)",
+  "recordist": "João Tomás",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/771864",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/4018714839",
+  "lat": 40.1104,
+  "lon": -8.6442,
+  "recordedAt": "2022-12-27",
+  "cityId": "CO",
+  "nearestSiteCode": "C13",
+  "nearestSiteDistanceKm": 13.07,
+  "durationS": 40.0,
+  "trimmed": false,
+  "notes": "Recordist's label: Common Chaffinch (Fringilla coelebs). Background species listed by the recordist: Alauda arvensis, Motacilla alba, Erithacus rubecula, Anthus pratensis, Carduelis carduelis, Chloris chloris. No suitable xeno-canto recording within 15 km of Coimbra; this one is 22 km from the city centre. Locality: Vila Nova de Anços (near  Soure), Soure, Coimbra District. Recordist remarks: animal seen:no; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.852
+   },
+   {
+    "labelIdx": 283,
+    "sci": "Alauda arvensis",
+    "en": "Eurasian Skylark",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.41
+   },
+   {
+    "labelIdx": 2251,
+    "sci": "Chloris chloris",
+    "en": "European Greenfinch",
+    "startS": 3.0,
+    "endS": 6.0,
+    "maxP": 0.314
+   },
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 6.0,
+    "endS": 18.0,
+    "maxP": 0.888
+   },
+   {
+    "labelIdx": 283,
+    "sci": "Alauda arvensis",
+    "en": "Eurasian Skylark",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.554
+   },
+   {
+    "labelIdx": 714,
+    "sci": "Anthus pratensis",
+    "en": "Meadow Pipit",
+    "startS": 6.0,
+    "endS": 12.0,
+    "maxP": 0.427
+   },
+   {
+    "labelIdx": 2251,
+    "sci": "Chloris chloris",
+    "en": "European Greenfinch",
+    "startS": 15.0,
+    "endS": 18.0,
+    "maxP": 0.5
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 18.0,
+    "endS": 21.0,
+    "maxP": 0.705
+   },
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 21.0,
+    "endS": 27.0,
+    "maxP": 0.882
+   },
+   {
+    "labelIdx": 2251,
+    "sci": "Chloris chloris",
+    "en": "European Greenfinch",
+    "startS": 27.0,
+    "endS": 30.0,
+    "maxP": 0.656
+   },
+   {
+    "labelIdx": 283,
+    "sci": "Alauda arvensis",
+    "en": "Eurasian Skylark",
+    "startS": 27.0,
+    "endS": 30.0,
+    "maxP": 0.303
+   },
+   {
+    "labelIdx": 6678,
+    "sci": "Motacilla alba",
+    "en": "White Wagtail",
+    "startS": 30.0,
+    "endS": 39.0,
+    "maxP": 0.929
+   },
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 33.0,
+    "endS": 40.0,
+    "maxP": 0.916
+   },
+   {
+    "labelIdx": 2251,
+    "sci": "Chloris chloris",
+    "en": "European Greenfinch",
+    "startS": 33.0,
+    "endS": 36.0,
+    "maxP": 0.351
+   }
+  ]
+ },
+ {
+  "id": "to-xc1018292",
+  "file": "/samples/to-xc1018292.mp3",
+  "title": "Eurasian Wren (song), near Toulouse (XC1018292)",
+  "recordist": "Cedric Mroczko",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/1018292",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/5995373779",
+  "lat": 43.6337,
+  "lon": 1.5425,
+  "recordedAt": "2025-05-26",
+  "cityId": "TO",
+  "nearestSiteCode": "T25",
+  "nearestSiteDistanceKm": 2.77,
+  "durationS": 90.0,
+  "trimmed": true,
+  "notes": "Recordist's label: Eurasian Wren (Troglodytes troglodytes). Background species listed by the recordist: Turdus philomelos, Sylvia atricapilla, Lullula arborea, Corvus corone, Luscinia megarhynchos, Certhia brachydactyla, Phylloscopus collybita, Sturnus vulgaris. Trimmed from 133 s to 90 s starting at 42 s (the stretch with the most model detections). Locality: Pin-Balma, Haute-Garonne, Occitanie. Recordist remarks: ls-p5 + esm stereo (aom5024).; animal seen:no; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.487
+   },
+   {
+    "labelIdx": 6036,
+    "sci": "Lullula arborea",
+    "en": "Woodlark",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.306
+   },
+   {
+    "labelIdx": 2070,
+    "sci": "Certhia brachydactyla",
+    "en": "Short-toed Treecreeper",
+    "startS": 3.0,
+    "endS": 6.0,
+    "maxP": 0.887
+   },
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 3.0,
+    "endS": 6.0,
+    "maxP": 0.465
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 6.0,
+    "endS": 12.0,
+    "maxP": 0.897
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 12.0,
+    "endS": 15.0,
+    "maxP": 0.381
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 18.0,
+    "endS": 21.0,
+    "maxP": 0.314
+   },
+   {
+    "labelIdx": 10364,
+    "sci": "Sturnus vulgaris",
+    "en": "Common Starling",
+    "startS": 18.0,
+    "endS": 21.0,
+    "maxP": 0.305
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 21.0,
+    "endS": 30.0,
+    "maxP": 0.734
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 21.0,
+    "endS": 24.0,
+    "maxP": 0.582
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 24.0,
+    "endS": 39.0,
+    "maxP": 0.945
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 30.0,
+    "endS": 36.0,
+    "maxP": 0.822
+   },
+   {
+    "labelIdx": 11120,
+    "sci": "Turdus philomelos",
+    "en": "Song Thrush",
+    "startS": 39.0,
+    "endS": 42.0,
+    "maxP": 0.326
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 42.0,
+    "endS": 48.0,
+    "maxP": 0.896
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 45.0,
+    "endS": 54.0,
+    "maxP": 0.764
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 45.0,
+    "endS": 51.0,
+    "maxP": 0.479
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 54.0,
+    "endS": 81.0,
+    "maxP": 0.926
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 54.0,
+    "endS": 57.0,
+    "maxP": 0.382
+   },
+   {
+    "labelIdx": 11120,
+    "sci": "Turdus philomelos",
+    "en": "Song Thrush",
+    "startS": 54.0,
+    "endS": 60.0,
+    "maxP": 0.374
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 57.0,
+    "endS": 60.0,
+    "maxP": 0.395
+   },
+   {
+    "labelIdx": 6041,
+    "sci": "Luscinia megarhynchos",
+    "en": "Common Nightingale",
+    "startS": 63.0,
+    "endS": 66.0,
+    "maxP": 0.481
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 63.0,
+    "endS": 66.0,
+    "maxP": 0.308
+   },
+   {
+    "labelIdx": 11120,
+    "sci": "Turdus philomelos",
+    "en": "Song Thrush",
+    "startS": 66.0,
+    "endS": 75.0,
+    "maxP": 0.503
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 69.0,
+    "endS": 75.0,
+    "maxP": 0.701
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 69.0,
+    "endS": 72.0,
+    "maxP": 0.329
+   },
+   {
+    "labelIdx": 2070,
+    "sci": "Certhia brachydactyla",
+    "en": "Short-toed Treecreeper",
+    "startS": 78.0,
+    "endS": 84.0,
+    "maxP": 0.791
+   },
+   {
+    "labelIdx": 11120,
+    "sci": "Turdus philomelos",
+    "en": "Song Thrush",
+    "startS": 78.0,
+    "endS": 84.0,
+    "maxP": 0.582
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 81.0,
+    "endS": 84.0,
+    "maxP": 0.552
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 84.0,
+    "endS": 90.0,
+    "maxP": 0.906
+   },
+   {
+    "labelIdx": 4427,
+    "sci": "Gallinula chloropus",
+    "en": "Common Moorhen",
+    "startS": 87.0,
+    "endS": 90.0,
+    "maxP": 0.663
+   }
+  ]
+ },
+ {
+  "id": "to-xc1090129",
+  "file": "/samples/to-xc1090129.mp3",
+  "title": "Soundscape, near Toulouse (XC1090129)",
+  "recordist": "Cedric Mroczko",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/1090129",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/6241577345",
+  "lat": 43.6337,
+  "lon": 1.5425,
+  "recordedAt": "2026-03-16",
+  "cityId": "TO",
+  "nearestSiteCode": "T25",
+  "nearestSiteDistanceKm": 2.77,
+  "durationS": 90.0,
+  "trimmed": true,
+  "notes": "Recordist's label: soundscape. Background species listed by the recordist: Regulus ignicapilla, Turdus merula, Lullula arborea, Corvus corone, Parus major, Erithacus rubecula, Dendrocopos major, Garrulus glandarius, Dryobates minor, Troglodytes troglodytes, Picus viridis, Sturnus vulgaris. Trimmed from 354 s to 90 s starting at 192 s (the stretch with the most model detections). Locality: Pin-Balma, Haute-Garonne, Occitanie. Recordist remarks: High-pass filtered. ls-p5 + esm; animal seen:no; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 3448,
+    "sci": "Dryobates minor",
+    "en": "Lesser Spotted Woodpecker",
+    "startS": 0.0,
+    "endS": 6.0,
+    "maxP": 0.91
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.62
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.311
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.267
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 3.0,
+    "endS": 9.0,
+    "maxP": 0.775
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.462
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 9.0,
+    "endS": 12.0,
+    "maxP": 0.511
+   },
+   {
+    "labelIdx": 10364,
+    "sci": "Sturnus vulgaris",
+    "en": "Common Starling",
+    "startS": 9.0,
+    "endS": 15.0,
+    "maxP": 0.343
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 9.0,
+    "endS": 12.0,
+    "maxP": 0.292
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 12.0,
+    "endS": 18.0,
+    "maxP": 0.804
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 15.0,
+    "endS": 21.0,
+    "maxP": 0.584
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 15.0,
+    "endS": 18.0,
+    "maxP": 0.48
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 15.0,
+    "endS": 18.0,
+    "maxP": 0.359
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 21.0,
+    "endS": 24.0,
+    "maxP": 0.766
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 24.0,
+    "endS": 42.0,
+    "maxP": 0.702
+   },
+   {
+    "labelIdx": 10364,
+    "sci": "Sturnus vulgaris",
+    "en": "Common Starling",
+    "startS": 24.0,
+    "endS": 27.0,
+    "maxP": 0.507
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 27.0,
+    "endS": 30.0,
+    "maxP": 0.279
+   },
+   {
+    "labelIdx": 10364,
+    "sci": "Sturnus vulgaris",
+    "en": "Common Starling",
+    "startS": 30.0,
+    "endS": 39.0,
+    "maxP": 0.736
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 36.0,
+    "endS": 42.0,
+    "maxP": 0.612
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 36.0,
+    "endS": 48.0,
+    "maxP": 0.592
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 39.0,
+    "endS": 42.0,
+    "maxP": 0.354
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 39.0,
+    "endS": 45.0,
+    "maxP": 0.335
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 45.0,
+    "endS": 54.0,
+    "maxP": 0.873
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 45.0,
+    "endS": 57.0,
+    "maxP": 0.637
+   },
+   {
+    "labelIdx": 4498,
+    "sci": "Garrulus glandarius",
+    "en": "Eurasian Jay",
+    "startS": 51.0,
+    "endS": 54.0,
+    "maxP": 0.788
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 51.0,
+    "endS": 54.0,
+    "maxP": 0.297
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 54.0,
+    "endS": 57.0,
+    "maxP": 0.389
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 57.0,
+    "endS": 69.0,
+    "maxP": 0.882
+   },
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 57.0,
+    "endS": 60.0,
+    "maxP": 0.313
+   },
+   {
+    "labelIdx": 3447,
+    "sci": "Dendrocoptes medius",
+    "en": "Middle Spotted Woodpecker",
+    "startS": 60.0,
+    "endS": 63.0,
+    "maxP": 0.5
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 60.0,
+    "endS": 63.0,
+    "maxP": 0.443
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 60.0,
+    "endS": 63.0,
+    "maxP": 0.27
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 63.0,
+    "endS": 75.0,
+    "maxP": 0.659
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 66.0,
+    "endS": 69.0,
+    "maxP": 0.602
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 66.0,
+    "endS": 69.0,
+    "maxP": 0.297
+   },
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 66.0,
+    "endS": 69.0,
+    "maxP": 0.258
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 66.0,
+    "endS": 69.0,
+    "maxP": 0.25
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 69.0,
+    "endS": 72.0,
+    "maxP": 0.396
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 72.0,
+    "endS": 75.0,
+    "maxP": 0.474
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 72.0,
+    "endS": 75.0,
+    "maxP": 0.36
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 75.0,
+    "endS": 78.0,
+    "maxP": 0.521
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 78.0,
+    "endS": 84.0,
+    "maxP": 0.577
+   },
+   {
+    "labelIdx": 2070,
+    "sci": "Certhia brachydactyla",
+    "en": "Short-toed Treecreeper",
+    "startS": 81.0,
+    "endS": 84.0,
+    "maxP": 0.562
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 81.0,
+    "endS": 84.0,
+    "maxP": 0.411
+   },
+   {
+    "labelIdx": 10392,
+    "sci": "Sylvia atricapilla",
+    "en": "Eurasian Blackcap",
+    "startS": 81.0,
+    "endS": 84.0,
+    "maxP": 0.372
+   },
+   {
+    "labelIdx": 7764,
+    "sci": "Parus major",
+    "en": "Great Tit",
+    "startS": 84.0,
+    "endS": 87.0,
+    "maxP": 0.707
+   },
+   {
+    "labelIdx": 3216,
+    "sci": "Cyanistes caeruleus",
+    "en": "Eurasian Blue Tit",
+    "startS": 84.0,
+    "endS": 90.0,
+    "maxP": 0.67
+   },
+   {
+    "labelIdx": 3446,
+    "sci": "Dendrocopos major",
+    "en": "Great Spotted Woodpecker",
+    "startS": 84.0,
+    "endS": 87.0,
+    "maxP": 0.267
+   },
+   {
+    "labelIdx": 9485,
+    "sci": "Regulus ignicapilla",
+    "en": "Common Firecrest",
+    "startS": 87.0,
+    "endS": 90.0,
+    "maxP": 0.492
+   },
+   {
+    "labelIdx": 4005,
+    "sci": "Erithacus rubecula",
+    "en": "European Robin",
+    "startS": 87.0,
+    "endS": 90.0,
+    "maxP": 0.406
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 87.0,
+    "endS": 90.0,
+    "maxP": 0.293
+   }
+  ]
+ },
+ {
+  "id": "gh-xc371673",
+  "file": "/samples/gh-xc371673.mp3",
+  "title": "Common Reed Bunting, near Ghent (XC371673)",
+  "recordist": "Philippe Verbelen",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/371673",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/2243766441",
+  "lat": 50.9622,
+  "lon": 3.6897,
+  "recordedAt": "2017-05-20",
+  "cityId": "GH",
+  "nearestSiteCode": "G13",
+  "nearestSiteDistanceKm": 3.0,
+  "durationS": 86.2,
+  "trimmed": false,
+  "notes": "Recordist's label: Common Reed Bunting (Emberiza schoeniclus). Locality: Melsen, nature reserve \"De Putten\" East Flanders, Belgium. Recordist remarks: Adult male near nest; animal seen:yes; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 3153,
+    "sci": "Cuculus canorus",
+    "en": "Common Cuckoo",
+    "startS": 0.0,
+    "endS": 57.0,
+    "maxP": 0.868
+   },
+   {
+    "labelIdx": 3885,
+    "sci": "Emberiza schoeniclus",
+    "en": "Common Reed Bunting",
+    "startS": 0.0,
+    "endS": 45.0,
+    "maxP": 0.797
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 3.0,
+    "endS": 9.0,
+    "maxP": 0.315
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 3.0,
+    "endS": 6.0,
+    "maxP": 0.255
+   },
+   {
+    "labelIdx": 117,
+    "sci": "Acrocephalus scirpaceus",
+    "en": "Common Reed Warbler",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.349
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 18.0,
+    "endS": 21.0,
+    "maxP": 0.268
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 27.0,
+    "endS": 30.0,
+    "maxP": 0.431
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 33.0,
+    "endS": 42.0,
+    "maxP": 0.626
+   },
+   {
+    "labelIdx": 2907,
+    "sci": "Corvus corone",
+    "en": "Carrion Crow",
+    "startS": 39.0,
+    "endS": 42.0,
+    "maxP": 0.481
+   },
+   {
+    "labelIdx": 3885,
+    "sci": "Emberiza schoeniclus",
+    "en": "Common Reed Bunting",
+    "startS": 48.0,
+    "endS": 78.0,
+    "maxP": 0.89
+   },
+   {
+    "labelIdx": 117,
+    "sci": "Acrocephalus scirpaceus",
+    "en": "Common Reed Warbler",
+    "startS": 51.0,
+    "endS": 63.0,
+    "maxP": 0.946
+   },
+   {
+    "labelIdx": 2907,
+    "sci": "Corvus corone",
+    "en": "Carrion Crow",
+    "startS": 57.0,
+    "endS": 60.0,
+    "maxP": 0.265
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 63.0,
+    "endS": 75.0,
+    "maxP": 0.672
+   },
+   {
+    "labelIdx": 2907,
+    "sci": "Corvus corone",
+    "en": "Carrion Crow",
+    "startS": 75.0,
+    "endS": 78.0,
+    "maxP": 0.334
+   },
+   {
+    "labelIdx": 8816,
+    "sci": "Porzana porzana",
+    "en": "Spotted Crake",
+    "startS": 75.0,
+    "endS": 78.0,
+    "maxP": 0.263
+   },
+   {
+    "labelIdx": 117,
+    "sci": "Acrocephalus scirpaceus",
+    "en": "Common Reed Warbler",
+    "startS": 78.0,
+    "endS": 81.0,
+    "maxP": 0.791
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 78.0,
+    "endS": 81.0,
+    "maxP": 0.257
+   },
+   {
+    "labelIdx": 3885,
+    "sci": "Emberiza schoeniclus",
+    "en": "Common Reed Bunting",
+    "startS": 81.0,
+    "endS": 86.2,
+    "maxP": 0.837
+   },
+   {
+    "labelIdx": 3153,
+    "sci": "Cuculus canorus",
+    "en": "Common Cuckoo",
+    "startS": 81.0,
+    "endS": 84.0,
+    "maxP": 0.364
+   },
+   {
+    "labelIdx": 117,
+    "sci": "Acrocephalus scirpaceus",
+    "en": "Common Reed Warbler",
+    "startS": 84.0,
+    "endS": 86.2,
+    "maxP": 0.64
+   }
+  ]
+ },
+ {
+  "id": "gh-xc509476",
+  "file": "/samples/gh-xc509476.mp3",
+  "title": "Cetti's Warbler (call, alarm call), near Ghent (XC509476)",
+  "recordist": "Elie Desmet",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/509476",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/2534094472",
+  "lat": 51.0585,
+  "lon": 3.6663,
+  "recordedAt": "2019-12-01",
+  "cityId": "GH",
+  "nearestSiteCode": "G18",
+  "nearestSiteDistanceKm": 1.13,
+  "durationS": 11.5,
+  "trimmed": false,
+  "notes": "Recordist's label: Cetti's Warbler (Cettia cetti). Background species listed by the recordist: Branta canadensis. Locality: Gent, Oost-Vlaanderen, Vlaanderen. Recordist remarks: animal seen:no; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 2097,
+    "sci": "Cettia cetti",
+    "en": "Cetti's Warbler",
+    "startS": 0.0,
+    "endS": 6.0,
+    "maxP": 0.914
+   },
+   {
+    "labelIdx": 1425,
+    "sci": "Branta canadensis",
+    "en": "Canada Goose",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.49
+   },
+   {
+    "labelIdx": 625,
+    "sci": "Anser anser",
+    "en": "Greylag Goose",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.38
+   },
+   {
+    "labelIdx": 1427,
+    "sci": "Branta leucopsis",
+    "en": "Barnacle Goose",
+    "startS": 9.0,
+    "endS": 11.5,
+    "maxP": 0.537
+   }
+  ]
+ },
+ {
+  "id": "be-xc729283",
+  "file": "/samples/be-xc729283.mp3",
+  "title": "Common Whitethroat (song), near Benevento (XC729283)",
+  "recordist": "Marco Preziosi",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/729283",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/3813651619",
+  "lat": 41.3273,
+  "lon": 14.8733,
+  "recordedAt": "2022-06-05",
+  "cityId": "BE",
+  "nearestSiteCode": "BN8",
+  "nearestSiteDistanceKm": 19.54,
+  "durationS": 52.2,
+  "trimmed": false,
+  "notes": "Recordist's label: Common Whitethroat (Sylvia communis). Background species listed by the recordist: Emberiza calandra, Oriolus oriolus, Hippolais polyglotta. No suitable xeno-canto recording within 15 km of Benevento; this one is 23 km from the city centre. Locality: San Marco dei Cavoti, Province of Benevento, Campania. Recordist remarks: Singing along with a melodious warbler; animal seen:no; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 5079,
+    "sci": "Hippolais polyglotta",
+    "en": "Melodious Warbler",
+    "startS": 0.0,
+    "endS": 6.0,
+    "maxP": 0.93
+   },
+   {
+    "labelIdx": 3182,
+    "sci": "Curruca communis",
+    "en": "Common Whitethroat",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.898
+   },
+   {
+    "labelIdx": 5079,
+    "sci": "Hippolais polyglotta",
+    "en": "Melodious Warbler",
+    "startS": 9.0,
+    "endS": 12.0,
+    "maxP": 0.784
+   },
+   {
+    "labelIdx": 3182,
+    "sci": "Curruca communis",
+    "en": "Common Whitethroat",
+    "startS": 12.0,
+    "endS": 15.0,
+    "maxP": 0.744
+   },
+   {
+    "labelIdx": 5079,
+    "sci": "Hippolais polyglotta",
+    "en": "Melodious Warbler",
+    "startS": 15.0,
+    "endS": 24.0,
+    "maxP": 0.932
+   },
+   {
+    "labelIdx": 3182,
+    "sci": "Curruca communis",
+    "en": "Common Whitethroat",
+    "startS": 18.0,
+    "endS": 30.0,
+    "maxP": 0.93
+   },
+   {
+    "labelIdx": 3859,
+    "sci": "Emberiza calandra",
+    "en": "Corn Bunting",
+    "startS": 21.0,
+    "endS": 24.0,
+    "maxP": 0.536
+   },
+   {
+    "labelIdx": 5079,
+    "sci": "Hippolais polyglotta",
+    "en": "Melodious Warbler",
+    "startS": 30.0,
+    "endS": 33.0,
+    "maxP": 0.932
+   },
+   {
+    "labelIdx": 3182,
+    "sci": "Curruca communis",
+    "en": "Common Whitethroat",
+    "startS": 33.0,
+    "endS": 36.0,
+    "maxP": 0.681
+   },
+   {
+    "labelIdx": 3859,
+    "sci": "Emberiza calandra",
+    "en": "Corn Bunting",
+    "startS": 36.0,
+    "endS": 42.0,
+    "maxP": 0.754
+   },
+   {
+    "labelIdx": 3185,
+    "sci": "Curruca curruca",
+    "en": "Lesser Whitethroat",
+    "startS": 39.0,
+    "endS": 42.0,
+    "maxP": 0.711
+   },
+   {
+    "labelIdx": 5079,
+    "sci": "Hippolais polyglotta",
+    "en": "Melodious Warbler",
+    "startS": 42.0,
+    "endS": 51.0,
+    "maxP": 0.854
+   },
+   {
+    "labelIdx": 3182,
+    "sci": "Curruca communis",
+    "en": "Common Whitethroat",
+    "startS": 42.0,
+    "endS": 45.0,
+    "maxP": 0.573
+   },
+   {
+    "labelIdx": 3859,
+    "sci": "Emberiza calandra",
+    "en": "Corn Bunting",
+    "startS": 48.0,
+    "endS": 52.2,
+    "maxP": 0.944
+   }
+  ]
+ },
+ {
+  "id": "be-xc362572",
+  "file": "/samples/be-xc362572.mp3",
+  "title": "Common Chiffchaff (song), near Benevento (XC362572)",
+  "recordist": "Marco Preziosi",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/362572",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/2243759971",
+  "lat": 41.3253,
+  "lon": 14.8755,
+  "recordedAt": "2017-04-02",
+  "cityId": "BE",
+  "nearestSiteCode": "BN8",
+  "nearestSiteDistanceKm": 19.35,
+  "durationS": 90.0,
+  "trimmed": true,
+  "notes": "Recordist's label: Common Chiffchaff (Phylloscopus collybita). Background species listed by the recordist: Turdus merula, Garrulus glandarius, Troglodytes troglodytes, Picus viridis, Corvus cornix. Trimmed from 110 s to 90 s starting at 9 s (the stretch with the most model detections). No suitable xeno-canto recording within 15 km of Benevento; this one is 23 km from the city centre. Locality: San Marco dei Cavoti, Provincia di Benevento, Campania. Recordist remarks: animal seen:no; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 0.0,
+    "endS": 12.0,
+    "maxP": 0.947
+   },
+   {
+    "labelIdx": 2906,
+    "sci": "Corvus cornix",
+    "en": "Hooded Crow",
+    "startS": 12.0,
+    "endS": 15.0,
+    "maxP": 0.52
+   },
+   {
+    "labelIdx": 2907,
+    "sci": "Corvus corone",
+    "en": "Carrion Crow",
+    "startS": 12.0,
+    "endS": 15.0,
+    "maxP": 0.439
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 12.0,
+    "endS": 15.0,
+    "maxP": 0.294
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 15.0,
+    "endS": 24.0,
+    "maxP": 0.955
+   },
+   {
+    "labelIdx": 8393,
+    "sci": "Picus viridis",
+    "en": "European Green Woodpecker",
+    "startS": 21.0,
+    "endS": 24.0,
+    "maxP": 0.738
+   },
+   {
+    "labelIdx": 11103,
+    "sci": "Turdus merula",
+    "en": "Common Blackbird",
+    "startS": 24.0,
+    "endS": 27.0,
+    "maxP": 0.413
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 27.0,
+    "endS": 42.0,
+    "maxP": 0.949
+   },
+   {
+    "labelIdx": 2907,
+    "sci": "Corvus corone",
+    "en": "Carrion Crow",
+    "startS": 30.0,
+    "endS": 33.0,
+    "maxP": 0.305
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 45.0,
+    "endS": 60.0,
+    "maxP": 0.946
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 63.0,
+    "endS": 72.0,
+    "maxP": 0.938
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 78.0,
+    "endS": 84.0,
+    "maxP": 0.937
+   },
+   {
+    "labelIdx": 11011,
+    "sci": "Troglodytes troglodytes",
+    "en": "Eurasian Wren",
+    "startS": 78.0,
+    "endS": 81.0,
+    "maxP": 0.813
+   },
+   {
+    "labelIdx": 6036,
+    "sci": "Lullula arborea",
+    "en": "Woodlark",
+    "startS": 84.0,
+    "endS": 87.0,
+    "maxP": 0.443
+   },
+   {
+    "labelIdx": 8253,
+    "sci": "Phylloscopus collybita",
+    "en": "Common Chiffchaff",
+    "startS": 87.0,
+    "endS": 90.0,
+    "maxP": 0.894
+   },
+   {
+    "labelIdx": 2907,
+    "sci": "Corvus corone",
+    "en": "Carrion Crow",
+    "startS": 87.0,
+    "endS": 90.0,
+    "maxP": 0.415
+   }
+  ]
+ },
+ {
+  "id": "os-xc906543",
+  "file": "/samples/os-xc906543.mp3",
+  "title": "Redwing (song), near Oslo (XC906543)",
+  "recordist": "Terje Bøhler",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/906543",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/4878516245",
+  "lat": 59.946,
+  "lon": 10.5866,
+  "recordedAt": "2024-05-23",
+  "cityId": "OS",
+  "nearestSiteCode": "O13",
+  "nearestSiteDistanceKm": 3.55,
+  "durationS": 15.6,
+  "trimmed": false,
+  "notes": "Recordist's label: Redwing (Turdus iliacus). Background species listed by the recordist: Turdus pilaris, Fringilla coelebs, Actitis hypoleucos. Locality: Bærum, Akershus. Recordist remarks: rødvinge2024.  .  This redwing had a dialect/song quite unlike the usual local ones. The bird can be heard at 0:01 and 0:13. It sang from a border of deciduous trees standing along a stream which runs across a golf green.; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 11089,
+    "sci": "Turdus iliacus",
+    "en": "Redwing",
+    "startS": 0.0,
+    "endS": 3.0,
+    "maxP": 0.376
+   },
+   {
+    "labelIdx": 4342,
+    "sci": "Fringilla coelebs",
+    "en": "Eurasian Chaffinch",
+    "startS": 3.0,
+    "endS": 15.0,
+    "maxP": 0.778
+   },
+   {
+    "labelIdx": 140,
+    "sci": "Actitis hypoleucos",
+    "en": "Common Sandpiper",
+    "startS": 3.0,
+    "endS": 6.0,
+    "maxP": 0.43
+   },
+   {
+    "labelIdx": 5076,
+    "sci": "Hippolais icterina",
+    "en": "Icterine Warbler",
+    "startS": 6.0,
+    "endS": 9.0,
+    "maxP": 0.876
+   },
+   {
+    "labelIdx": 11121,
+    "sci": "Turdus pilaris",
+    "en": "Fieldfare",
+    "startS": 9.0,
+    "endS": 12.0,
+    "maxP": 0.772
+   }
+  ]
+ },
+ {
+  "id": "os-xc411156",
+  "file": "/samples/os-xc411156.mp3",
+  "title": "Mute Swan (wing beats), near Oslo (XC411156)",
+  "recordist": "Bram Piot",
+  "license": "CC BY-NC-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "sourceUrl": "https://xeno-canto.org/411156",
+  "gbifOccurrenceUrl": "https://www.gbif.org/occurrence/2243802273",
+  "lat": 59.8941,
+  "lon": 10.6027,
+  "recordedAt": "2018-04-15",
+  "cityId": "OS",
+  "nearestSiteCode": "O11",
+  "nearestSiteDistanceKm": 5.07,
+  "durationS": 38.3,
+  "trimmed": false,
+  "notes": "Recordist's label: Mute Swan (Cygnus olor). Background species listed by the recordist: Somateria mollissima, Larus canus. Locality: Fornebu, Storøykilen, Akershus. Recordist remarks: Pair flying past, then landing in the distance; animal seen:yes; playback used:no",
+  "detections": [
+   {
+    "labelIdx": 3303,
+    "sci": "Cygnus olor",
+    "en": "Mute Swan",
+    "startS": 3.0,
+    "endS": 6.0,
+    "maxP": 0.791
+   },
+   {
+    "labelIdx": 3303,
+    "sci": "Cygnus olor",
+    "en": "Mute Swan",
+    "startS": 9.0,
+    "endS": 27.0,
+    "maxP": 0.951
+   },
+   {
+    "labelIdx": 10073,
+    "sci": "Somateria mollissima",
+    "en": "Common Eider",
+    "startS": 18.0,
+    "endS": 24.0,
+    "maxP": 0.619
+   },
+   {
+    "labelIdx": 5637,
+    "sci": "Larus canus",
+    "en": "Common Gull",
+    "startS": 30.0,
+    "endS": 33.0,
+    "maxP": 0.336
+   },
+   {
+    "labelIdx": 10073,
+    "sci": "Somateria mollissima",
+    "en": "Common Eider",
+    "startS": 36.0,
+    "endS": 38.3,
+    "maxP": 0.61
+   }
+  ]
+ }
+]
