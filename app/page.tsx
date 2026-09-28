@@ -28,6 +28,16 @@ const STEPS = [
   { n: "4", title: "Compare and share", body: "See what the OneAquaHealth labs found at the same site, then export FHIR for health systems and Darwin Core for biodiversity databases." },
 ];
 
+/** The one-click example: five birds singing at C5, where the lab found very high microbial risk. */
+const EXAMPLE_ID = "co-xc785865";
+
+const ADOPTION = [
+  { title: "No new fieldwork", body: "The OneAquaHealth app already asks for a 5–10 second video at every assessment. Murmur reads its sound, so every past and future visit can carry a biodiversity reading." },
+  { title: "Same sites, same data", body: "Recordings attach to the project's own site codes (C1–C20, BN1–BN20, G1–G22, O1–O20, T1–T25) and sit beside its lab results from the public API." },
+  { title: "Same data model", body: "Exports follow the OneAquaHealth FHIR guide (location-oah, observation-indicators-oah, the IG's own birds and amphibians codes) and Darwin Core for GBIF." },
+  { title: "Near-zero running cost", body: "The model runs on the visitor's device, so analysis costs nothing on a server. The shared commons fits the free tiers of Vercel and Neon." },
+];
+
 export default function Home() {
   const samples = loadDemoRecordings();
   const featured = samples.find((s) => (s.detections?.length ?? 0) >= 2) ?? samples[0];
@@ -46,10 +56,13 @@ export default function Home() {
             Murmur turns a short recording made at a city stream into a biodiversity, noise and wellbeing reading, confirmed by the people who were there, and sets it beside what the OneAquaHealth labs found in the water.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="/analyze" className="rounded-full bg-brand px-5 py-3 font-medium text-paper hover:bg-brand-ink">
-              Listen to a recording
+            <Link href={`/analyze?sample=${EXAMPLE_ID}`} className="rounded-full bg-brand px-5 py-3 font-medium text-paper hover:bg-brand-ink">
+              Try a Coimbra recording
             </Link>
-            <Link href="/map" className="rounded-full border border-line-strong bg-card px-5 py-3 font-medium text-ink hover:border-ink-2">
+            <Link href="/analyze" className="rounded-full border border-line-strong bg-card px-5 py-3 font-medium text-ink hover:border-ink-2">
+              Use your own
+            </Link>
+            <Link href="/map" className="rounded-full px-5 py-3 font-medium text-ink-2 underline decoration-line-strong underline-offset-4 hover:text-ink">
               Explore the five cities
             </Link>
           </div>
@@ -87,6 +100,18 @@ export default function Home() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-12">
+        <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">Ready for OneAquaHealth to adopt</h2>
+        <div className="mt-6 grid gap-5 md:grid-cols-4">
+          {ADOPTION.map((a) => (
+            <article key={a.title} className="rounded-2xl border border-line bg-card p-5">
+              <h3 className="font-display text-lg font-semibold">{a.title}</h3>
+              <p className="mt-2 text-sm text-ink-2">{a.body}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-4">
