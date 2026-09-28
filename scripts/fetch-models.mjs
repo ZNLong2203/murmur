@@ -33,6 +33,12 @@ export const SOURCES = {
     bytes: 809_172,
     sha256: "8124b0ea2d187104c5e2cd95a0f937165647e20349c8fd34d4d5ef991821f8f0",
   },
+  vad: {
+    name: "silero_vad-v5.1.2.onnx",
+    url: "https://github.com/snakers4/silero-vad/raw/v5.1.2/src/silero_vad/data/silero_vad.onnx",
+    bytes: 2_327_524,
+    sha256: "2623a2953f6ff3d2c1e61740c6cdb7168133479b267dfef114a4a3cc5bdd788f",
+  },
   taxonomy: {
     name: "taxonomy_v0.2-Jun2026.csv",
     url: "https://github.com/birdnet-team/geomodel/raw/refs/tags/v3.0.4/taxonomy_v0.2-Jun2026.csv",
@@ -42,6 +48,8 @@ export const SOURCES = {
 };
 
 const MODEL_FILE = "birdnet-v3.0-p3.1-fp16-pruned.onnx";
+// Silero VAD (MIT) screens shared clips for human speech before upload.
+const VAD_FILE = "silero-vad-v5.1.2.onnx";
 const LABELS_FILE = "labels.v3.json";
 // Local-language names shown for each OneAquaHealth city. The BirdNET
 // taxonomy has no Italian column, so Benevento falls back to English.
@@ -148,14 +156,17 @@ async function main() {
     }
   }
 
-  const [modelPath, labelsCsv, taxonomyCsv] = await Promise.all([
+  const [modelPath, labelsCsv, taxonomyCsv, vadPath] = await Promise.all([
     download(SOURCES.model),
     download(SOURCES.labels),
     download(SOURCES.taxonomy),
+    download(SOURCES.vad),
   ]);
 
   const modelOut = path.join(modelsDir, MODEL_FILE);
   if (!(await isValid(modelOut, SOURCES.model))) await copyFile(modelPath, modelOut);
+  const vadOut = path.join(modelsDir, VAD_FILE);
+  if (!(await isValid(vadOut, SOURCES.vad))) await copyFile(vadPath, vadOut);
 
   const labels = await buildLabels(labelsCsv, taxonomyCsv);
   await writeFile(path.join(modelsDir, LABELS_FILE), JSON.stringify(labels));
@@ -178,6 +189,7 @@ async function main() {
       source: SOURCES.model.url,
     },
     labels: { url: `/models/${LABELS_FILE}`, count: labels.count, locales: Object.keys(LOCALES) },
+    vad: { url: `/models/${VAD_FILE}`, bytes: SOURCES.vad.bytes, name: "Silero VAD v5.1.2", license: "MIT", source: SOURCES.vad.url },
     ort: { version: ortPkg.version, wasmPaths: "/ort/" },
   };
   await writeFile(path.join(modelsDir, "manifest.json"), JSON.stringify(manifest, null, 2));

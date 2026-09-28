@@ -1,0 +1,1 @@
+// Stands in for the server-only guard under Vitest.

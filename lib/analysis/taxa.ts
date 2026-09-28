@@ -50,3 +50,8 @@ export function formatTime(seconds: number): string {
   const s = Math.max(0, Math.round(seconds));
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 }
+
+/** "a Eurasian Wren", "an Iberian Tree Frog": English article by sound, for common names. */
+export function withArticle(name: string): string {
+  return `${/^(?:[aio]|e(?!u)|u(?!ni|s[aeiou]|r[aeiou]))/i.test(name) ? "an" : "a"} ${name}`;
+}

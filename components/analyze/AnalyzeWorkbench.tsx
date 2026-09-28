@@ -139,6 +139,7 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
           range={phase.range}
           sessionId={phase.sessionId}
           audioSha256={phase.audioSha256}
+          sample={chosen.sample}
           audibilityThresholdDb={audibilityThresholdDb}
           votes={votes}
           onVote={(labelIdx, vote) => setVotes((v) => ({ ...v, [labelIdx]: vote }))}

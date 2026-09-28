@@ -7,13 +7,14 @@ import type { DecodedAudio } from "@/lib/audio/decode";
 import type { SpectrogramImage } from "@/lib/audio/spectrogram";
 import { TAGS, type EcologyEntry } from "@/lib/analysis/ecology";
 import { summarize } from "@/lib/analysis/postprocess";
-import { placeLabel, type Place } from "@/lib/analysis/session";
+import { placeLabel, type DemoRecording, type Place } from "@/lib/analysis/session";
 import { summarizeSoundscape } from "@/lib/analysis/soundscape";
 import { GROUPS, formatTime, groupOf, likelihood, localName, type SoundGroup } from "@/lib/analysis/taxa";
 import type { Label, SpeciesSummary, WindowScores } from "@/lib/analysis/types";
 import type { LabSummary } from "@/lib/oah/types";
 import { ExportCard } from "./ExportCard";
 import { LabCard } from "./LabCard";
+import { ShareCard } from "./ShareCard";
 import { Spectrogram, type Overlay } from "./Spectrogram";
 
 export type Vote = "yes" | "unsure" | "no";
@@ -38,6 +39,7 @@ interface Props {
   range: RangeInfo;
   sessionId: string;
   audioSha256: string | null;
+  sample: DemoRecording | null;
   audibilityThresholdDb: number;
   votes: Record<number, Vote>;
   onVote: (labelIdx: number, vote: Vote) => void;
@@ -51,7 +53,7 @@ const SENSITIVITY = [
 ];
 
 export function ResultsView(props: Props) {
-  const { name, place, date, audio, image, windows, ms, labels, ecology, lab, range, sessionId, audioSha256, audibilityThresholdDb, votes, onVote, onReset } =
+  const { name, place, date, audio, image, windows, ms, labels, ecology, lab, range, sessionId, audioSha256, sample, audibilityThresholdDb, votes, onVote, onReset } =
     props;
   const [threshold, setThreshold] = useState(0.25);
   const [selected, setSelected] = useState<number | null>(null);
@@ -239,6 +241,20 @@ export function ResultsView(props: Props) {
                 : "No regional list within 300 km, so every species the model knows was allowed. Treat rare names with care."}
             </p>
           </Card>
+          <ShareCard
+            sessionId={sessionId}
+            place={place}
+            date={date}
+            week={range.week}
+            audio={audio}
+            species={species}
+            votes={votes}
+            labels={labels}
+            soundscape={soundscape}
+            audioSha256={audioSha256}
+            threshold={threshold}
+            sample={sample}
+          />
           <ExportCard
             sessionId={sessionId}
             name={name}

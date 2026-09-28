@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { EcologyEntry } from "./ecology";
 import { ndsiWords, summarizeSoundscape } from "./soundscape";
+import { withArticle } from "./taxa";
 import type { Label, SpeciesSummary, WindowScores } from "./types";
 
 const label = (idx: number, className: string): Label => ({ idx, sci: `S${idx}`, en: `E${idx}`, className, order: "", names: {} });
@@ -52,5 +53,17 @@ describe("ndsiWords", () => {
   it("covers the scale", () => {
     expect(ndsiWords(0.8)).toBe("Mostly nature");
     expect(ndsiWords(-0.8)).toBe("Mostly human noise");
+  });
+});
+
+
+describe("withArticle", () => {
+  it("chooses a or an by sound", () => {
+    expect(withArticle("Eurasian Wren")).toBe("a Eurasian Wren");
+    expect(withArticle("Iberian Tree Frog")).toBe("an Iberian Tree Frog");
+    expect(withArticle("European Robin")).toBe("a European Robin");
+    expect(withArticle("Icterine Warbler")).toBe("an Icterine Warbler");
+    expect(withArticle("Common Moorhen")).toBe("a Common Moorhen");
+    expect(withArticle("Egyptian Goose")).toBe("an Egyptian Goose");
   });
 });

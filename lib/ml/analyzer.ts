@@ -18,6 +18,7 @@ class Analyzer {
   private worker: Worker | null = null;
   private ready: Promise<ModelManifest> | null = null;
   private modelListeners = new Set<(p: ModelProgress) => void>();
+  private screens = new Map<string, { resolve: (s: Array<Array<[number, number]>>) => void; reject: (e: Error) => void }>();
   private pending = new Map<
     string,
     {
@@ -43,9 +44,14 @@ class Analyzer {
     else if (msg.type === "result") {
       this.pending.get(msg.id)?.resolve({ windows: msg.windows, ms: msg.ms });
       this.pending.delete(msg.id);
+    } else if (msg.type === "screened") {
+      this.screens.get(msg.id)?.resolve(msg.segments);
+      this.screens.delete(msg.id);
     } else if (msg.type === "error" && msg.id) {
       this.pending.get(msg.id)?.reject(new Error(msg.message));
       this.pending.delete(msg.id);
+      this.screens.get(msg.id)?.reject(new Error(msg.message));
+      this.screens.delete(msg.id);
     }
   }
 
@@ -92,6 +98,17 @@ class Analyzer {
       this.pending.set(id, { resolve, reject, ...handlers });
       const copy = samples.slice();
       this.spawn().postMessage({ type: "analyze", id, samples: copy, floor }, [copy.buffer]);
+    });
+  }
+
+  /** Find human speech in clips (seconds, per clip) with Silero VAD, on the device. */
+  async screenSpeech(clips: Float32Array[], sampleRate: number): Promise<Array<Array<[number, number]>>> {
+    await this.load();
+    const id = crypto.randomUUID();
+    return new Promise((resolve, reject) => {
+      this.screens.set(id, { resolve, reject });
+      const copies = clips.map((c) => c.slice());
+      this.spawn().postMessage({ type: "screen", id, clips: copies, sampleRate }, copies.map((c) => c.buffer));
     });
   }
 }

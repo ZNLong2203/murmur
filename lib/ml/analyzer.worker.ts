@@ -7,6 +7,7 @@ import * as ort from "onnxruntime-web/wasm";
 import { windowFeatures } from "@/lib/audio/features";
 import { computeSpectrogram } from "@/lib/audio/spectrogram";
 import { planWindows, sliceWindow } from "@/lib/analysis/postprocess";
+import { VAD_CONTEXT, VAD_FRAME, VAD_RATE, downsampleForVad, speechSegments } from "@/lib/privacy/speech";
 import type { WindowScores } from "@/lib/analysis/types";
 import type { FromWorker, ModelManifest, ToWorker } from "./protocol";
 
@@ -16,6 +17,7 @@ const CACHE = "murmur-models-v1";
 const BATCH = 8;
 
 let session: ort.InferenceSession | null = null;
+let vad: Promise<ort.InferenceSession> | null = null;
 let manifest: ModelManifest | null = null;
 
 const post = (msg: FromWorker, transfer: Transferable[] = []) => self.postMessage(msg, transfer);
@@ -106,12 +108,44 @@ async function analyze(id: string, samples: Float32Array, floor: number) {
   post({ type: "result", id, windows, ms: Math.round(performance.now() - started) });
 }
 
+/** Silero VAD over each clip; returns speech segments in clip seconds. */
+async function screen(id: string, clips: Float32Array[], sampleRate: number) {
+  if (!manifest) throw new Error("The model is not loaded yet.");
+  const m = manifest;
+  vad ??= fetch(m.vad.url)
+    .then((r) => r.arrayBuffer())
+    .then((buf) => ort.InferenceSession.create(new Uint8Array(buf), { executionProviders: ["wasm"] }));
+  const detector = await vad;
+  const sr = new ort.Tensor("int64", BigInt64Array.from([BigInt(VAD_RATE)]), []);
+
+  const segments: Array<Array<[number, number]>> = [];
+  for (const clip of clips) {
+    const x = downsampleForVad(clip, sampleRate);
+    let state: ort.Tensor = new ort.Tensor("float32", new Float32Array(2 * 128), [2, 1, 128]);
+    let context = new Float32Array(VAD_CONTEXT);
+    const probs: number[] = [];
+    for (let i = 0; i + VAD_FRAME <= x.length; i += VAD_FRAME) {
+      const frame = x.subarray(i, i + VAD_FRAME);
+      const input = new Float32Array(VAD_CONTEXT + VAD_FRAME);
+      input.set(context);
+      input.set(frame, VAD_CONTEXT);
+      const out = await detector.run({ input: new ort.Tensor("float32", input, [1, input.length]), state, sr });
+      probs.push((out.output.data as Float32Array)[0]);
+      state = out.stateN as ort.Tensor;
+      context = frame.slice(VAD_FRAME - VAD_CONTEXT);
+    }
+    segments.push(speechSegments(probs, clip.length / sampleRate));
+  }
+  post({ type: "screened", id, segments });
+}
+
 self.onmessage = async (event: MessageEvent<ToWorker>) => {
   const msg = event.data;
   try {
     if (msg.type === "load") await load(msg.manifest);
     else if (msg.type === "analyze") await analyze(msg.id, msg.samples, msg.floor);
+    else if (msg.type === "screen") await screen(msg.id, msg.clips, msg.sampleRate);
   } catch (err) {
-    post({ type: "error", id: msg.type === "analyze" ? msg.id : undefined, message: err instanceof Error ? err.message : String(err) });
+    post({ type: "error", id: msg.type === "load" ? undefined : msg.id, message: err instanceof Error ? err.message : String(err) });
   }
 };
