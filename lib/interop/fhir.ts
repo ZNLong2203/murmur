@@ -76,7 +76,7 @@ export function niSha256(hex: string): string {
   return `ni:///sha-256;${b64}`;
 }
 
-function location(place: Place | null): { resource: Location; ifNoneExist: string } {
+function location(place: Place | null, sessionIdForPlace: string): { resource: Location; ifNoneExist: string } {
   if (place?.kind === "site") {
     const { site } = place;
     return {
@@ -94,9 +94,11 @@ function location(place: Place | null): { resource: Location; ifNoneExist: strin
   }
   const lat = place?.kind === "point" ? place.lat : 0;
   const lon = place?.kind === "point" ? place.lon : 0;
-  const value = `${lat.toFixed(4)},${lon.toFixed(4)}`;
+  // Without a place, each session gets its own Location rather than sharing "0,0".
+  const value = place?.kind === "point" ? `${lat.toFixed(4)},${lon.toFixed(4)}` : `unplaced-${sessionIdForPlace}`;
   return {
-    ifNoneExist: `identifier=${SITE_URL}/fhir/place|${value}`,
+    // A comma separates alternatives in FHIR search, so it is escaped.
+    ifNoneExist: `identifier=${SITE_URL}/fhir/place|${value.replace(/,/g, "\\,")}`,
     resource: {
       resourceType: "Location",
       meta: { profile: [`${OAH_IG}/StructureDefinition/location-oah`] },
@@ -124,7 +126,7 @@ function device(model: FhirExportInput["model"]): Device {
 
 export function buildFhirBundle(input: FhirExportInput): Bundle {
   const now = input.now ?? new Date().toISOString();
-  const loc = location(input.place);
+  const loc = location(input.place, input.sessionId);
   const locUrn = urn(input.sessionId, "location");
   const devUrn = urn(input.sessionId, "device");
   const subject: Reference = { reference: locUrn, display: loc.resource.name };
@@ -153,7 +155,7 @@ export function buildFhirBundle(input: FhirExportInput): Bundle {
       const status = input.verification[s.labelIdx] ?? "ai-suggested";
       return {
         code: {
-          coding: key ? [{ system: "https://www.gbif.org/species", code: String(key), display: label.sci }] : [],
+          ...(key ? { coding: [{ system: "https://www.gbif.org/species", code: String(key), display: label.sci }] } : {}),
           text: `${label.sci} (${label.en})`,
         },
         valueQuantity: { value: Math.round(s.maxP * 1000) / 1000, unit: "model score", system: UCUM, code: "1" },

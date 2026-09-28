@@ -70,7 +70,7 @@ export function buildDwcCsv(input: DwcInput): string {
       kingdom: g?.kingdom ?? "Animalia",
       class: g?.class ?? label.className,
       occurrenceStatus: "present",
-      identifiedBy: `${input.modelName}; checked by the recordist`,
+      identifiedBy: status === "confirmed-by-recordist" ? `${input.modelName}; confirmed by ear by the recordist` : input.modelName,
       identificationVerificationStatus: VERIFICATION_DISPLAY[status],
       identificationRemarks: `model score ${s.maxP.toFixed(2)}; heard at ${s.detections.map((d) => `${formatTime(d.startS)}-${formatTime(d.endS)}`).join(", ")}`,
       samplingProtocol: input.samplingProtocol,
