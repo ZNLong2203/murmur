@@ -17,9 +17,29 @@
 
 # ─── Build / dependencies ────────────────────────────────────
 /node_modules
+/.pnp
+.pnp.*
 /.next/
 /out/
+/build
 *.tsbuildinfo
 next-env.d.ts
 /coverage
 .vercel
+npm-debug.log*
+
+# ─── Fetched at install/build, never committed ───────────────
+# BirdNET model and labels (CC BY-SA 4.0, downloaded from Zenodo by
+# scripts/fetch-models.mjs) and the onnxruntime-web WASM binaries.
+/public/models/
+/public/ort/
+
+# ─── Local data ──────────────────────────────────────────────
+# PGlite database used when DATABASE_URL is unset.
+/.data/
+
+# ─── Offline pipeline (Python) ───────────────────────────────
+/pipeline/.venv/
+/pipeline/.cache/
+__pycache__/
+*.f32

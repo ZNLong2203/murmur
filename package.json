@@ -1,0 +1,41 @@
+{
+  "name": "murmur",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "predev": "node scripts/fetch-models.mjs",
+    "build": "next build",
+    "prebuild": "node scripts/fetch-models.mjs",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "models:fetch": "node scripts/fetch-models.mjs"
+  },
+  "dependencies": {
+    "maplibre-gl": "^6.11.2",
+    "next": "16.3.6",
+    "onnxruntime-web": "^1.30.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "wavesurfer.js": "^8.0.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/fhir": "^0.0.44",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "playwright": "^1.63.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.0.2"
+  },
+  "description": "A stethoscope for urban streams: hear birds, frogs, water and traffic in a recording, verify them by ear, and set them beside OneAquaHealth lab data.",
+  "license": "MIT"
+}
