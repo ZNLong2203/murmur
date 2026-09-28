@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { decideStatus, type Tally } from "./consensus";
+import { afterVote, decideStatus, type Tally } from "./consensus";
 
 const t = (over: Partial<Tally>): Tally => ({ recordistVote: null, yes: 0, no: 0, unsure: 0, expertVote: null, ...over });
 
@@ -31,3 +31,17 @@ describe("decideStatus", () => {
     expect(decideStatus(t({ no: 5, expertVote: "yes" }))).toBe("expert-verified");
   });
 });
+
+describe("afterVote", () => {
+  it("says a vote is counted while the call is still open", () => {
+    expect(afterVote("Eurasian Wren", "ai-suggested")).toBe("Thanks. Your vote on the Eurasian Wren is counted; a few more listeners will settle it.");
+  });
+  it("names the outcome once listeners agree, with the right article", () => {
+    expect(afterVote("Eurasian Wren", "community-agreed")).toBe("Thanks. With your vote, listeners agree this is a Eurasian Wren.");
+    expect(afterVote("Iberian Tree Frog", "community-rejected")).toBe("Thanks. With your vote, listeners agree this is not an Iberian Tree Frog.");
+  });
+  it("says when an expert will decide", () => {
+    expect(afterVote("Great Tit", "needs-expert")).toContain("an expert will decide");
+  });
+});
+

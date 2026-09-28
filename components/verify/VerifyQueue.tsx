@@ -8,7 +8,7 @@ import { decodeToMono, type DecodedAudio } from "@/lib/audio/decode";
 import { ClipPlayer } from "@/lib/audio/player";
 import { computeSpectrogram, type SpectrogramImage } from "@/lib/audio/spectrogram";
 import { GROUPS, likelihood, withArticle } from "@/lib/analysis/taxa";
-import { STATUS_LABEL, type DetectionStatus } from "@/lib/commons/consensus";
+import { afterVote, STATUS_LABEL, type DetectionStatus } from "@/lib/commons/consensus";
 import type { QueueItem } from "@/lib/commons/repo";
 
 type Stats = { sessions: number; detections: number; votes: number; agreed: number; expert: number };
@@ -226,7 +226,7 @@ export function VerifyQueue() {
         )}
         {last && (
           <p className="text-sm text-ink-2" aria-live="polite">
-            Thanks: {last.name} is now <strong>{STATUS_LABEL[last.status].label.toLowerCase()}</strong>.
+            {afterVote(last.name, last.status)}
           </p>
         )}
       </div>

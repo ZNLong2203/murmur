@@ -4,6 +4,8 @@
 // persistent disagreement or doubt sends it to an expert, whose decision is
 // final. Every state is a label people can read.
 
+import { withArticle } from "@/lib/analysis/taxa";
+
 export type DetectionStatus =
   | "ai-suggested"
   | "confirmed-by-recordist"
@@ -56,6 +58,25 @@ export const STATUS_LABEL: Record<DetectionStatus, { label: string; tone: "good"
   "expert-verified": { label: "Expert verified", tone: "good" },
   "expert-rejected": { label: "Expert rejected", tone: "bad" },
 };
+
+/** What a listener is told after voting on a call named `name`. */
+export function afterVote(name: string, status: DetectionStatus): string {
+  const a = withArticle(name);
+  switch (status) {
+    case "community-agreed":
+      return `Thanks. With your vote, listeners agree this is ${a}.`;
+    case "community-rejected":
+      return `Thanks. With your vote, listeners agree this is not ${a}.`;
+    case "needs-expert":
+      return `Thanks. Listeners disagree about this ${name}, so an expert will decide.`;
+    case "expert-verified":
+      return `Thanks. As an expert, you confirmed this ${name}; the call is settled.`;
+    case "expert-rejected":
+      return `Thanks. As an expert, you rejected this ${name}; the call is settled.`;
+    default:
+      return `Thanks. Your vote on the ${name} is counted; a few more listeners will settle it.`;
+  }
+}
 
 /** Statuses that still want votes from the community queue. */
 export const OPEN_FOR_COMMUNITY: DetectionStatus[] = ["ai-suggested", "confirmed-by-recordist", "uncertain-by-recordist"];
