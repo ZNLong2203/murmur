@@ -349,7 +349,7 @@ function SpeciesCard({
         ))}
       </div>
 
-      {eco?.meaning && (
+      {eco?.meaning && !eco.needsReview && (
         <p className="mt-2 text-sm text-ink-2">
           {eco.meaning}
           {eco.sources[0] && (

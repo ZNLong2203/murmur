@@ -7,21 +7,22 @@ import type { DemoRecording } from "@/lib/analysis/session";
 // Curated content produced by the offline pipeline (pipeline/). Read at
 // build time; a missing file means "not generated yet", not an error.
 
+// Scoped to data/ so the server bundle traces that folder, not the project.
 function readJson<T>(relative: string, fallback: T): T {
-  const file = path.join(process.cwd(), relative);
+  const file = path.join(process.cwd(), "data", relative);
   return existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as T) : fallback;
 }
 
 export function loadEcology(): EcologyEntry[] {
-  return readJson<EcologyEntry[]>("data/species/ecology.json", []);
+  return readJson<EcologyEntry[]>("species/ecology.json", []);
 }
 
 export function loadDemoRecordings(): DemoRecording[] {
-  return readJson<DemoRecording[]>("data/demo/recordings.json", []);
+  return readJson<DemoRecording[]>("demo/recordings.json", []);
 }
 
 export function loadGbifKeys(): { source?: string; byLabelIdx: Record<string, { key: number; rank?: string; kingdom?: string; class?: string }> } {
-  return readJson("data/species/gbif.json", { byLabelIdx: {} });
+  return readJson("species/gbif.json", { byLabelIdx: {} });
 }
 
 export interface SnrBenchmark {
@@ -39,7 +40,7 @@ export interface SnrBenchmark {
 }
 
 export function loadSnrBenchmark(): SnrBenchmark | null {
-  return readJson<SnrBenchmark | null>("data/benchmark/snr.json", null);
+  return readJson<SnrBenchmark | null>("benchmark/snr.json", null);
 }
 
 export interface ParityReport {
@@ -51,7 +52,7 @@ export interface ParityReport {
 }
 
 export function loadParity(): ParityReport | null {
-  return readJson<ParityReport | null>("data/benchmark/parity.json", null);
+  return readJson<ParityReport | null>("benchmark/parity.json", null);
 }
 
 export interface OahFindings {
@@ -65,7 +66,7 @@ export interface OahFindings {
 }
 
 export function loadOahFindings(): OahFindings | null {
-  return readJson<OahFindings | null>("data/benchmark/oah-findings.json", null);
+  return readJson<OahFindings | null>("benchmark/oah-findings.json", null);
 }
 
 /** Below this audibility, small-bird calls are often missed (see /evidence). */
