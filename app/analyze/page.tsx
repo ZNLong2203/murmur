@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default async function AnalyzePage({ searchParams }: PageProps<"/analyze">) {
-  const { site } = await searchParams;
+  const { site, sample } = await searchParams;
   const initialSite = typeof site === "string" ? (getSite(site) ?? null) : null;
+  const initialSampleId = typeof sample === "string" ? sample : null;
   const labs: Record<string, LabSummary> = {};
   for (const site of sites) {
     const lab = getLabSummary(site.code);
@@ -25,6 +26,7 @@ export default async function AnalyzePage({ searchParams }: PageProps<"/analyze"
       ecology={loadEcology()}
       audibilityThresholdDb={AUDIBILITY_THRESHOLD_DB}
       initialSite={initialSite}
+      initialSampleId={initialSampleId}
     />
   );
 }

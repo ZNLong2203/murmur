@@ -26,6 +26,14 @@ export type Place =
   | { kind: "site"; site: OahSite }
   | { kind: "point"; lat: number; lon: number; label: string };
 
+/** Where a public sample belongs: its research site if within 3 km, otherwise its own point. */
+export function samplePlace(sample: DemoRecording, sites: OahSite[]): Place {
+  const site = sites.find((s) => s.code === sample.nearestSiteCode);
+  return site && (sample.nearestSiteDistanceKm ?? 99) <= 3
+    ? { kind: "site", site }
+    : { kind: "point", lat: sample.lat, lon: sample.lon, label: sample.title };
+}
+
 export function placeLatLon(place: Place): { lat: number; lon: number } {
   return place.kind === "site" ? { lat: place.site.lat, lon: place.site.lon } : { lat: place.lat, lon: place.lon };
 }

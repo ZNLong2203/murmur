@@ -1,15 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, Card } from "@/components/ui/primitives";
 import { decodeToMono, type DecodedAudio } from "@/lib/audio/decode";
 import type { SpectrogramImage } from "@/lib/audio/spectrogram";
 import type { EcologyEntry } from "@/lib/analysis/ecology";
 import { loadLabels } from "@/lib/analysis/labels";
-import { placeLatLon, type Place, type WorkbenchData } from "@/lib/analysis/session";
+import { placeLatLon, samplePlace, type Place, type WorkbenchData } from "@/lib/analysis/session";
 import type { Label, WindowScores } from "@/lib/analysis/types";
 import { birdnetWeek } from "@/lib/geo";
-import { analyzer } from "@/lib/ml/analyzer";
+import { analyzer, type ModelProgress } from "@/lib/ml/analyzer";
 import type { OahSite } from "@/lib/oah/types";
 import { ListeningStep, type ListeningProgress } from "./ListeningStep";
 import { ResultsView, type RangeInfo, type Vote } from "./ResultsView";
@@ -34,6 +34,7 @@ type Phase =
 interface Props extends WorkbenchData {
   ecology: EcologyEntry[];
   initialSite: OahSite | null;
+  initialSampleId: string | null;
 }
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -56,13 +57,41 @@ async function fetchRange(place: Place | null, date: string): Promise<RangeInfo>
   return (await res.json()) as RangeInfo;
 }
 
-export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, ecology, initialSite }: Props) {
+export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, ecology, initialSite, initialSampleId }: Props) {
   const [phase, setPhase] = useState<Phase>({ kind: "setup" });
   const [chosen, setChosen] = useState<Chosen | null>(null);
   const [place, setPlace] = useState<Place | null>(initialSite ? { kind: "site", site: initialSite } : null);
   const [date, setDate] = useState(today);
   const [votes, setVotes] = useState<Record<number, Vote>>({});
+  const [model, setModel] = useState<{ ready: boolean; progress: ModelProgress | null; failed: boolean }>({ ready: false, progress: null, failed: false });
   const ecologyByIdx = useMemo(() => new Map(ecology.map((e) => [e.labelIdx, e])), [ecology]);
+
+  // Start fetching the model as soon as the page opens, so Listen is quick.
+  useEffect(() => {
+    analyzer
+      .load((progress) => setModel((m) => ({ ...m, progress })))
+      .then(() => setModel((m) => ({ ...m, ready: true })))
+      .catch(() => setModel((m) => ({ ...m, failed: true })));
+  }, []);
+
+  // /analyze?sample=<id> opens with a public recording ready to play.
+  useEffect(() => {
+    const sample = samples.find((s) => s.id === initialSampleId);
+    if (!sample) return;
+    let cancelled = false;
+    (async () => {
+      const res = await fetch(sample.file).catch(() => null);
+      if (!res?.ok || cancelled) return;
+      const blob = await res.blob();
+      if (cancelled) return;
+      setChosen({ file: blob, name: sample.title, sample });
+      setPlace(samplePlace(sample, sites));
+      if (sample.recordedAt) setDate(sample.recordedAt.slice(0, 10));
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [initialSampleId, samples, sites]);
 
   async function listen() {
     if (!chosen) return;
@@ -121,6 +150,7 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
           onPlace={setPlace}
           onDate={setDate}
           onListen={listen}
+          model={model}
         />
       )}
 
