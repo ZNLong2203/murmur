@@ -33,7 +33,9 @@ export function CardTitle({ children, hint }: { children: ReactNode; hint?: Reac
 
 /** A grey block standing in for content while a page loads. */
 export function Skeleton({ className = "" }: { className?: string }) {
-  return <div aria-hidden="true" className={`animate-pulse rounded-lg bg-paper-2 ${className}`} />;
+  // Tailwind orders rounded-* utilities itself, so the default must step aside rather than compete.
+  const radius = className.includes("rounded-") ? "" : "rounded-lg";
+  return <div aria-hidden="true" className={`animate-pulse bg-paper-2 ${radius} ${className}`} />;
 }
 
 export function Chip({ children, color, title }: { children: ReactNode; color?: string; title?: string }) {
