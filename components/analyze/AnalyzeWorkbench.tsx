@@ -25,6 +25,8 @@ type Phase =
       ms: number;
       labels: Label[];
       range: RangeInfo;
+      sessionId: string;
+      audioSha256: string | null;
     }
   | { kind: "error"; message: string };
 
@@ -33,6 +35,15 @@ interface Props extends WorkbenchData {
 }
 
 const today = () => new Date().toISOString().slice(0, 10);
+
+async function sha256Hex(blob: Blob): Promise<string | null> {
+  try {
+    const digest = await crypto.subtle.digest("SHA-256", await blob.arrayBuffer());
+    return Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
+  } catch {
+    return null;
+  }
+}
 
 async function fetchRange(place: Place | null, date: string): Promise<RangeInfo> {
   const week = birdnetWeek(new Date(`${date}T12:00:00Z`));
@@ -59,10 +70,11 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
     const update = (progress: ListeningProgress) => setPhase({ kind: "listening", progress, image, durationS });
     try {
       update({ stage: "model", progress: null });
-      const [manifest, labels, range] = await Promise.all([
+      const [manifest, labels, range, audioSha256] = await Promise.all([
         analyzer.load((progress) => update({ stage: "model", progress })),
         loadLabels(),
         fetchRange(place, date),
+        sha256Hex(chosen.file),
       ]);
       update({ stage: "decoding" });
       const audio = await decodeToMono(chosen.file, manifest.model.sampleRate);
@@ -75,7 +87,7 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
         onProgress: (done, total) => update({ stage: "listening", done, total }),
       });
       if (!image) throw new Error("The spectrogram was not produced.");
-      setPhase({ kind: "results", audio, image, windows, ms, labels, range });
+      setPhase({ kind: "results", audio, image, windows, ms, labels, range, sessionId: crypto.randomUUID(), audioSha256 });
     } catch (err) {
       setPhase({ kind: "error", message: err instanceof Error ? err.message : String(err) });
     }
@@ -125,6 +137,8 @@ export function AnalyzeWorkbench({ sites, samples, labs, audibilityThresholdDb, 
           ecology={ecologyByIdx}
           lab={lab}
           range={phase.range}
+          sessionId={phase.sessionId}
+          audioSha256={phase.audioSha256}
           audibilityThresholdDb={audibilityThresholdDb}
           votes={votes}
           onVote={(labelIdx, vote) => setVotes((v) => ({ ...v, [labelIdx]: vote }))}

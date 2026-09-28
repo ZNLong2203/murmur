@@ -20,6 +20,10 @@ export function loadDemoRecordings(): DemoRecording[] {
   return readJson<DemoRecording[]>("data/demo/recordings.json", []);
 }
 
+export function loadGbifKeys(): { source?: string; byLabelIdx: Record<string, { key: number; rank?: string; kingdom?: string; class?: string }> } {
+  return readJson("data/species/gbif.json", { byLabelIdx: {} });
+}
+
 interface Benchmark {
   suggestedAudibilityThresholdDb?: number;
 }

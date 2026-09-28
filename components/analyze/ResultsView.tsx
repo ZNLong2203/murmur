@@ -12,6 +12,7 @@ import { summarizeSoundscape } from "@/lib/analysis/soundscape";
 import { GROUPS, formatTime, groupOf, likelihood, localName, type SoundGroup } from "@/lib/analysis/taxa";
 import type { Label, SpeciesSummary, WindowScores } from "@/lib/analysis/types";
 import type { LabSummary } from "@/lib/oah/types";
+import { ExportCard } from "./ExportCard";
 import { LabCard } from "./LabCard";
 import { Spectrogram, type Overlay } from "./Spectrogram";
 
@@ -35,6 +36,8 @@ interface Props {
   ecology: Map<number, EcologyEntry>;
   lab: LabSummary | null;
   range: RangeInfo;
+  sessionId: string;
+  audioSha256: string | null;
   audibilityThresholdDb: number;
   votes: Record<number, Vote>;
   onVote: (labelIdx: number, vote: Vote) => void;
@@ -48,7 +51,8 @@ const SENSITIVITY = [
 ];
 
 export function ResultsView(props: Props) {
-  const { name, place, date, audio, image, windows, ms, labels, ecology, lab, range, audibilityThresholdDb, votes, onVote, onReset } = props;
+  const { name, place, date, audio, image, windows, ms, labels, ecology, lab, range, sessionId, audioSha256, audibilityThresholdDb, votes, onVote, onReset } =
+    props;
   const [threshold, setThreshold] = useState(0.25);
   const [selected, setSelected] = useState<number | null>(null);
   const [playing, setPlaying] = useState<string | null>(null);
@@ -235,6 +239,19 @@ export function ResultsView(props: Props) {
                 : "No regional list within 300 km, so every species the model knows was allowed. Treat rare names with care."}
             </p>
           </Card>
+          <ExportCard
+            sessionId={sessionId}
+            name={name}
+            place={place}
+            date={date}
+            species={species}
+            votes={votes}
+            labels={labels}
+            soundscape={soundscape}
+            audioSha256={audioSha256}
+            threshold={threshold}
+            rangeNote={range.location ? `BirdNET geomodel range filter for ${range.location.name}, week ${range.week}` : "no range filter"}
+          />
         </aside>
       </div>
     </div>
