@@ -146,7 +146,7 @@ export function ShareCard(props: Props) {
 
   return (
     <Card>
-      <CardTitle hint="Other listeners check each call by ear; agreed calls become trusted data for OneAquaHealth.">Share with the commons</CardTitle>
+      <CardTitle hint="Other listeners check each call by ear; agreed calls become data researchers can trust.">Share with the commons</CardTitle>
       <fieldset className="mb-3">
         <legend className="text-sm font-medium text-ink-2">How did the stream make you feel? (optional, as in the OneAquaHealth app)</legend>
         <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-2">
