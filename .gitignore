@@ -51,3 +51,5 @@ __pycache__/
 /.agents/
 /.claude/skills/
 /skills-lock.json
+/CLAUDE.md
+/AGENTS.md
