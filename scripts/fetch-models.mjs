@@ -152,8 +152,28 @@ async function buildLabels(labelsCsv, taxonomyCsv) {
   return { version: "BirdNET+_V3.0-preview3.1_Global_11K", count: items.length, classes, items };
 }
 
+// The server resolves species names from the label index itself instead of
+// trusting names sent by a browser: a compact copy it can read.
+async function writeServerLabels(labels) {
+  const generatedDir = path.join(root, "data", "generated");
+  await mkdir(generatedDir, { recursive: true });
+  await writeFile(
+    path.join(generatedDir, "labels.json"),
+    JSON.stringify(labels.items.map(([sci, en, classIdx]) => [sci, en, labels.classes[classIdx]])),
+  );
+}
+
 async function main() {
   await mkdir(cacheDir, { recursive: true });
+  // --labels-only: just the server's label table (about 12 MB of downloads),
+  // enough for type checks and tests; CI uses it to skip the 72 MB model.
+  if (process.argv.includes("--labels-only")) {
+    const [labelsCsv, taxonomyCsv] = await Promise.all([download(SOURCES.labels), download(SOURCES.taxonomy)]);
+    const labels = await buildLabels(labelsCsv, taxonomyCsv);
+    await writeServerLabels(labels);
+    console.log(`[models] server label table ready: ${labels.count} labels`);
+    return;
+  }
   await mkdir(modelsDir, { recursive: true });
   await mkdir(ortDir, { recursive: true });
 
@@ -181,14 +201,7 @@ async function main() {
 
   const labels = await buildLabels(labelsCsv, taxonomyCsv);
   await writeFile(path.join(modelsDir, LABELS_FILE), JSON.stringify(labels));
-  // The server resolves species names from the label index itself instead
-  // of trusting names sent by a browser: a compact copy it can read.
-  const generatedDir = path.join(root, "data", "generated");
-  await mkdir(generatedDir, { recursive: true });
-  await writeFile(
-    path.join(generatedDir, "labels.json"),
-    JSON.stringify(labels.items.map(([sci, en, classIdx]) => [sci, en, labels.classes[classIdx]])),
-  );
+  await writeServerLabels(labels);
 
   // MapLibre's module worker, served as static files: bundlers rewrite the
   // URL MapLibre derives from import.meta.url, so the page points it here.
